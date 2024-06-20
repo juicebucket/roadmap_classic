@@ -5,12 +5,14 @@ Application version: 0.1.3 / Last Update: 20.06.2024
 ## Overview
 RoadMap is an application designed to help users create and manage personalized learning paths for various topics. The tool allows users to define sections, set checkpoints, and track their progress towards specific goals.
 
+
 ## Key Features
 - **Create New Roadmaps**: Users can create a new roadmap by specifying the name, author, sections, and checkpoints.
 - **Upload Existing Roadmaps**: Users can upload pre-existing roadmaps and start tracking their progress immediately.
 - **Progress Tracking**: Track your progress through various sections and checkpoints.
 - **Customizable Sections**: Add or remove sections and checkpoints as needed to tailor the roadmap to your needs.
 - **Deadline Setting**: Set deadlines for your roadmaps to stay on track and achieve your goals within a specified timeframe.
+
 
 ## Screenshots
 1. **Main Page**: The main page where users can choose to create a new roadmap or upload an existing one.
@@ -24,6 +26,7 @@ RoadMap is an application designed to help users create and manage personalized 
 3. **Roadmap Progress**: An example of a roadmap with various sections and checkpoints, showing the progress tracking feature.
 
 ![Снимок экрана 2024-06-20 162749](https://github.com/juicebucket/roadmap_project/assets/92608350/1febd12f-5cc6-430b-8fbd-8585d79c789c)
+
 
 ## Future Plans
 1. **Compatible with a wide range of operating systems**: Adding support on MacOS and Linux. Possibly also on mobile operating systems.
