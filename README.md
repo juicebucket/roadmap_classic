@@ -1,6 +1,6 @@
-**RoadMap For Learning Activities**
-
 ![Untitled](https://github.com/juicebucket/roadmap_project/assets/92608350/d2ab96b7-c914-47ca-b9d5-b7d0cee73bf3)
+
+Application version: 0.1.3 / Last Update: 20.06.2024
 
 ## Overview
 RoadMap is an application designed to help users create and manage personalized learning paths for various topics. The tool allows users to define sections, set checkpoints, and track their progress towards specific goals.
