@@ -1,4 +1,4 @@
-![logo6](https://github.com/juicebucket/roadmap_project/assets/92608350/9dbbd61a-7ff9-4595-9d7b-d274311acaf1)
+![Untitled](https://github.com/juicebucket/roadmap_project/assets/92608350/d2ab96b7-c914-47ca-b9d5-b7d0cee73bf3)
 
 # RoadMap For Learning Activities
 
