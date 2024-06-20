@@ -470,7 +470,7 @@ namespace RoadMap {
 				if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 					String^ filePath = saveFileDialog1->FileName;
 					xmlDoc->Save(filePath);
-					MessageBox::Show("Roadmap saved successfully.", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+					MessageBox::Show("Roadmap saved successfully. \n\nPlease, go back to the mainpage and choose 'UPLOAD' button.", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
 				}
 			}
 			catch (Exception^ ex) {
