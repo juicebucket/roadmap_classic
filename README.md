@@ -8,16 +8,16 @@ Application version: 0.1.0. / Last Update: 20.06.2024
 > Initially, this project was created as a course work for the first academic year at the University. However, I continue to develop this project.
 
 ### Overview
-RoadMap is an application designed to help users create and manage personalized learning paths for various topics. The tool allows users to define sections, set checkpoints, and track their progress towards specific goals.
+**RoadMap** is an application designed to help users create and manage personalized learning paths for various topics. The tool allows users to define sections, set checkpoints, and track their progress towards specific goals.
 
 ---
 
 ### Key Features
-- **Create New Roadmaps**: Users can create a new roadmap by specifying the name, author, sections, and checkpoints.
-- **Upload Existing Roadmaps**: Users can upload pre-existing roadmaps and start tracking their progress immediately.
-- **Progress Tracking**: Track your progress through various sections and checkpoints.
-- **Customizable Sections**: Add or remove sections and checkpoints as needed to tailor the roadmap to your needs.
-- **Deadline Setting**: Set deadlines for your roadmaps to stay on track and achieve your goals within a specified timeframe.
+- Create New Roadmaps: **Users can create a new roadmap by specifying the name, author, sections, and checkpoints.**
+- Upload Existing Roadmaps: **Users can upload pre-existing roadmaps and start tracking their progress immediately.**
+- Progress Tracking: **Track your progress through various sections and checkpoints.**
+- Customizable Sections: **Add or remove sections and checkpoints as needed to tailor the roadmap to your needs.**
+- Deadline Setting: **Set deadlines for your roadmaps to stay on track and achieve your goals within a specified timeframe.**
 
 ---
 
