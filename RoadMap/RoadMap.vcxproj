@@ -135,6 +135,7 @@
     <ClInclude Include="mainwindow.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="creationwindow.resx">
@@ -146,6 +147,12 @@
     <EmbeddedResource Include="mainwindow.resx">
       <DependentUpon>mainwindow.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RoadMap.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\images\icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
