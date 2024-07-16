@@ -21,13 +21,6 @@ RoadMap is an application designed to help users create and manage personalized 
 
 ---
 
-### Technologies:
-- Programming Language: **C++/CLI**
-- Platform: **.NET Framework**
-- Graphical Interface: **Windows Forms**
-
----
-
 ### Screenshots
 1. **Main Page**: The main page where users can choose to create a new roadmap or upload an existing one.
 
@@ -48,5 +41,11 @@ RoadMap is an application designed to help users create and manage personalized 
 2. **RoadMap editing**: Edit the RoadMap after it has been created.
 3. **Checkpoints description**: Allow users to enter additional information for each checkpoints (like links, describing the element and etc.) 
 
-and so on... **:)**
+---
 
+### Technologies and development
+This project was developed using the following technologies:
+
+- Programming Language: **C++/CLI**
+- Platform: **.NET Framework**
+- Graphical Interface: **Windows Forms**
