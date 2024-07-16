@@ -2,6 +2,8 @@
 
 Application version: 0.1.0. / Last Update: 20.06.2024
 
+---
+
 > [!NOTE]
 > Initially, this project was created as a course work for the first academic year at the University. However, I continue to develop this project.
 
