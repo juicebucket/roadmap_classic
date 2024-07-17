@@ -57,6 +57,6 @@ You have an opportunity to download and install this application as a simple use
 
 The Visual C++ Redistributable library is required for the program to work. The program installer has already included auto-installation of this library for x64 and x86 systems.
 
-<a href="https://www.dropbox.com/scl/fi/q2d71td4s1stx5cfpf1lo/roadmap-v1.0.0.exe?rlkey=3ghedq5i1ul9op05b7tzxv2p4&st=0bs29h75&dl=1">
+<a href="https://github.com/juicebucket/roadmap_project/releases">
     <img src="https://shields.io/badge/DOWNLOAD-2260ff?style=for-the-badge" data-canonical-src="https://shields.io/badge/DOWNLOAD-2260ff?style=for-the-badge" style="max-width: 100%;">
 </a>
