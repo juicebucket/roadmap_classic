@@ -52,7 +52,7 @@ This project was developed using the following technologies:
 
 ---
 
-### Download [0.1.0]
+### Installation [0.1.0]
 You have an opportunity to download and install this application as a simple user. 
 
 The Visual C++ Redistributable library is required for the program to work. The program installer has already included auto-installation of this library for x64 and x86 systems.
