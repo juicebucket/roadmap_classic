@@ -51,11 +51,11 @@ This project was developed using the following technologies:
 - Graphical Interface: **Windows Forms**
 - 
 
-### Download
+### Download [0.1.0]
 You have an opportunity to download and install this application as a simple user. 
 
 The Visual C++ Redistributable library is required for the program to work. The program installer has already included auto-installation of this library for x64 and x86 systems.
 
 <a href="https://www.dropbox.com/scl/fi/q2d71td4s1stx5cfpf1lo/roadmap-v1.0.0.exe?rlkey=3ghedq5i1ul9op05b7tzxv2p4&st=0bs29h75&dl=1">
-    <img src="[https://camo.githubusercontent.com/e97449103b99db365dca0ff65af4a8b068a831136dc0a156239a71dff4223dba/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f747769747465722d2532333144413146322e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d74776974746572266c6f676f436f6c6f723d7768697465](https://shields.io/badge/DOWNLOAD-ff4545?logo=appveyor&style=for-the-badge)" data-canonical-src="https://shields.io/badge/DOWNLOAD-ff4545?logo=appveyor&style=for-the-badge" style="max-width: 100%;">
+    <img src="https://shields.io/badge/DOWNLOAD-ff4545?logo=appveyor&style=for-the-badge" data-canonical-src="https://shields.io/badge/DOWNLOAD-ff4545?logo=appveyor&style=for-the-badge" style="max-width: 100%;">
 </a>
