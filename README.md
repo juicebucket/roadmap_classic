@@ -49,6 +49,7 @@ This project was developed using the following technologies:
 - Programming Language: **C++/CLI**
 - Platform: **.NET Framework**
 - Graphical Interface: **Windows Forms**
+- Data exchange between users: **XML**
 
 ---
 
