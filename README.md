@@ -50,6 +50,6 @@ This project was developed using the following technologies:
 - Platform: **.NET Framework**
 - Graphical Interface: **Windows Forms**
 
-https://img.shields.io/badge/DOWNLOAD-blue&style=For-the-badge
+![Hyperledger](https://img.shields.io/badge/DOWNLOAD-blue&style=For-the-badge)
 
 Download: https://www.dropbox.com/scl/fi/q2d71td4s1stx5cfpf1lo/roadmap-v1.0.0.exe?rlkey=3ghedq5i1ul9op05b7tzxv2p4&st=0bs29h75&dl=1
