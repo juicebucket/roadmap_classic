@@ -33,9 +33,7 @@ namespace RoadMap {
 		}
 
 	private:
-
 		int sectionCount = 0;
-
 		System::Windows::Forms::Label^ main_title;
 		System::Windows::Forms::Label^ labelRoadmapName;
 		System::Windows::Forms::PictureBox^ pictureBox1;
@@ -53,7 +51,12 @@ namespace RoadMap {
 		System::Windows::Forms::TextBox^ textBoxAuthor;
 		System::Windows::Forms::DateTimePicker^ dateTimePicker;
 		System::Windows::Forms::Label^ labelDeadline;
-		System::ComponentModel::Container^ components;
+
+
+	private: System::Windows::Forms::Button^ DeleteLastRowButton;
+
+
+		   System::ComponentModel::Container^ components;
 
 	protected:
 
@@ -82,10 +85,12 @@ namespace RoadMap {
 			this->textBoxAuthor = (gcnew System::Windows::Forms::TextBox());
 			this->dateTimePicker = (gcnew System::Windows::Forms::DateTimePicker());
 			this->labelDeadline = (gcnew System::Windows::Forms::Label());
+			this->DeleteLastRowButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
+
 			// 
 			// main_title
 			// 
@@ -159,9 +164,9 @@ namespace RoadMap {
 			this->labelSections->Location = System::Drawing::Point(91, 250);
 			this->labelSections->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelSections->Name = L"labelSections";
-			this->labelSections->Size = System::Drawing::Size(61, 16);
+			this->labelSections->Size = System::Drawing::Size(47, 16);
 			this->labelSections->TabIndex = 7;
-			this->labelSections->Text = L"Sections";
+			this->labelSections->Text = L"Topics";
 			// 
 			// labelCheckpoints
 			// 
@@ -173,9 +178,9 @@ namespace RoadMap {
 			this->labelCheckpoints->Location = System::Drawing::Point(368, 252);
 			this->labelCheckpoints->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelCheckpoints->Name = L"labelCheckpoints";
-			this->labelCheckpoints->Size = System::Drawing::Size(242, 16);
+			this->labelCheckpoints->Size = System::Drawing::Size(227, 16);
 			this->labelCheckpoints->TabIndex = 8;
-			this->labelCheckpoints->Text = L"Checkpoints (Separate with commas)";
+			this->labelCheckpoints->Text = L"Subtopics (Separate with commas)";
 			// 
 			// textBoxSection
 			// 
@@ -189,10 +194,12 @@ namespace RoadMap {
 			// textBoxCheckpoints
 			// 
 			this->textBoxCheckpoints->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxCheckpoints->Location = System::Drawing::Point(374, 274);
+			this->textBoxCheckpoints->Location = System::Drawing::Point(372, 274);
 			this->textBoxCheckpoints->Margin = System::Windows::Forms::Padding(4);
+			this->textBoxCheckpoints->Multiline = true;
 			this->textBoxCheckpoints->Name = L"textBoxCheckpoints";
-			this->textBoxCheckpoints->Size = System::Drawing::Size(483, 20);
+			this->textBoxCheckpoints->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+			this->textBoxCheckpoints->Size = System::Drawing::Size(480, 40);
 			this->textBoxCheckpoints->TabIndex = 12;
 			// 
 			// AddNewSectionButton
@@ -201,10 +208,10 @@ namespace RoadMap {
 				static_cast<System::Int32>(static_cast<System::Byte>(96)), static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->AddNewSectionButton->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
 			this->AddNewSectionButton->ForeColor = System::Drawing::Color::White;
-			this->AddNewSectionButton->Location = System::Drawing::Point(94, 377);
+			this->AddNewSectionButton->Location = System::Drawing::Point(94, 325);
 			this->AddNewSectionButton->Margin = System::Windows::Forms::Padding(4);
 			this->AddNewSectionButton->Name = L"AddNewSectionButton";
-			this->AddNewSectionButton->Size = System::Drawing::Size(773, 52);
+			this->AddNewSectionButton->Size = System::Drawing::Size(567, 43);
 			this->AddNewSectionButton->TabIndex = 13;
 			this->AddNewSectionButton->Text = L"ADD NEW ROW";
 			this->AddNewSectionButton->UseVisualStyleBackColor = false;
@@ -216,7 +223,7 @@ namespace RoadMap {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->SaveButton->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
 			this->SaveButton->ForeColor = System::Drawing::Color::White;
-			this->SaveButton->Location = System::Drawing::Point(798, 470);
+			this->SaveButton->Location = System::Drawing::Point(801, 398);
 			this->SaveButton->Margin = System::Windows::Forms::Padding(4);
 			this->SaveButton->Name = L"SaveButton";
 			this->SaveButton->Size = System::Drawing::Size(133, 49);
@@ -270,7 +277,7 @@ namespace RoadMap {
 			// dateTimePicker
 			// 
 			this->dateTimePicker->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F));
-			this->dateTimePicker->Location = System::Drawing::Point(94, 332);
+			this->dateTimePicker->Location = System::Drawing::Point(374, 215);
 			this->dateTimePicker->Name = L"dateTimePicker";
 			this->dateTimePicker->Size = System::Drawing::Size(259, 22);
 			this->dateTimePicker->TabIndex = 19;
@@ -282,19 +289,35 @@ namespace RoadMap {
 				static_cast<System::Int32>(static_cast<System::Byte>(249)));
 			this->labelDeadline->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
 			this->labelDeadline->ForeColor = System::Drawing::Color::Black;
-			this->labelDeadline->Location = System::Drawing::Point(91, 311);
+			this->labelDeadline->Location = System::Drawing::Point(371, 194);
 			this->labelDeadline->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelDeadline->Name = L"labelDeadline";
 			this->labelDeadline->Size = System::Drawing::Size(141, 16);
 			this->labelDeadline->TabIndex = 20;
 			this->labelDeadline->Text = L"Deadline of roadmap";
 			// 
+			// DeleteLastRowButton
+			// 
+			this->DeleteLastRowButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(69)), static_cast<System::Int32>(static_cast<System::Byte>(69)));
+			this->DeleteLastRowButton->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
+			this->DeleteLastRowButton->ForeColor = System::Drawing::Color::White;
+			this->DeleteLastRowButton->Location = System::Drawing::Point(700, 325);
+			this->DeleteLastRowButton->Margin = System::Windows::Forms::Padding(4);
+			this->DeleteLastRowButton->Name = L"DeleteLastRowButton";
+			this->DeleteLastRowButton->Size = System::Drawing::Size(157, 43);
+			this->DeleteLastRowButton->TabIndex = 21;
+			this->DeleteLastRowButton->Text = L"DELETE LAST ROW";
+			this->DeleteLastRowButton->UseVisualStyleBackColor = false;
+			this->DeleteLastRowButton->Click += gcnew System::EventHandler(this, &creationwindow::DeleteLastRowButton_Click_1);
+			// 
 			// creationwindow
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(244)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(249)));
-			this->ClientSize = System::Drawing::Size(984, 549);
+			this->ClientSize = System::Drawing::Size(984, 481);
+			this->Controls->Add(this->DeleteLastRowButton);
 			this->Controls->Add(this->labelDeadline);
 			this->Controls->Add(this->dateTimePicker);
 			this->Controls->Add(this->textBoxAuthor);
@@ -340,7 +363,7 @@ namespace RoadMap {
 			TextBox^ newTextBox1 = gcnew TextBox();
 			TextBox^ newTextBox2 = gcnew TextBox();
 
-			int newY = 30 * (textBoxes->Count / 2 + 1);
+			int newY = 50 * (textBoxes->Count / 2 + 1);
 
 			newTextBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			newTextBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
@@ -352,22 +375,20 @@ namespace RoadMap {
 			newTextBox1->Size = textBoxSection->Size;
 
 			newTextBox2->Location = System::Drawing::Point(newTextBox1->Location.X + newTextBox1->Width + 20, newTextBox1->Location.Y);
-			newTextBox2->Size = textBoxCheckpoints->Size;
+			newTextBox2->Size = System::Drawing::Size(480, 40);
+			newTextBox2->Multiline = true;
+			newTextBox2->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 
-			int newButtonY = newTextBox1->Location.Y + newTextBox1->Height + 10;
+			int newButtonY = newTextBox1->Location.Y + newTextBox1->Height + 30;
 
-			int labelDeadlineY = newButtonY + 10;
-			labelDeadline->Location = System::Drawing::Point(labelDeadline->Location.X, labelDeadlineY);
-
-			int dateTimePickerY = labelDeadlineY + labelDeadline->Height + 10;
-			dateTimePicker->Location = System::Drawing::Point(dateTimePicker->Location.X, dateTimePickerY);
-
-			int addNewSectionButtonY = dateTimePickerY + dateTimePicker->Height + 10;
+			int addNewSectionButtonY = newButtonY;
 			AddNewSectionButton->Location = System::Drawing::Point(AddNewSectionButton->Location.X, addNewSectionButtonY);
 
-			int SaveButtonY = addNewSectionButtonY + SaveButton->Height + 30;
+			int SaveButtonY = newButtonY + 75;
 			SaveButton->Location = System::Drawing::Point(SaveButton->Location.X, SaveButtonY);
 
+			int DeleteLastRowButtonY = newButtonY;
+			DeleteLastRowButton->Location = System::Drawing::Point(DeleteLastRowButton->Location.X, DeleteLastRowButtonY);
 
 			this->Controls->Add(newTextBox1);
 			this->Controls->Add(newTextBox2);
@@ -375,25 +396,26 @@ namespace RoadMap {
 			textBoxes->Add(newTextBox1);
 			textBoxes->Add(newTextBox2);
 
-			this->ClientSize = System::Drawing::Size(this->ClientSize.Width, this->ClientSize.Height + 30);
+			this->ClientSize = System::Drawing::Size(this->ClientSize.Width, this->ClientSize.Height + 50);
 
 			sectionCount++;
 		}
 
+
 	private:
 		System::Void SaveButton_Click(System::Object^ sender, System::EventArgs^ e) {
-			if (textBoxRoadmapName->Text->Length > 20 || textBoxRoadmapName->Text->Length == 0) {
-				MessageBox::Show("Roadmap name can be up to 20 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			if (textBoxRoadmapName->Text->Length > 30 || textBoxRoadmapName->Text->Length == 0) {
+				MessageBox::Show("Roadmap name can be up to 30 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
 			}
 
-			if (textBoxAuthor->Text->Length > 15 || textBoxAuthor->Text->Length == 0) {
-				MessageBox::Show("Author name can be up to 15 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			if (textBoxAuthor->Text->Length > 25 || textBoxAuthor->Text->Length == 0) {
+				MessageBox::Show("Author name can be up to 25 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
 			}
 
-			if (textBoxSection->Text->Length > 15 || textBoxSection->Text->Length == 0) {
-				MessageBox::Show("Section name can be up to 15 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			if (textBoxSection->Text->Length > 20 || textBoxSection->Text->Length == 0) {
+				MessageBox::Show("Section name can be up to 20 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
 			}
 
@@ -410,18 +432,6 @@ namespace RoadMap {
 
 			String^ checkpointsText = textBoxCheckpoints->Text;
 			int commaIndex = checkpointsText->IndexOf(",");
-			if (commaIndex >= 0) {
-				if (commaIndex > 20) {
-					MessageBox::Show("You can enter only 20 symbols before comma in checkpoint.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					return;
-				}
-			}
-			else {
-				if (checkpointsText->Length > 20) {
-					MessageBox::Show("You can enter only 20 symbols before comma in checkpoint.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					return;
-				}
-			}
 
 			rowNode->SetAttribute("Checkpoints", checkpointsText);
 			rootNode->AppendChild(rowNode);
@@ -430,23 +440,9 @@ namespace RoadMap {
 				String^ sectionText = textBoxes[i]->Text;
 				String^ checkpointsTextDynamic = textBoxes[i + 1]->Text;
 
-				if (sectionText->Length > 15) {
-					MessageBox::Show("Section name can be up to 15 characters long.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				if (sectionText->Length > 20) {
+					MessageBox::Show("Section name can be up to 20 characters long.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 					return;
-				}
-
-				commaIndex = checkpointsTextDynamic->IndexOf(",");
-				if (commaIndex >= 0) {
-					if (commaIndex > 20) {
-						MessageBox::Show("You can enter only 20 symbols before comma in checkpoints.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-						return;
-					}
-				}
-				else {
-					if (checkpointsTextDynamic->Length > 20) {
-						MessageBox::Show("You can enter only 20 symbols before comma in checkpoints.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-						return;
-					}
 				}
 
 				System::Xml::XmlElement^ rowsNode = xmlDoc->CreateElement("ROWS");
@@ -475,6 +471,39 @@ namespace RoadMap {
 			}
 			catch (Exception^ ex) {
 				MessageBox::Show("Error occurred while saving the Roadmap: " + ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			}
+		}
+	private: 
+		System::Void DeleteLastRowButton_Click_1(System::Object^ sender, System::EventArgs^ e) {
+			if (textBoxes->Count > 2) {
+				System::Windows::Forms::DialogResult result = MessageBox::Show(
+					"Are you sure you want to delete the last row?",
+					"Confirmation",
+					MessageBoxButtons::YesNo,
+					MessageBoxIcon::Question);
+
+				if (result == System::Windows::Forms::DialogResult::Yes) {
+					TextBox^ lastTextBox2 = safe_cast<TextBox^>(textBoxes[textBoxes->Count - 1]);
+					TextBox^ lastTextBox1 = safe_cast<TextBox^>(textBoxes[textBoxes->Count - 2]);
+
+					this->Controls->Remove(lastTextBox2);
+					this->Controls->Remove(lastTextBox1);
+
+					textBoxes->RemoveAt(textBoxes->Count - 1);
+					textBoxes->RemoveAt(textBoxes->Count - 1);
+
+					this->ClientSize = System::Drawing::Size(this->ClientSize.Width, this->ClientSize.Height - 40);
+
+					int newButtonY = lastTextBox1->Location.Y;
+					AddNewSectionButton->Location = System::Drawing::Point(AddNewSectionButton->Location.X, newButtonY);
+					SaveButton->Location = System::Drawing::Point(SaveButton->Location.X, newButtonY + 75);
+					DeleteLastRowButton->Location = System::Drawing::Point(DeleteLastRowButton->Location.X, newButtonY);
+
+					sectionCount--;
+				}
+			}
+			else {
+				MessageBox::Show("At least two rows must remain.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
 	};
