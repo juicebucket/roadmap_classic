@@ -37,7 +37,7 @@ Application version: 0.1.0. / Last Update: 17.06.2024
 ---
 
 ### Future Plans
-1. **RoadMap's browsing**: Adding a UI to interact with a large number of RoadMaps at once.
+1. **Removing a row**: Allow users to delete accidentally created rows..
 2. **RoadMap editing**: Edit the RoadMap after it has been created.
 3. **Checkpoints description**: Allow users to enter additional information for each checkpoints (like links, describing the element and etc.) 
 
