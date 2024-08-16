@@ -33,27 +33,37 @@ namespace RoadMap {
 		}
 
 	private:
-		int sectionCount = 0;
+		int TopicCount = 0;
 		System::Windows::Forms::Label^ main_title;
 		System::Windows::Forms::Label^ labelRoadmapName;
 		System::Windows::Forms::PictureBox^ pictureBox1;
 		System::Windows::Forms::Label^ label2;
-		System::Windows::Forms::TextBox^ textBoxRoadmapName;
+	private: System::Windows::Forms::TextBox^ RoadmapTextBox;
+
 		System::Windows::Forms::Label^ labelSections;
 		System::Windows::Forms::Label^ labelCheckpoints;
-		System::Windows::Forms::TextBox^ textBoxSection;
-		System::Windows::Forms::TextBox^ textBoxCheckpoints;
-		System::Windows::Forms::Button^ AddNewSectionButton;
+	private: System::Windows::Forms::TextBox^ TopicTextBox;
+	private: System::Windows::Forms::TextBox^ SubtopicTextBox;
+	private: System::Windows::Forms::Button^ AddNewRowButton;
+
+
+
+
 		System::Windows::Forms::Button^ SaveButton;
 		System::Windows::Forms::PictureBox^ pictureBox3;
 		System::Windows::Forms::PictureBox^ pictureBox2;
 		System::Windows::Forms::Label^ labelAuthor;
-		System::Windows::Forms::TextBox^ textBoxAuthor;
+	private: System::Windows::Forms::TextBox^ AuthorTextBox;
+
 		System::Windows::Forms::DateTimePicker^ dateTimePicker;
 		System::Windows::Forms::Label^ labelDeadline;
 
 
 	private: System::Windows::Forms::Button^ DeleteLastRowButton;
+	private: System::Windows::Forms::Panel^ scrollPanel;
+	private: System::Windows::Forms::TextBox^ DescriptionTextBox;
+
+
 
 
 		   System::ComponentModel::Container^ components;
@@ -72,25 +82,26 @@ namespace RoadMap {
 			this->labelRoadmapName = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBoxRoadmapName = (gcnew System::Windows::Forms::TextBox());
+			this->RoadmapTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->labelSections = (gcnew System::Windows::Forms::Label());
 			this->labelCheckpoints = (gcnew System::Windows::Forms::Label());
-			this->textBoxSection = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxCheckpoints = (gcnew System::Windows::Forms::TextBox());
-			this->AddNewSectionButton = (gcnew System::Windows::Forms::Button());
+			this->TopicTextBox = (gcnew System::Windows::Forms::TextBox());
+			this->SubtopicTextBox = (gcnew System::Windows::Forms::TextBox());
+			this->AddNewRowButton = (gcnew System::Windows::Forms::Button());
 			this->SaveButton = (gcnew System::Windows::Forms::Button());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->labelAuthor = (gcnew System::Windows::Forms::Label());
-			this->textBoxAuthor = (gcnew System::Windows::Forms::TextBox());
+			this->AuthorTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->dateTimePicker = (gcnew System::Windows::Forms::DateTimePicker());
 			this->labelDeadline = (gcnew System::Windows::Forms::Label());
 			this->DeleteLastRowButton = (gcnew System::Windows::Forms::Button());
+			this->scrollPanel = (gcnew System::Windows::Forms::Panel());
+			this->DescriptionTextBox = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
-
 			// 
 			// main_title
 			// 
@@ -144,15 +155,15 @@ namespace RoadMap {
 			this->label2->TabIndex = 5;
 			this->label2->Text = L"Create new roadmap";
 			// 
-			// textBoxRoadmapName
+			// RoadmapTextBox
 			// 
-			this->textBoxRoadmapName->BackColor = System::Drawing::Color::White;
-			this->textBoxRoadmapName->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxRoadmapName->Location = System::Drawing::Point(94, 157);
-			this->textBoxRoadmapName->Margin = System::Windows::Forms::Padding(4);
-			this->textBoxRoadmapName->Name = L"textBoxRoadmapName";
-			this->textBoxRoadmapName->Size = System::Drawing::Size(259, 20);
-			this->textBoxRoadmapName->TabIndex = 6;
+			this->RoadmapTextBox->BackColor = System::Drawing::Color::White;
+			this->RoadmapTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->RoadmapTextBox->Location = System::Drawing::Point(94, 157);
+			this->RoadmapTextBox->Margin = System::Windows::Forms::Padding(4);
+			this->RoadmapTextBox->Name = L"RoadmapTextBox";
+			this->RoadmapTextBox->Size = System::Drawing::Size(259, 20);
+			this->RoadmapTextBox->TabIndex = 6;
 			// 
 			// labelSections
 			// 
@@ -182,40 +193,44 @@ namespace RoadMap {
 			this->labelCheckpoints->TabIndex = 8;
 			this->labelCheckpoints->Text = L"Subtopics (Separate with commas)";
 			// 
-			// textBoxSection
+			// TopicTextBox
 			// 
-			this->textBoxSection->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxSection->Location = System::Drawing::Point(94, 274);
-			this->textBoxSection->Margin = System::Windows::Forms::Padding(4);
-			this->textBoxSection->Name = L"textBoxSection";
-			this->textBoxSection->Size = System::Drawing::Size(259, 20);
-			this->textBoxSection->TabIndex = 11;
+			this->TopicTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->TopicTextBox->Enabled = false;
+			this->TopicTextBox->Location = System::Drawing::Point(94, 274);
+			this->TopicTextBox->Margin = System::Windows::Forms::Padding(4);
+			this->TopicTextBox->Name = L"TopicTextBox";
+			this->TopicTextBox->Size = System::Drawing::Size(259, 20);
+			this->TopicTextBox->TabIndex = 11;
+			this->TopicTextBox->Text = L"#Enter topicname";
 			// 
-			// textBoxCheckpoints
+			// SubtopicTextBox
 			// 
-			this->textBoxCheckpoints->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxCheckpoints->Location = System::Drawing::Point(372, 274);
-			this->textBoxCheckpoints->Margin = System::Windows::Forms::Padding(4);
-			this->textBoxCheckpoints->Multiline = true;
-			this->textBoxCheckpoints->Name = L"textBoxCheckpoints";
-			this->textBoxCheckpoints->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
-			this->textBoxCheckpoints->Size = System::Drawing::Size(480, 40);
-			this->textBoxCheckpoints->TabIndex = 12;
+			this->SubtopicTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->SubtopicTextBox->Enabled = false;
+			this->SubtopicTextBox->Location = System::Drawing::Point(372, 274);
+			this->SubtopicTextBox->Margin = System::Windows::Forms::Padding(4);
+			this->SubtopicTextBox->Multiline = true;
+			this->SubtopicTextBox->Name = L"SubtopicTextBox";
+			this->SubtopicTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+			this->SubtopicTextBox->Size = System::Drawing::Size(480, 63);
+			this->SubtopicTextBox->TabIndex = 12;
+			this->SubtopicTextBox->Text = L"#Enter subtopics names. Use \",\" (commas) to separate suptopics.";
 			// 
-			// AddNewSectionButton
+			// AddNewRowButton
 			// 
-			this->AddNewSectionButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)),
-				static_cast<System::Int32>(static_cast<System::Byte>(96)), static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			this->AddNewSectionButton->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
-			this->AddNewSectionButton->ForeColor = System::Drawing::Color::White;
-			this->AddNewSectionButton->Location = System::Drawing::Point(94, 325);
-			this->AddNewSectionButton->Margin = System::Windows::Forms::Padding(4);
-			this->AddNewSectionButton->Name = L"AddNewSectionButton";
-			this->AddNewSectionButton->Size = System::Drawing::Size(567, 43);
-			this->AddNewSectionButton->TabIndex = 13;
-			this->AddNewSectionButton->Text = L"ADD NEW ROW";
-			this->AddNewSectionButton->UseVisualStyleBackColor = false;
-			this->AddNewSectionButton->Click += gcnew System::EventHandler(this, &creationwindow::button1_Click);
+			this->AddNewRowButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(96)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->AddNewRowButton->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
+			this->AddNewRowButton->ForeColor = System::Drawing::Color::White;
+			this->AddNewRowButton->Location = System::Drawing::Point(98, 492);
+			this->AddNewRowButton->Margin = System::Windows::Forms::Padding(4);
+			this->AddNewRowButton->Name = L"AddNewRowButton";
+			this->AddNewRowButton->Size = System::Drawing::Size(567, 43);
+			this->AddNewRowButton->TabIndex = 13;
+			this->AddNewRowButton->Text = L"ADD NEW ROW";
+			this->AddNewRowButton->UseVisualStyleBackColor = false;
+			this->AddNewRowButton->Click += gcnew System::EventHandler(this, &creationwindow::button1_Click);
 			// 
 			// SaveButton
 			// 
@@ -223,7 +238,7 @@ namespace RoadMap {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->SaveButton->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
 			this->SaveButton->ForeColor = System::Drawing::Color::White;
-			this->SaveButton->Location = System::Drawing::Point(801, 398);
+			this->SaveButton->Location = System::Drawing::Point(800, 561);
 			this->SaveButton->Margin = System::Windows::Forms::Padding(4);
 			this->SaveButton->Name = L"SaveButton";
 			this->SaveButton->Size = System::Drawing::Size(133, 49);
@@ -264,15 +279,15 @@ namespace RoadMap {
 			this->labelAuthor->TabIndex = 17;
 			this->labelAuthor->Text = L"Author\'s name";
 			// 
-			// textBoxAuthor
+			// AuthorTextBox
 			// 
-			this->textBoxAuthor->BackColor = System::Drawing::Color::White;
-			this->textBoxAuthor->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxAuthor->Location = System::Drawing::Point(94, 215);
-			this->textBoxAuthor->Margin = System::Windows::Forms::Padding(4);
-			this->textBoxAuthor->Name = L"textBoxAuthor";
-			this->textBoxAuthor->Size = System::Drawing::Size(259, 20);
-			this->textBoxAuthor->TabIndex = 18;
+			this->AuthorTextBox->BackColor = System::Drawing::Color::White;
+			this->AuthorTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->AuthorTextBox->Location = System::Drawing::Point(94, 215);
+			this->AuthorTextBox->Margin = System::Windows::Forms::Padding(4);
+			this->AuthorTextBox->Name = L"AuthorTextBox";
+			this->AuthorTextBox->Size = System::Drawing::Size(259, 20);
+			this->AuthorTextBox->TabIndex = 18;
 			// 
 			// dateTimePicker
 			// 
@@ -302,7 +317,7 @@ namespace RoadMap {
 				static_cast<System::Int32>(static_cast<System::Byte>(69)), static_cast<System::Int32>(static_cast<System::Byte>(69)));
 			this->DeleteLastRowButton->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
 			this->DeleteLastRowButton->ForeColor = System::Drawing::Color::White;
-			this->DeleteLastRowButton->Location = System::Drawing::Point(700, 325);
+			this->DeleteLastRowButton->Location = System::Drawing::Point(704, 492);
 			this->DeleteLastRowButton->Margin = System::Windows::Forms::Padding(4);
 			this->DeleteLastRowButton->Name = L"DeleteLastRowButton";
 			this->DeleteLastRowButton->Size = System::Drawing::Size(157, 43);
@@ -311,26 +326,49 @@ namespace RoadMap {
 			this->DeleteLastRowButton->UseVisualStyleBackColor = false;
 			this->DeleteLastRowButton->Click += gcnew System::EventHandler(this, &creationwindow::DeleteLastRowButton_Click_1);
 			// 
+			// scrollPanel
+			// 
+			this->scrollPanel->AutoScroll = true;
+			this->scrollPanel->Location = System::Drawing::Point(94, 344);
+			this->scrollPanel->Name = L"scrollPanel";
+			this->scrollPanel->Size = System::Drawing::Size(865, 141);
+			this->scrollPanel->TabIndex = 22;
+			// 
+			// DescriptionTextBox
+			// 
+			this->DescriptionTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->DescriptionTextBox->Enabled = false;
+			this->DescriptionTextBox->Location = System::Drawing::Point(94, 302);
+			this->DescriptionTextBox->Margin = System::Windows::Forms::Padding(4);
+			this->DescriptionTextBox->Multiline = true;
+			this->DescriptionTextBox->Name = L"DescriptionTextBox";
+			this->DescriptionTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+			this->DescriptionTextBox->Size = System::Drawing::Size(259, 35);
+			this->DescriptionTextBox->TabIndex = 23;
+			this->DescriptionTextBox->Text = L"#Enter description for topic";
+			// 
 			// creationwindow
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(244)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(249)));
-			this->ClientSize = System::Drawing::Size(984, 481);
+			this->ClientSize = System::Drawing::Size(962, 635);
+			this->Controls->Add(this->DescriptionTextBox);
+			this->Controls->Add(this->scrollPanel);
 			this->Controls->Add(this->DeleteLastRowButton);
 			this->Controls->Add(this->labelDeadline);
 			this->Controls->Add(this->dateTimePicker);
-			this->Controls->Add(this->textBoxAuthor);
+			this->Controls->Add(this->AuthorTextBox);
 			this->Controls->Add(this->labelAuthor);
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->SaveButton);
-			this->Controls->Add(this->AddNewSectionButton);
-			this->Controls->Add(this->textBoxCheckpoints);
-			this->Controls->Add(this->textBoxSection);
+			this->Controls->Add(this->AddNewRowButton);
+			this->Controls->Add(this->SubtopicTextBox);
+			this->Controls->Add(this->TopicTextBox);
 			this->Controls->Add(this->labelCheckpoints);
 			this->Controls->Add(this->labelSections);
-			this->Controls->Add(this->textBoxRoadmapName);
+			this->Controls->Add(this->RoadmapTextBox);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->labelRoadmapName);
@@ -341,6 +379,7 @@ namespace RoadMap {
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"creationwindow";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"RoadMap - Create new roadmap";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
@@ -355,67 +394,85 @@ namespace RoadMap {
 	private:
 		System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
-			if (sectionCount >= 9) {
-				MessageBox::Show("Maximum 10 sections allowed.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			if (TopicCount >= 16) {
+				MessageBox::Show("Maximum 15 Topics allowed.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
 			}
 
-			TextBox^ newTextBox1 = gcnew TextBox();
-			TextBox^ newTextBox2 = gcnew TextBox();
+			TextBox^ newTopicTextBox = gcnew TextBox();
+			TextBox^ newSubtopicTextBox = gcnew TextBox();
+			TextBox^ newDescriptionTextBox = gcnew TextBox();
 
-			int newY = 50 * (textBoxes->Count / 2 + 1);
+			int verticalSpacing = 50;
 
-			newTextBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			newTextBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			int newY;
 
-			newTextBox1->Name = "SectionTextBox_" + sectionCount.ToString();
-			newTextBox2->Name = "CheckpointsTextBox_" + sectionCount.ToString();
+			if (TopicCount == 0) {
+				newY = TopicTextBox->Location.Y + TopicTextBox->Height + verticalSpacing;
+				newTopicTextBox->Location = System::Drawing::Point(TopicTextBox->Location.X - scrollPanel->Location.X, newY - scrollPanel->Location.Y);
+				newTopicTextBox->Size = TopicTextBox->Size;
 
-			newTextBox1->Location = System::Drawing::Point(textBoxSection->Location.X, textBoxSection->Location.Y + newY);
-			newTextBox1->Size = textBoxSection->Size;
+				newSubtopicTextBox->Location = System::Drawing::Point(SubtopicTextBox->Location.X - scrollPanel->Location.X, newY - scrollPanel->Location.Y);
+				newSubtopicTextBox->Size = SubtopicTextBox->Size;
 
-			newTextBox2->Location = System::Drawing::Point(newTextBox1->Location.X + newTextBox1->Width + 20, newTextBox1->Location.Y);
-			newTextBox2->Size = System::Drawing::Size(480, 40);
-			newTextBox2->Multiline = true;
-			newTextBox2->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+				newDescriptionTextBox->Location = System::Drawing::Point(DescriptionTextBox->Location.X - scrollPanel->Location.X, newY + 27 - scrollPanel->Location.Y);
+				newDescriptionTextBox->Size = DescriptionTextBox->Size;
+			}
+			else {
+				TextBox^ lastTopicTextBox = (TextBox^)textBoxes[textBoxes->Count - 3];
+				newY = lastTopicTextBox->Location.Y + lastTopicTextBox->Height + verticalSpacing;
 
-			int newButtonY = newTextBox1->Location.Y + newTextBox1->Height + 30;
+				newTopicTextBox->Location = System::Drawing::Point(lastTopicTextBox->Location.X, newY);
+				newTopicTextBox->Size = lastTopicTextBox->Size;
 
-			int addNewSectionButtonY = newButtonY;
-			AddNewSectionButton->Location = System::Drawing::Point(AddNewSectionButton->Location.X, addNewSectionButtonY);
+				TextBox^ lastSubtopicTextBox = (TextBox^)textBoxes[textBoxes->Count - 2];
+				newSubtopicTextBox->Location = System::Drawing::Point(lastSubtopicTextBox->Location.X, newY);
+				newSubtopicTextBox->Size = lastSubtopicTextBox->Size;
 
-			int SaveButtonY = newButtonY + 75;
-			SaveButton->Location = System::Drawing::Point(SaveButton->Location.X, SaveButtonY);
+				TextBox^ lastDescriptionTextBox = (TextBox^)textBoxes[textBoxes->Count - 1];
+				newDescriptionTextBox->Location = System::Drawing::Point(lastDescriptionTextBox->Location.X, newY + 27);
+				newDescriptionTextBox->Size = lastDescriptionTextBox->Size;
+			}
 
-			int DeleteLastRowButtonY = newButtonY;
-			DeleteLastRowButton->Location = System::Drawing::Point(DeleteLastRowButton->Location.X, DeleteLastRowButtonY);
+			newTopicTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			newSubtopicTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			newDescriptionTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 
-			this->Controls->Add(newTextBox1);
-			this->Controls->Add(newTextBox2);
+			newTopicTextBox->Name = "TopicTextBox_" + TopicCount.ToString();
+			newSubtopicTextBox->Name = "SubtopicTextBox_" + TopicCount.ToString();
+			newDescriptionTextBox->Name = "DescriptionTextBox_" + TopicCount.ToString();
 
-			textBoxes->Add(newTextBox1);
-			textBoxes->Add(newTextBox2);
+			newSubtopicTextBox->Multiline = true;
+			newSubtopicTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 
-			this->ClientSize = System::Drawing::Size(this->ClientSize.Width, this->ClientSize.Height + 50);
+			newDescriptionTextBox->Multiline = true;
+			newDescriptionTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 
-			sectionCount++;
+			this->scrollPanel->Controls->Add(newTopicTextBox);
+			this->scrollPanel->Controls->Add(newSubtopicTextBox);
+			this->scrollPanel->Controls->Add(newDescriptionTextBox);
+
+			textBoxes->Add(newTopicTextBox);
+			textBoxes->Add(newSubtopicTextBox);
+			textBoxes->Add(newDescriptionTextBox);
+
+			TopicCount++;
 		}
-
 
 	private:
 		System::Void SaveButton_Click(System::Object^ sender, System::EventArgs^ e) {
-			if (textBoxRoadmapName->Text->Length > 30 || textBoxRoadmapName->Text->Length == 0) {
+			if (RoadmapTextBox->Text->Length > 30 || RoadmapTextBox->Text->Length == 0) {
 				MessageBox::Show("Roadmap name can be up to 30 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
 			}
 
-			if (textBoxAuthor->Text->Length > 25 || textBoxAuthor->Text->Length == 0) {
+			if (AuthorTextBox->Text->Length > 25 || AuthorTextBox->Text->Length == 0) {
 				MessageBox::Show("Author name can be up to 25 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
 			}
 
-			if (textBoxSection->Text->Length > 20 || textBoxSection->Text->Length == 0) {
-				MessageBox::Show("Section name can be up to 20 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			if (TopicTextBox->Text->Length > 20 || TopicTextBox->Text->Length == 0) {
+				MessageBox::Show("Topic name can be up to 20 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
 			}
 
@@ -423,31 +480,24 @@ namespace RoadMap {
 			System::Xml::XmlElement^ rootNode = xmlDoc->CreateElement("RoadMap");
 
 			System::Xml::XmlElement^ infoNode = xmlDoc->CreateElement("MAPINFO");
-			infoNode->SetAttribute("Title", textBoxRoadmapName->Text);
-			infoNode->SetAttribute("Author", textBoxAuthor->Text);
+			infoNode->SetAttribute("Title", RoadmapTextBox->Text);
+			infoNode->SetAttribute("Author", AuthorTextBox->Text);
 			rootNode->AppendChild(infoNode);
 
-			System::Xml::XmlElement^ rowNode = xmlDoc->CreateElement("ROW");
-			rowNode->SetAttribute("Section", textBoxSection->Text);
+			for (int i = 0; i < textBoxes->Count; i += 3) {
+				String^ TopicText = textBoxes[i]->Text;
+				String^ DescriptionText = textBoxes[i + 2]->Text;
+				String^ SubtopicTextDynamic = textBoxes[i + 1]->Text;
 
-			String^ checkpointsText = textBoxCheckpoints->Text;
-			int commaIndex = checkpointsText->IndexOf(",");
-
-			rowNode->SetAttribute("Checkpoints", checkpointsText);
-			rootNode->AppendChild(rowNode);
-
-			for (int i = 0; i < textBoxes->Count; i += 2) {
-				String^ sectionText = textBoxes[i]->Text;
-				String^ checkpointsTextDynamic = textBoxes[i + 1]->Text;
-
-				if (sectionText->Length > 20) {
-					MessageBox::Show("Section name can be up to 20 characters long.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				if (TopicText->Length > 20) {
+					MessageBox::Show("Topic name can be up to 20 characters long.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 					return;
 				}
 
 				System::Xml::XmlElement^ rowsNode = xmlDoc->CreateElement("ROWS");
-				rowsNode->SetAttribute("Section", sectionText);
-				rowsNode->SetAttribute("Checkpoints", checkpointsTextDynamic);
+				rowsNode->SetAttribute("Topic", TopicText);
+				rowsNode->SetAttribute("Description", DescriptionText);
+				rowsNode->SetAttribute("Subtopic", SubtopicTextDynamic);
 				rootNode->AppendChild(rowsNode);
 			}
 
@@ -473,7 +523,8 @@ namespace RoadMap {
 				MessageBox::Show("Error occurred while saving the Roadmap: " + ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
-	private: 
+
+	private:
 		System::Void DeleteLastRowButton_Click_1(System::Object^ sender, System::EventArgs^ e) {
 			if (textBoxes->Count > 2) {
 				System::Windows::Forms::DialogResult result = MessageBox::Show(
@@ -483,23 +534,22 @@ namespace RoadMap {
 					MessageBoxIcon::Question);
 
 				if (result == System::Windows::Forms::DialogResult::Yes) {
-					TextBox^ lastTextBox2 = safe_cast<TextBox^>(textBoxes[textBoxes->Count - 1]);
-					TextBox^ lastTextBox1 = safe_cast<TextBox^>(textBoxes[textBoxes->Count - 2]);
+					TextBox^ lastDescriptionTextBox = safe_cast<TextBox^>(textBoxes[textBoxes->Count - 1]);
+					TextBox^ lastSubtopicTextBox = safe_cast<TextBox^>(textBoxes[textBoxes->Count - 2]);
+					TextBox^ lastTopicTextBox = safe_cast<TextBox^>(textBoxes[textBoxes->Count - 3]);
 
-					this->Controls->Remove(lastTextBox2);
-					this->Controls->Remove(lastTextBox1);
+					this->scrollPanel->Controls->Remove(lastDescriptionTextBox);
+					this->scrollPanel->Controls->Remove(lastSubtopicTextBox);
+					this->scrollPanel->Controls->Remove(lastTopicTextBox);
 
+					textBoxes->RemoveAt(textBoxes->Count - 1); 
 					textBoxes->RemoveAt(textBoxes->Count - 1);
-					textBoxes->RemoveAt(textBoxes->Count - 1);
+					textBoxes->RemoveAt(textBoxes->Count - 1); 
 
-					this->ClientSize = System::Drawing::Size(this->ClientSize.Width, this->ClientSize.Height - 40);
+					int newHeight = (textBoxes->Count > 0) ? textBoxes[textBoxes->Count - 1]->Location.Y + textBoxes[textBoxes->Count - 1]->Height + 50 : 0;
+					this->scrollPanel->AutoScrollMinSize = System::Drawing::Size(this->scrollPanel->ClientSize.Width, newHeight);
 
-					int newButtonY = lastTextBox1->Location.Y;
-					AddNewSectionButton->Location = System::Drawing::Point(AddNewSectionButton->Location.X, newButtonY);
-					SaveButton->Location = System::Drawing::Point(SaveButton->Location.X, newButtonY + 75);
-					DeleteLastRowButton->Location = System::Drawing::Point(DeleteLastRowButton->Location.X, newButtonY);
-
-					sectionCount--;
+					TopicCount--;
 				}
 			}
 			else {

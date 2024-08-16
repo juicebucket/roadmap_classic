@@ -104,9 +104,9 @@ namespace RoadMap {
             // pictureBox1
             // 
             this->pictureBox1->BackColor = System::Drawing::Color::White;
-            this->pictureBox1->Location = System::Drawing::Point(-7, -21);
+            this->pictureBox1->Location = System::Drawing::Point(-7, -7);
             this->pictureBox1->Name = L"pictureBox1";
-            this->pictureBox1->Size = System::Drawing::Size(927, 122);
+            this->pictureBox1->Size = System::Drawing::Size(927, 108);
             this->pictureBox1->TabIndex = 5;
             this->pictureBox1->TabStop = false;
             // 
@@ -136,6 +136,7 @@ namespace RoadMap {
             this->MaximizeBox = false;
             this->MinimizeBox = false;
             this->Name = L"mainwindow";
+            this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
             this->Text = L"RoadMap - Mainpage";
             this->TransparencyKey = System::Drawing::SystemColors::WindowFrame;
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -158,7 +159,7 @@ namespace RoadMap {
             mapwindow^ RoadMapWindow = gcnew mapwindow();
             RoadMapWindow->Show();
         }
-};
+    };
 }
 
 
