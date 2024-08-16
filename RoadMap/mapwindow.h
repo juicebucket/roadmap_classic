@@ -76,10 +76,10 @@ namespace RoadMap {
                    static_cast<System::Int32>(static_cast<System::Byte>(255)));
                this->btnLoadFile->Font = (gcnew System::Drawing::Font(L"Trebuchet MS", 11.25F, System::Drawing::FontStyle::Bold));
                this->btnLoadFile->ForeColor = System::Drawing::Color::White;
-               this->btnLoadFile->Location = System::Drawing::Point(554, 664);
+               this->btnLoadFile->Location = System::Drawing::Point(569, 664);
                this->btnLoadFile->Margin = System::Windows::Forms::Padding(4);
                this->btnLoadFile->Name = L"btnLoadFile";
-               this->btnLoadFile->Size = System::Drawing::Size(175, 49);
+               this->btnLoadFile->Size = System::Drawing::Size(160, 49);
                this->btnLoadFile->TabIndex = 7;
                this->btnLoadFile->Text = L"UPLOAD";
                this->btnLoadFile->UseVisualStyleBackColor = false;
@@ -90,7 +90,7 @@ namespace RoadMap {
                this->RowsPanel->Location = System::Drawing::Point(31, 159);
                this->RowsPanel->Margin = System::Windows::Forms::Padding(4);
                this->RowsPanel->Name = L"RowsPanel";
-               this->RowsPanel->Size = System::Drawing::Size(488, 611);
+               this->RowsPanel->Size = System::Drawing::Size(530, 611);
                this->RowsPanel->TabIndex = 8;
                // 
                // btnSaveChanges
@@ -99,10 +99,10 @@ namespace RoadMap {
                    static_cast<System::Int32>(static_cast<System::Byte>(255)));
                this->btnSaveChanges->Font = (gcnew System::Drawing::Font(L"Trebuchet MS", 11.25F, System::Drawing::FontStyle::Bold));
                this->btnSaveChanges->ForeColor = System::Drawing::Color::White;
-               this->btnSaveChanges->Location = System::Drawing::Point(554, 721);
+               this->btnSaveChanges->Location = System::Drawing::Point(569, 721);
                this->btnSaveChanges->Margin = System::Windows::Forms::Padding(4);
                this->btnSaveChanges->Name = L"btnSaveChanges";
-               this->btnSaveChanges->Size = System::Drawing::Size(175, 49);
+               this->btnSaveChanges->Size = System::Drawing::Size(160, 49);
                this->btnSaveChanges->TabIndex = 9;
                this->btnSaveChanges->Text = L"SAVE CHANGES";
                this->btnSaveChanges->UseVisualStyleBackColor = false;
@@ -333,7 +333,7 @@ namespace RoadMap {
                     String^ additionalCheckpoints = rowsNodes[i]->Attributes["Subtopic"]->Value;
 
                     CreateAndDisplayCheckpoints(additionalSection, additionalDescription, additionalCheckpoints, yOffset, xmlDoc, "ROWS", i);
-                    yOffset += 30 * (additionalCheckpoints->Split(',')->Length);
+                    yOffset += 70 * (additionalCheckpoints->Split(',')->Length);
                 }
 
                 RowsPanel->AutoScroll = true;
@@ -347,7 +347,7 @@ namespace RoadMap {
             }
         }
 
-    private: 
+    private:
         System::Void CreateAndDisplayCheckpoints(String^ section, String^ description, String^ checkpoints, int yOffset, XmlDocument^ xmlDoc, String^ nodeType, int nodeIndex) {
             Label^ label = gcnew Label();
             label->AutoSize = true;
@@ -358,6 +358,7 @@ namespace RoadMap {
 
             Label^ label2 = gcnew Label();
             label2->AutoSize = true;
+            label2->MaximumSize = System::Drawing::Size(180, 0);
             label2->Location = System::Drawing::Point(12, yOffset + 20);
             label2->Text = description;
             RowsPanel->Controls->Add(label2);
@@ -368,12 +369,13 @@ namespace RoadMap {
 
                 Label^ checkpointLabel = gcnew Label();
                 checkpointLabel->AutoSize = true;
-                checkpointLabel->Location = System::Drawing::Point(100, yOffset + i * 30);
+                checkpointLabel->MaximumSize = System::Drawing::Size(180, 0);
+                checkpointLabel->Location = System::Drawing::Point(200, yOffset + i * 30);
                 checkpointLabel->Text = checkpoint;
                 RowsPanel->Controls->Add(checkpointLabel);
 
                 CheckBox^ checkBox = gcnew CheckBox();
-                checkBox->Location = System::Drawing::Point(250, yOffset + i * 30);
+                checkBox->Location = System::Drawing::Point(420, yOffset + i * 30);
                 checkBox->Tag = nodeType + ":" + nodeIndex + ":" + i;
                 RowsPanel->Controls->Add(checkBox);
 
@@ -394,6 +396,7 @@ namespace RoadMap {
                 }
             }
         }
+
 
     private: 
         System::Void btnSaveChanges_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -416,12 +419,12 @@ namespace RoadMap {
                             array<String^>^ checkpointsArray = checkpoints->Split(',');
                             if (checkpointIndex < checkpointsArray->Length) {
                                 if (checkBox->Checked) {
-                                    if (!checkpointsArray[checkpointIndex]->Contains("(+)")) {
-                                        checkpointsArray[checkpointIndex] = checkpointsArray[checkpointIndex]->TrimEnd() + " (+)";
+                                    if (!checkpointsArray[checkpointIndex]->Contains("[+]")) {
+                                        checkpointsArray[checkpointIndex] = checkpointsArray[checkpointIndex]->TrimEnd() + " [+]";
                                     }
                                 }
                                 else {
-                                    checkpointsArray[checkpointIndex] = checkpointsArray[checkpointIndex]->Replace(" (+)", "");
+                                    checkpointsArray[checkpointIndex] = checkpointsArray[checkpointIndex]->Replace(" [+]", "");
                                 }
                                 String^ newCheckpoints = String::Join(",", checkpointsArray);
                                 node->Attributes->GetNamedItem(attributeName)->Value = newCheckpoints;

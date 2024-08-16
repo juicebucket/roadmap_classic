@@ -471,11 +471,6 @@ namespace RoadMap {
 				return;
 			}
 
-			if (TopicTextBox->Text->Length > 20 || TopicTextBox->Text->Length == 0) {
-				MessageBox::Show("Topic name can be up to 20 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-				return;
-			}
-
 			System::Xml::XmlDocument^ xmlDoc = gcnew System::Xml::XmlDocument();
 			System::Xml::XmlElement^ rootNode = xmlDoc->CreateElement("RoadMap");
 
@@ -489,8 +484,13 @@ namespace RoadMap {
 				String^ DescriptionText = textBoxes[i + 2]->Text;
 				String^ SubtopicTextDynamic = textBoxes[i + 1]->Text;
 
-				if (TopicText->Length > 20) {
-					MessageBox::Show("Topic name can be up to 20 characters long.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				if (TopicText->Length > 20 || DescriptionText->Length == 0) {
+					MessageBox::Show("Topic name can be up to 20 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					return;
+				}
+
+				if (DescriptionText->Length > 100 || DescriptionText->Length == 0) {
+					MessageBox::Show("Description can be up to 100 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 					return;
 				}
 
