@@ -215,7 +215,8 @@ namespace RoadMap {
 			this->SubtopicTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->SubtopicTextBox->Size = System::Drawing::Size(480, 63);
 			this->SubtopicTextBox->TabIndex = 12;
-			this->SubtopicTextBox->Text = L"#Enter subtopics names. Use \",\" (commas) to separate suptopics.";
+			this->SubtopicTextBox->Text = L"#Enter subtopics names. Use \",\" (commas) to separate suptopics. Up to 30 characte"
+				L"rs.\r\n";
 			// 
 			// AddNewRowButton
 			// 
@@ -466,8 +467,8 @@ namespace RoadMap {
 				return;
 			}
 
-			if (AuthorTextBox->Text->Length > 25 || AuthorTextBox->Text->Length == 0) {
-				MessageBox::Show("Author name can be up to 25 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			if (AuthorTextBox->Text->Length > 45 || AuthorTextBox->Text->Length == 0) {
+				MessageBox::Show("Author name can be up to 45 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
 			}
 
@@ -484,7 +485,7 @@ namespace RoadMap {
 				String^ DescriptionText = textBoxes[i + 2]->Text;
 				String^ SubtopicTextDynamic = textBoxes[i + 1]->Text;
 
-				if (TopicText->Length > 20 || DescriptionText->Length == 0) {
+				if (TopicText->Length > 20 || TopicText->Length == 0) {
 					MessageBox::Show("Topic name can be up to 20 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 					return;
 				}
@@ -509,7 +510,7 @@ namespace RoadMap {
 
 			try {
 				SaveFileDialog^ saveFileDialog1 = gcnew SaveFileDialog();
-				saveFileDialog1->Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+				saveFileDialog1->Filter = "XML files (*.xml)|*.xml";
 				saveFileDialog1->FilterIndex = 1;
 				saveFileDialog1->RestoreDirectory = true;
 
