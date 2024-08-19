@@ -81,9 +81,9 @@ namespace RoadMap {
                // 
                this->btnLoadFile->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(96)),
                    static_cast<System::Int32>(static_cast<System::Byte>(255)));
-               this->btnLoadFile->Font = (gcnew System::Drawing::Font(L"Trebuchet MS", 11.25F, System::Drawing::FontStyle::Bold));
+               this->btnLoadFile->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
                this->btnLoadFile->ForeColor = System::Drawing::Color::White;
-               this->btnLoadFile->Location = System::Drawing::Point(569, 664);
+               this->btnLoadFile->Location = System::Drawing::Point(599, 664);
                this->btnLoadFile->Margin = System::Windows::Forms::Padding(4);
                this->btnLoadFile->Name = L"btnLoadFile";
                this->btnLoadFile->Size = System::Drawing::Size(160, 49);
@@ -94,19 +94,19 @@ namespace RoadMap {
                // 
                // RowsPanel
                // 
-               this->RowsPanel->Location = System::Drawing::Point(31, 188);
+               this->RowsPanel->Location = System::Drawing::Point(31, 196);
                this->RowsPanel->Margin = System::Windows::Forms::Padding(4);
                this->RowsPanel->Name = L"RowsPanel";
-               this->RowsPanel->Size = System::Drawing::Size(530, 582);
+               this->RowsPanel->Size = System::Drawing::Size(551, 574);
                this->RowsPanel->TabIndex = 8;
                // 
                // btnSaveChanges
                // 
                this->btnSaveChanges->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(96)),
                    static_cast<System::Int32>(static_cast<System::Byte>(255)));
-               this->btnSaveChanges->Font = (gcnew System::Drawing::Font(L"Trebuchet MS", 11.25F, System::Drawing::FontStyle::Bold));
+               this->btnSaveChanges->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
                this->btnSaveChanges->ForeColor = System::Drawing::Color::White;
-               this->btnSaveChanges->Location = System::Drawing::Point(569, 721);
+               this->btnSaveChanges->Location = System::Drawing::Point(599, 721);
                this->btnSaveChanges->Margin = System::Windows::Forms::Padding(4);
                this->btnSaveChanges->Name = L"btnSaveChanges";
                this->btnSaveChanges->Size = System::Drawing::Size(160, 49);
@@ -122,7 +122,7 @@ namespace RoadMap {
                    static_cast<System::Int32>(static_cast<System::Byte>(249)));
                this->labelSections->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
                this->labelSections->ForeColor = System::Drawing::Color::Black;
-               this->labelSections->Location = System::Drawing::Point(28, 155);
+               this->labelSections->Location = System::Drawing::Point(28, 168);
                this->labelSections->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
                this->labelSections->Name = L"labelSections";
                this->labelSections->Size = System::Drawing::Size(160, 16);
@@ -136,7 +136,7 @@ namespace RoadMap {
                    static_cast<System::Int32>(static_cast<System::Byte>(249)));
                this->labelSubtopic->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
                this->labelSubtopic->ForeColor = System::Drawing::Color::Black;
-               this->labelSubtopic->Location = System::Drawing::Point(264, 155);
+               this->labelSubtopic->Location = System::Drawing::Point(235, 168);
                this->labelSubtopic->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
                this->labelSubtopic->Name = L"labelSubtopic";
                this->labelSubtopic->Size = System::Drawing::Size(73, 16);
@@ -196,7 +196,7 @@ namespace RoadMap {
                    static_cast<System::Int32>(static_cast<System::Byte>(249)));
                this->deadlineLabel->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
                this->deadlineLabel->ForeColor = System::Drawing::Color::Black;
-               this->deadlineLabel->Location = System::Drawing::Point(264, 115);
+               this->deadlineLabel->Location = System::Drawing::Point(235, 115);
                this->deadlineLabel->Name = L"deadlineLabel";
                this->deadlineLabel->Size = System::Drawing::Size(64, 16);
                this->deadlineLabel->TabIndex = 22;
@@ -218,18 +218,18 @@ namespace RoadMap {
                // 
                // authorTextBox
                // 
-               this->authorTextBox->Location = System::Drawing::Point(83, 111);
+               this->authorTextBox->Location = System::Drawing::Point(31, 134);
                this->authorTextBox->Name = L"authorTextBox";
                this->authorTextBox->ReadOnly = true;
-               this->authorTextBox->Size = System::Drawing::Size(144, 20);
+               this->authorTextBox->Size = System::Drawing::Size(176, 20);
                this->authorTextBox->TabIndex = 25;
                // 
                // deadlineTextBox
                // 
-               this->deadlineTextBox->Location = System::Drawing::Point(334, 111);
+               this->deadlineTextBox->Location = System::Drawing::Point(238, 134);
                this->deadlineTextBox->Name = L"deadlineTextBox";
                this->deadlineTextBox->ReadOnly = true;
-               this->deadlineTextBox->Size = System::Drawing::Size(144, 20);
+               this->deadlineTextBox->Size = System::Drawing::Size(111, 20);
                this->deadlineTextBox->TabIndex = 26;
                // 
                // mapwindow
@@ -237,7 +237,7 @@ namespace RoadMap {
                this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
                this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(244)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                    static_cast<System::Int32>(static_cast<System::Byte>(249)));
-               this->ClientSize = System::Drawing::Size(756, 800);
+               this->ClientSize = System::Drawing::Size(792, 800);
                this->Controls->Add(this->deadlineTextBox);
                this->Controls->Add(this->authorTextBox);
                this->Controls->Add(this->labelProgress);
@@ -270,7 +270,7 @@ namespace RoadMap {
 
     private:
         System::Void btnLoadFile_Click(System::Object^ sender, System::EventArgs^ e) {
-            openFileDialog1->Filter = "XML Files (*.xml)|*.xml|All files (*.*)|*.*";
+            openFileDialog1->Filter = "XML Files (*.xml)|*.xml";
             openFileDialog1->FilterIndex = 1;
             openFileDialog1->RestoreDirectory = true;
 
@@ -346,28 +346,35 @@ namespace RoadMap {
 
     private:
         System::Void CreateAndDisplayCheckpoints(String^ section, String^ description, String^ checkpoints, int yOffset, XmlDocument^ xmlDoc, String^ nodeType, int nodeIndex) {
-            Label^ label = gcnew Label();
-            label->AutoSize = true;
-            label->Font = (gcnew System::Drawing::Font(L"Arial", 11.50F, System::Drawing::FontStyle::Bold));
-            label->Location = System::Drawing::Point(12, yOffset);
-            label->Text = section;
-            RowsPanel->Controls->Add(label);
+            Label^ topicLabel = gcnew Label();
+            topicLabel->AutoSize = true;
+            topicLabel->Font = (gcnew System::Drawing::Font(L"Arial", 11.50F, System::Drawing::FontStyle::Bold));
+            topicLabel->Location = System::Drawing::Point(12, yOffset);
+            topicLabel->Text = section;
+            RowsPanel->Controls->Add(topicLabel);
 
-            Label^ label2 = gcnew Label();
-            label2->AutoSize = true;
-            label2->MaximumSize = System::Drawing::Size(180, 0);
-            label2->Location = System::Drawing::Point(12, yOffset + 20);
-            label2->Text = description;
-            RowsPanel->Controls->Add(label2);
+            Label^ descriptionLabel = gcnew Label();
+            descriptionLabel->AutoSize = true;
+            descriptionLabel->MaximumSize = System::Drawing::Size(180, 0);
+            descriptionLabel->Location = System::Drawing::Point(12, yOffset + 20);
+            descriptionLabel->Text = description;
+            RowsPanel->Controls->Add(descriptionLabel);
 
             array<String^>^ checkpointsArray = checkpoints->Split(',');
             for (int i = 0; i < checkpointsArray->Length; i++) {
                 String^ checkpoint = checkpointsArray[i]->Trim();
 
+                Label^ numberLabel = gcnew Label();
+                numberLabel->AutoSize = true;
+                numberLabel->Font = gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold);
+                numberLabel->Location = System::Drawing::Point(200, yOffset + i * 30);
+                numberLabel->Text = (i + 1).ToString() + ".";
+                RowsPanel->Controls->Add(numberLabel);
+
                 Label^ checkpointLabel = gcnew Label();
                 checkpointLabel->AutoSize = true;
-                checkpointLabel->MaximumSize = System::Drawing::Size(180, 0);
-                checkpointLabel->Location = System::Drawing::Point(200, yOffset + i * 30);
+                checkpointLabel->MaximumSize = System::Drawing::Size(160, 0);
+                checkpointLabel->Location = System::Drawing::Point(220, yOffset + i * 30);
                 checkpointLabel->Text = checkpoint;
                 RowsPanel->Controls->Add(checkpointLabel);
 
@@ -393,6 +400,7 @@ namespace RoadMap {
                 }
             }
         }
+
 
     private: 
         System::Void btnSaveChanges_Click(System::Object^ sender, System::EventArgs^ e) {
