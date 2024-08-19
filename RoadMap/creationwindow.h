@@ -296,6 +296,7 @@ namespace RoadMap {
 			this->dateTimePicker->Location = System::Drawing::Point(374, 215);
 			this->dateTimePicker->Name = L"dateTimePicker";
 			this->dateTimePicker->Size = System::Drawing::Size(259, 22);
+			this->dateTimePicker->MinDate = System::DateTime::Today;
 			this->dateTimePicker->TabIndex = 19;
 			// 
 			// labelDeadline
@@ -510,7 +511,7 @@ namespace RoadMap {
 
 			try {
 				SaveFileDialog^ saveFileDialog1 = gcnew SaveFileDialog();
-				saveFileDialog1->Filter = "XML files (*.xml)|*.xml|TXT files (*.txt)|*.txt";
+				saveFileDialog1->Filter = "XML files (*.xml)|*.xml";
 				saveFileDialog1->FilterIndex = 1;
 				saveFileDialog1->RestoreDirectory = true;
 
@@ -557,5 +558,5 @@ namespace RoadMap {
 				MessageBox::Show("At least two rows must remain.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
-	};
+};
 }

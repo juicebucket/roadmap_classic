@@ -137,7 +137,7 @@ namespace RoadMap {
             this->MinimizeBox = false;
             this->Name = L"mainwindow";
             this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-            this->Text = L"RoadMap - Mainpage";
+            this->Text = L"RoadMap";
             this->TransparencyKey = System::Drawing::SystemColors::WindowFrame;
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
