@@ -510,7 +510,7 @@ namespace RoadMap {
 
 			try {
 				SaveFileDialog^ saveFileDialog1 = gcnew SaveFileDialog();
-				saveFileDialog1->Filter = "XML files (*.xml)|*.xml";
+				saveFileDialog1->Filter = "XML files (*.xml)|*.xml|TXT files (*.txt)|*.txt";
 				saveFileDialog1->FilterIndex = 1;
 				saveFileDialog1->RestoreDirectory = true;
 

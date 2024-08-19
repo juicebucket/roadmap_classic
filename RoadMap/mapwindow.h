@@ -382,13 +382,13 @@ namespace RoadMap {
                 XmlNodeList^ nodes = xmlDoc->GetElementsByTagName(nodeType);
                 if (nodeIndex < nodes->Count) {
                     XmlNode^ node = nodes[nodeIndex];
-                    String^ attributeName = "Checkpoints";
+                    String^ attributeName = "Subtopic";
                     if (node->Attributes->GetNamedItem(attributeName)) {
                         String^ checkpoints = node->Attributes->GetNamedItem(attributeName)->Value;
                         array<String^>^ checkpointsArray = checkpoints->Split(',');
                         if (i < checkpointsArray->Length) {
                             String^ currentCheckpoint = checkpointsArray[i]->Trim();
-                            if (currentCheckpoint->Contains("(+)")) {
+                            if (currentCheckpoint->Contains("[+]")) {
                                 checkBox->Checked = true;
                             }
                         }
