@@ -34,6 +34,7 @@ namespace RoadMap {
 
 	private:
 		int TopicCount = 0;
+
 		System::Windows::Forms::Label^ main_title;
 		System::Windows::Forms::Label^ labelRoadmapName;
 		System::Windows::Forms::PictureBox^ pictureBox1;
@@ -452,8 +453,8 @@ namespace RoadMap {
 
 	private:
 		System::Void SaveButton_Click(System::Object^ sender, System::EventArgs^ e) {
-			if (RoadmapTextBox->Text->Length > 30 || RoadmapTextBox->Text->Length == 0) {
-				MessageBox::Show("Roadmap name can be up to 30 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			if (RoadmapTextBox->Text->Length > 45 || RoadmapTextBox->Text->Length == 0) {
+				MessageBox::Show("Roadmap name can be up to 45 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
 			}
 
@@ -475,14 +476,28 @@ namespace RoadMap {
 				String^ DescriptionText = textBoxes[i + 2]->Text;
 				String^ SubtopicTextDynamic = textBoxes[i + 1]->Text;
 
-				if (TopicText->Length > 20 || TopicText->Length == 0) {
-					MessageBox::Show("Topic name can be up to 20 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				if (TopicText->Length > 35 || TopicText->Length == 0) {
+					MessageBox::Show("Topic name can be up to 35 characters long and cannot be empty in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 					return;
 				}
 
-				if (DescriptionText->Length > 100 || DescriptionText->Length == 0) {
-					MessageBox::Show("Description can be up to 100 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				if (DescriptionText->Length > 150 || DescriptionText->Length == 0) {
+					MessageBox::Show("Description can be up to 150 characters long and cannot be empty in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 					return;
+				}
+
+				int commaIndex = SubtopicTextDynamic->IndexOf(",");
+				if (commaIndex >= 0) {
+					if (commaIndex > 50) {
+						MessageBox::Show("You can enter only 50 symbols before comma in subtopics in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+						return;
+					}
+				}
+				else {
+					if (SubtopicTextDynamic->Length > 50) {
+						MessageBox::Show("You can enter only 50 symbols before comma in subtopics in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+						return;
+					}
 				}
 
 				System::Xml::XmlElement^ rowsNode = xmlDoc->CreateElement("ROWS");
@@ -514,6 +529,7 @@ namespace RoadMap {
 				MessageBox::Show("Error occurred while saving the Roadmap: " + ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
+
 
 	private:
 		System::Void DeleteLastRowButton_Click_1(System::Object^ sender, System::EventArgs^ e) {
@@ -547,5 +563,5 @@ namespace RoadMap {
 				MessageBox::Show("At least two rows must remain.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
-};
+	};
 }

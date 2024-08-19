@@ -32,28 +32,20 @@ namespace RoadMap {
         Label^ progressLabel;
         System::Windows::Forms::OpenFileDialog^ openFileDialog1;
         System::Windows::Forms::Button^ btnLoadFile;
-    private: System::Windows::Forms::Panel^ RowsPanel;
+        System::Windows::Forms::Panel^ RowsPanel;
+        System::Windows::Forms::Button^ btnSaveChanges;
+        System::Windows::Forms::Label^ labelSections;
+        System::Windows::Forms::Label^ labelSubtopic;
+        System::Windows::Forms::Label^ titleLabel;
+        System::Windows::Forms::PictureBox^ pictureBox3;
+        System::Windows::Forms::PictureBox^ pictureBox2;
+        System::Windows::Forms::Label^ authorLabel;
+        System::Windows::Forms::Label^ deadlineLabel;
+        System::Windows::Forms::Label^ labelProgress;
+        System::Windows::Forms::TextBox^ authorTextBox;
+        System::Windows::Forms::TextBox^ deadlineTextBox;
 
-           System::Windows::Forms::Button^ btnSaveChanges;
-           System::Windows::Forms::Label^ labelSections;
-           System::Windows::Forms::Label^ labelSubtopic;
-           System::Windows::Forms::Label^ titleLabel;
-           System::Windows::Forms::PictureBox^ pictureBox3;
-           System::Windows::Forms::PictureBox^ pictureBox2;
-    private: System::Windows::Forms::Label^ authorLabel;
-    private: System::Windows::Forms::Label^ deadlineLabel;
-
-
-
-
-           System::Windows::Forms::Label^ labelProgress;
-    private: System::Windows::Forms::TextBox^ authorTextBox;
-    private: System::Windows::Forms::TextBox^ deadlineTextBox;
-
-
-
-
-           System::ComponentModel::Container^ components;
+        System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 
@@ -172,7 +164,7 @@ namespace RoadMap {
                this->pictureBox2->BackColor = System::Drawing::Color::White;
                this->pictureBox2->Location = System::Drawing::Point(-4, -5);
                this->pictureBox2->Name = L"pictureBox2";
-               this->pictureBox2->Size = System::Drawing::Size(763, 104);
+               this->pictureBox2->Size = System::Drawing::Size(801, 104);
                this->pictureBox2->TabIndex = 18;
                this->pictureBox2->TabStop = false;
                // 
@@ -229,7 +221,7 @@ namespace RoadMap {
                this->deadlineTextBox->Location = System::Drawing::Point(238, 134);
                this->deadlineTextBox->Name = L"deadlineTextBox";
                this->deadlineTextBox->ReadOnly = true;
-               this->deadlineTextBox->Size = System::Drawing::Size(111, 20);
+               this->deadlineTextBox->Size = System::Drawing::Size(120, 20);
                this->deadlineTextBox->TabIndex = 26;
                // 
                // mapwindow
@@ -288,7 +280,6 @@ namespace RoadMap {
 
                 RowsPanel->Controls->Clear();
 
-                System::Xml::XmlNodeList^ rowNodes = xmlDoc->GetElementsByTagName("ROW");
                 System::Xml::XmlNodeList^ rowsNodes = xmlDoc->GetElementsByTagName("ROWS");
 
                 System::Xml::XmlNodeList^ infoNodes = xmlDoc->GetElementsByTagName("MAPINFO");
@@ -325,12 +316,12 @@ namespace RoadMap {
                 int yOffset = 0;
 
                 for (int i = 0; i < rowsNodes->Count; i++) {
-                    String^ additionalSection = rowsNodes[i]->Attributes["Topic"]->Value;
-                    String^ additionalDescription = rowsNodes[i]->Attributes["Description"]->Value;
-                    String^ additionalCheckpoints = rowsNodes[i]->Attributes["Subtopic"]->Value;
+                    String^ Topic = rowsNodes[i]->Attributes["Topic"]->Value;
+                    String^ Description = rowsNodes[i]->Attributes["Description"]->Value;
+                    String^ Subtopic = rowsNodes[i]->Attributes["Subtopic"]->Value;
 
-                    CreateAndDisplayCheckpoints(additionalSection, additionalDescription, additionalCheckpoints, yOffset, xmlDoc, "ROWS", i);
-                    yOffset += 70 * (additionalCheckpoints->Split(',')->Length);
+                    CreateAndDisplayCheckpoints(Topic, Description, Subtopic, yOffset, xmlDoc, "ROWS", i);
+                    yOffset += 70 * (Subtopic->Split(',')->Length);
                 }
 
                 RowsPanel->AutoScroll = true;
@@ -401,7 +392,6 @@ namespace RoadMap {
             }
         }
 
-
     private: 
         System::Void btnSaveChanges_Click(System::Object^ sender, System::EventArgs^ e) {
             XmlDocument^ xmlDoc = gcnew XmlDocument();
@@ -465,5 +455,5 @@ namespace RoadMap {
                 labelProgress->Text = "No checkpoints available.";
             }
         }
-};
+    };
 }

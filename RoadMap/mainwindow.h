@@ -58,13 +58,12 @@ namespace RoadMap {
             // 
             this->label1->AutoSize = true;
             this->label1->BackColor = System::Drawing::Color::Transparent;
-            this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
+            this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
             this->label1->ForeColor = System::Drawing::Color::Black;
             this->label1->Location = System::Drawing::Point(80, 140);
             this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
             this->label1->Name = L"label1";
-            this->label1->Size = System::Drawing::Size(172, 17);
+            this->label1->Size = System::Drawing::Size(166, 16);
             this->label1->TabIndex = 2;
             this->label1->Text = L"Please, choose an action";
             // 
