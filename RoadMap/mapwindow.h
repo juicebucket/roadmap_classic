@@ -32,7 +32,6 @@ namespace RoadMap {
         Label^ progressLabel;
         System::Windows::Forms::OpenFileDialog^ openFileDialog1;
         System::Windows::Forms::Button^ btnLoadFile;
-        System::Windows::Forms::Panel^ RowsPanel;
         System::Windows::Forms::Button^ btnSaveChanges;
         System::Windows::Forms::Label^ labelSections;
         System::Windows::Forms::Label^ labelSubtopic;
@@ -44,7 +43,7 @@ namespace RoadMap {
         System::Windows::Forms::Label^ labelProgress;
         System::Windows::Forms::TextBox^ authorTextBox;
         System::Windows::Forms::TextBox^ deadlineTextBox;
-
+        System::Windows::Forms::Panel^ RowsPanel;
         System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
@@ -53,7 +52,6 @@ namespace RoadMap {
                System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(mapwindow::typeid));
                this->btnLoadFile = (gcnew System::Windows::Forms::Button());
                this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
-               this->RowsPanel = (gcnew System::Windows::Forms::Panel());
                this->btnSaveChanges = (gcnew System::Windows::Forms::Button());
                this->labelSections = (gcnew System::Windows::Forms::Label());
                this->labelSubtopic = (gcnew System::Windows::Forms::Label());
@@ -65,6 +63,7 @@ namespace RoadMap {
                this->labelProgress = (gcnew System::Windows::Forms::Label());
                this->authorTextBox = (gcnew System::Windows::Forms::TextBox());
                this->deadlineTextBox = (gcnew System::Windows::Forms::TextBox());
+               this->RowsPanel = (gcnew System::Windows::Forms::Panel());
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
                this->SuspendLayout();
@@ -83,14 +82,6 @@ namespace RoadMap {
                this->btnLoadFile->Text = L"UPLOAD";
                this->btnLoadFile->UseVisualStyleBackColor = false;
                this->btnLoadFile->Click += gcnew System::EventHandler(this, &mapwindow::btnLoadFile_Click);
-               // 
-               // RowsPanel
-               // 
-               this->RowsPanel->Location = System::Drawing::Point(31, 196);
-               this->RowsPanel->Margin = System::Windows::Forms::Padding(4);
-               this->RowsPanel->Name = L"RowsPanel";
-               this->RowsPanel->Size = System::Drawing::Size(551, 574);
-               this->RowsPanel->TabIndex = 8;
                // 
                // btnSaveChanges
                // 
@@ -224,6 +215,14 @@ namespace RoadMap {
                this->deadlineTextBox->Size = System::Drawing::Size(120, 20);
                this->deadlineTextBox->TabIndex = 26;
                // 
+               // RowsPanel
+               // 
+               this->RowsPanel->Location = System::Drawing::Point(31, 196);
+               this->RowsPanel->Margin = System::Windows::Forms::Padding(4);
+               this->RowsPanel->Name = L"RowsPanel";
+               this->RowsPanel->Size = System::Drawing::Size(551, 574);
+               this->RowsPanel->TabIndex = 8;
+               // 
                // mapwindow
                // 
                this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
@@ -259,7 +258,6 @@ namespace RoadMap {
            }
 
 #pragma endregion
-
     private:
         System::Void btnLoadFile_Click(System::Object^ sender, System::EventArgs^ e) {
             openFileDialog1->Filter = "XML Files (*.xml)|*.xml";
@@ -337,17 +335,29 @@ namespace RoadMap {
 
     private:
         System::Void CreateAndDisplayCheckpoints(String^ section, String^ description, String^ checkpoints, int yOffset, XmlDocument^ xmlDoc, String^ nodeType, int nodeIndex) {
+            Panel^ circlePanel = gcnew Panel();
+            circlePanel->Size = System::Drawing::Size(20, 20);
+            circlePanel->Location = System::Drawing::Point(5, yOffset); 
+            circlePanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(96)),
+                static_cast<System::Int32>(static_cast<System::Byte>(255)));
+
+            System::Drawing::Drawing2D::GraphicsPath^ path = gcnew System::Drawing::Drawing2D::GraphicsPath();
+            path->AddEllipse(0, 0, circlePanel->Width, circlePanel->Height);
+            circlePanel->Region = gcnew System::Drawing::Region(path);
+
+            RowsPanel->Controls->Add(circlePanel);
+
             Label^ topicLabel = gcnew Label();
             topicLabel->AutoSize = true;
             topicLabel->Font = (gcnew System::Drawing::Font(L"Arial", 11.50F, System::Drawing::FontStyle::Bold));
-            topicLabel->Location = System::Drawing::Point(12, yOffset);
+            topicLabel->Location = System::Drawing::Point(25, yOffset); 
             topicLabel->Text = section;
             RowsPanel->Controls->Add(topicLabel);
 
             Label^ descriptionLabel = gcnew Label();
             descriptionLabel->AutoSize = true;
             descriptionLabel->MaximumSize = System::Drawing::Size(180, 0);
-            descriptionLabel->Location = System::Drawing::Point(12, yOffset + 20);
+            descriptionLabel->Location = System::Drawing::Point(5, yOffset + 25);
             descriptionLabel->Text = description;
             RowsPanel->Controls->Add(descriptionLabel);
 
