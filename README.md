@@ -1,6 +1,6 @@
 ![Untitled](https://github.com/juicebucket/roadmap_project/assets/92608350/d2ab96b7-c914-47ca-b9d5-b7d0cee73bf3)
 
-Application version: 0.1.0. / Last Update: 17.06.2024
+Application version: 0.5.0. / Last Update: 21.08.2024
 
 ---
 
@@ -37,9 +37,9 @@ Application version: 0.1.0. / Last Update: 17.06.2024
 ---
 
 ### Future Plans
-1. **Removing a row**: Allow users to delete accidentally created rows..
+1. ✅ **Removing a row**: Allow users to delete accidentally created rows.. [21.08.2024]
 2. **RoadMap editing**: Edit the RoadMap after it has been created.
-3. **Checkpoints description**: Allow users to enter additional information for each checkpoints (like links, describing the element and etc.) 
+3. ✅ **Checkpoints description**: Allow users to enter additional information for each checkpoints (like links, describing the element and etc.) [21.08.2024]
 
 ---
 
@@ -53,7 +53,7 @@ This project was developed using the following technologies:
 
 ---
 
-### Installation [0.1.0]
+### Installation [0.5.0]
 You have an opportunity to download and install this application as a simple user. 
 
 The Visual C++ Redistributable library is required for the program to work. The program installer has already included auto-installation of this library for x64 and x86 systems.
