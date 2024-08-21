@@ -29,12 +29,14 @@ namespace RoadMap {
         }
 
     private:
+
         System::ComponentModel::BackgroundWorker^ backgroundWorker1;
         System::Windows::Forms::Label^ label1;
-        System::Windows::Forms::Button^ button_create;
-        System::Windows::Forms::Button^ button_upload;
-        System::Windows::Forms::PictureBox^ pictureBox1;
-        System::Windows::Forms::PictureBox^ pictureBox3;
+        System::Windows::Forms::Button^ createButton;
+        System::Windows::Forms::Button^ uploadButton;
+        System::Windows::Forms::PictureBox^ logoPicture;
+        System::Windows::Forms::Panel^ panel1;
+        System::Windows::Forms::Panel^ panel2;
         System::ComponentModel::Container^ components;
 
     protected:
@@ -46,12 +48,12 @@ namespace RoadMap {
             System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(mainwindow::typeid));
             this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
             this->label1 = (gcnew System::Windows::Forms::Label());
-            this->button_create = (gcnew System::Windows::Forms::Button());
-            this->button_upload = (gcnew System::Windows::Forms::Button());
-            this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-            this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+            this->createButton = (gcnew System::Windows::Forms::Button());
+            this->uploadButton = (gcnew System::Windows::Forms::Button());
+            this->logoPicture = (gcnew System::Windows::Forms::PictureBox());
+            this->panel1 = (gcnew System::Windows::Forms::Panel());
+            this->panel2 = (gcnew System::Windows::Forms::Panel());
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logoPicture))->BeginInit();
             this->SuspendLayout();
             // 
             // label1
@@ -67,56 +69,64 @@ namespace RoadMap {
             this->label1->TabIndex = 2;
             this->label1->Text = L"Please, choose an action";
             // 
-            // button_create
+            // createButton
             // 
-            this->button_create->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(77)), static_cast<System::Int32>(static_cast<System::Byte>(130)),
+            this->createButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(77)), static_cast<System::Int32>(static_cast<System::Byte>(130)),
                 static_cast<System::Int32>(static_cast<System::Byte>(246)));
-            this->button_create->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button_create.BackgroundImage")));
-            this->button_create->Font = (gcnew System::Drawing::Font(L"Tahoma", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->createButton->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"createButton.BackgroundImage")));
+            this->createButton->Font = (gcnew System::Drawing::Font(L"Tahoma", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->button_create->ForeColor = System::Drawing::Color::White;
-            this->button_create->Location = System::Drawing::Point(83, 177);
-            this->button_create->Margin = System::Windows::Forms::Padding(4);
-            this->button_create->Name = L"button_create";
-            this->button_create->Size = System::Drawing::Size(330, 271);
-            this->button_create->TabIndex = 3;
-            this->button_create->UseVisualStyleBackColor = false;
-            this->button_create->Click += gcnew System::EventHandler(this, &mainwindow::button_create_Click);
+            this->createButton->ForeColor = System::Drawing::Color::White;
+            this->createButton->Location = System::Drawing::Point(83, 177);
+            this->createButton->Margin = System::Windows::Forms::Padding(4);
+            this->createButton->Name = L"createButton";
+            this->createButton->Size = System::Drawing::Size(330, 271);
+            this->createButton->TabIndex = 3;
+            this->createButton->UseVisualStyleBackColor = false;
+            this->createButton->Click += gcnew System::EventHandler(this, &mainwindow::createButton_Click);
             // 
-            // button_upload
+            // uploadButton
             // 
-            this->button_upload->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(77)), static_cast<System::Int32>(static_cast<System::Byte>(130)),
+            this->uploadButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(77)), static_cast<System::Int32>(static_cast<System::Byte>(130)),
                 static_cast<System::Int32>(static_cast<System::Byte>(246)));
-            this->button_upload->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button_upload.BackgroundImage")));
-            this->button_upload->FlatAppearance->BorderColor = System::Drawing::Color::Black;
-            this->button_upload->FlatAppearance->BorderSize = 500;
-            this->button_upload->Font = (gcnew System::Drawing::Font(L"Tahoma", 12, System::Drawing::FontStyle::Bold));
-            this->button_upload->ForeColor = System::Drawing::Color::White;
-            this->button_upload->Location = System::Drawing::Point(495, 177);
-            this->button_upload->Margin = System::Windows::Forms::Padding(4);
-            this->button_upload->Name = L"button_upload";
-            this->button_upload->Size = System::Drawing::Size(329, 271);
-            this->button_upload->TabIndex = 4;
-            this->button_upload->UseVisualStyleBackColor = false;
-            this->button_upload->Click += gcnew System::EventHandler(this, &mainwindow::button_upload_Click);
+            this->uploadButton->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"uploadButton.BackgroundImage")));
+            this->uploadButton->FlatAppearance->BorderColor = System::Drawing::Color::Black;
+            this->uploadButton->FlatAppearance->BorderSize = 500;
+            this->uploadButton->Font = (gcnew System::Drawing::Font(L"Tahoma", 12, System::Drawing::FontStyle::Bold));
+            this->uploadButton->ForeColor = System::Drawing::Color::White;
+            this->uploadButton->Location = System::Drawing::Point(495, 177);
+            this->uploadButton->Margin = System::Windows::Forms::Padding(4);
+            this->uploadButton->Name = L"uploadButton";
+            this->uploadButton->Size = System::Drawing::Size(329, 271);
+            this->uploadButton->TabIndex = 4;
+            this->uploadButton->UseVisualStyleBackColor = false;
+            this->uploadButton->Click += gcnew System::EventHandler(this, &mainwindow::uploadButton_Click);
             // 
-            // pictureBox1
+            // logoPicture
             // 
-            this->pictureBox1->BackColor = System::Drawing::Color::White;
-            this->pictureBox1->Location = System::Drawing::Point(-7, -7);
-            this->pictureBox1->Name = L"pictureBox1";
-            this->pictureBox1->Size = System::Drawing::Size(927, 108);
-            this->pictureBox1->TabIndex = 5;
-            this->pictureBox1->TabStop = false;
+            this->logoPicture->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logoPicture.BackgroundImage")));
+            this->logoPicture->Location = System::Drawing::Point(24, 26);
+            this->logoPicture->Name = L"logoPicture";
+            this->logoPicture->Size = System::Drawing::Size(161, 50);
+            this->logoPicture->TabIndex = 7;
+            this->logoPicture->TabStop = false;
             // 
-            // pictureBox3
+            // panel1
             // 
-            this->pictureBox3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.BackgroundImage")));
-            this->pictureBox3->Location = System::Drawing::Point(24, 26);
-            this->pictureBox3->Name = L"pictureBox3";
-            this->pictureBox3->Size = System::Drawing::Size(161, 50);
-            this->pictureBox3->TabIndex = 7;
-            this->pictureBox3->TabStop = false;
+            this->panel1->BackColor = System::Drawing::Color::White;
+            this->panel1->Dock = System::Windows::Forms::DockStyle::Top;
+            this->panel1->Location = System::Drawing::Point(0, 0);
+            this->panel1->Name = L"panel1";
+            this->panel1->Size = System::Drawing::Size(909, 100);
+            this->panel1->TabIndex = 8;
+            // 
+            // panel2
+            // 
+            this->panel2->Dock = System::Windows::Forms::DockStyle::Bottom;
+            this->panel2->Location = System::Drawing::Point(0, 98);
+            this->panel2->Name = L"panel2";
+            this->panel2->Size = System::Drawing::Size(909, 408);
+            this->panel2->TabIndex = 9;
             // 
             // mainwindow
             // 
@@ -124,11 +134,12 @@ namespace RoadMap {
             this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(244)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(249)));
             this->ClientSize = System::Drawing::Size(909, 506);
-            this->Controls->Add(this->pictureBox3);
-            this->Controls->Add(this->pictureBox1);
+            this->Controls->Add(this->logoPicture);
             this->Controls->Add(this->label1);
-            this->Controls->Add(this->button_create);
-            this->Controls->Add(this->button_upload);
+            this->Controls->Add(this->createButton);
+            this->Controls->Add(this->uploadButton);
+            this->Controls->Add(this->panel1);
+            this->Controls->Add(this->panel2);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
             this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
             this->Margin = System::Windows::Forms::Padding(4);
@@ -136,25 +147,23 @@ namespace RoadMap {
             this->MinimizeBox = false;
             this->Name = L"mainwindow";
             this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-            this->Text = L"RoadMap v0.5.0";
+            this->Text = L"RoadMap v0.6.0";
             this->TransparencyKey = System::Drawing::SystemColors::WindowFrame;
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logoPicture))->EndInit();
             this->ResumeLayout(false);
             this->PerformLayout();
 
         }
 
 #pragma endregion
-
     private:
-        System::Void button_create_Click(System::Object^ sender, System::EventArgs^ e) {
+        System::Void createButton_Click(System::Object^ sender, System::EventArgs^ e) {
             creationwindow^ createRoadmap = gcnew creationwindow();
             createRoadmap->Show();
         }
 
     private:
-        System::Void button_upload_Click(System::Object^ sender, System::EventArgs^ e) {
+        System::Void uploadButton_Click(System::Object^ sender, System::EventArgs^ e) {
             mapwindow^ RoadMapWindow = gcnew mapwindow();
             RoadMapWindow->Show();
         }

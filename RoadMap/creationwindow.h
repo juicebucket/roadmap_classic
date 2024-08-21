@@ -37,17 +37,14 @@ namespace RoadMap {
 
 		System::Windows::Forms::Label^ main_title;
 		System::Windows::Forms::Label^ labelRoadmapName;
-		System::Windows::Forms::PictureBox^ pictureBox1;
-		System::Windows::Forms::Label^ label2;
-	    System::Windows::Forms::TextBox^ RoadmapTextBox;
+	    System::Windows::Forms::TextBox^ roadmapTextBox;
 		System::Windows::Forms::Label^ labelSections;
 		System::Windows::Forms::Label^ labelCheckpoints;
 		System::Windows::Forms::TextBox^ TopicTextBox;
 		System::Windows::Forms::TextBox^ subtopicTextBox;
 		System::Windows::Forms::Button^ AddNewRowButton;
 		System::Windows::Forms::Button^ SaveButton;
-		System::Windows::Forms::PictureBox^ pictureBox3;
-		System::Windows::Forms::PictureBox^ pictureBox2;
+		System::Windows::Forms::PictureBox^ logoPicture;
 		System::Windows::Forms::Label^ authorLabel;
 		System::Windows::Forms::TextBox^ authorTextBox;
 		System::Windows::Forms::DateTimePicker^ dateTimePicker;
@@ -55,7 +52,9 @@ namespace RoadMap {
 		System::Windows::Forms::Button^ DeleteLastRowButton;
 		System::Windows::Forms::Panel^ scrollPanel;
 		System::Windows::Forms::TextBox^ DescriptionTextBox;
-		
+		System::Windows::Forms::Panel^ panel1;
+		System::Windows::Forms::Panel^ panel2;
+
 		System::ComponentModel::Container^ components;
 
 	protected:
@@ -70,17 +69,14 @@ namespace RoadMap {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(creationwindow::typeid));
 			this->main_title = (gcnew System::Windows::Forms::Label());
 			this->labelRoadmapName = (gcnew System::Windows::Forms::Label());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->RoadmapTextBox = (gcnew System::Windows::Forms::TextBox());
+			this->roadmapTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->labelSections = (gcnew System::Windows::Forms::Label());
 			this->labelCheckpoints = (gcnew System::Windows::Forms::Label());
 			this->TopicTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->subtopicTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->AddNewRowButton = (gcnew System::Windows::Forms::Button());
 			this->SaveButton = (gcnew System::Windows::Forms::Button());
-			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->logoPicture = (gcnew System::Windows::Forms::PictureBox());
 			this->authorLabel = (gcnew System::Windows::Forms::Label());
 			this->authorTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->dateTimePicker = (gcnew System::Windows::Forms::DateTimePicker());
@@ -88,9 +84,10 @@ namespace RoadMap {
 			this->DeleteLastRowButton = (gcnew System::Windows::Forms::Button());
 			this->scrollPanel = (gcnew System::Windows::Forms::Panel());
 			this->DescriptionTextBox = (gcnew System::Windows::Forms::TextBox());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logoPicture))->BeginInit();
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// main_title
@@ -117,43 +114,21 @@ namespace RoadMap {
 			this->labelRoadmapName->Location = System::Drawing::Point(78, 140);
 			this->labelRoadmapName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelRoadmapName->Name = L"labelRoadmapName";
-			this->labelRoadmapName->Size = System::Drawing::Size(181, 16);
+			this->labelRoadmapName->Size = System::Drawing::Size(108, 16);
 			this->labelRoadmapName->TabIndex = 3;
-			this->labelRoadmapName->Text = L"Enter the name of roadmap";
+			this->labelRoadmapName->Text = L"Roadmap name";
 			// 
-			// pictureBox1
+			// roadmapTextBox
 			// 
-			this->pictureBox1->BackColor = System::Drawing::Color::Crimson;
-			this->pictureBox1->Location = System::Drawing::Point(-11, -6);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(4);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(957, 78);
-			this->pictureBox1->TabIndex = 4;
-			this->pictureBox1->TabStop = false;
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::Crimson;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Trebuchet MS", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(28, 25);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(169, 22);
-			this->label2->TabIndex = 5;
-			this->label2->Text = L"Create new roadmap";
-			// 
-			// RoadmapTextBox
-			// 
-			this->RoadmapTextBox->BackColor = System::Drawing::Color::White;
-			this->RoadmapTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->RoadmapTextBox->Location = System::Drawing::Point(81, 162);
-			this->RoadmapTextBox->Margin = System::Windows::Forms::Padding(4);
-			this->RoadmapTextBox->Name = L"RoadmapTextBox";
-			this->RoadmapTextBox->Size = System::Drawing::Size(259, 20);
-			this->RoadmapTextBox->TabIndex = 6;
+			this->roadmapTextBox->BackColor = System::Drawing::Color::White;
+			this->roadmapTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->roadmapTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F));
+			this->roadmapTextBox->Location = System::Drawing::Point(81, 162);
+			this->roadmapTextBox->Margin = System::Windows::Forms::Padding(4);
+			this->roadmapTextBox->MaxLength = 45;
+			this->roadmapTextBox->Name = L"roadmapTextBox";
+			this->roadmapTextBox->Size = System::Drawing::Size(259, 20);
+			this->roadmapTextBox->TabIndex = 6;
 			// 
 			// labelSections
 			// 
@@ -165,9 +140,9 @@ namespace RoadMap {
 			this->labelSections->Location = System::Drawing::Point(78, 255);
 			this->labelSections->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelSections->Name = L"labelSections";
-			this->labelSections->Size = System::Drawing::Size(47, 16);
+			this->labelSections->Size = System::Drawing::Size(156, 16);
 			this->labelSections->TabIndex = 7;
-			this->labelSections->Text = L"Topics";
+			this->labelSections->Text = L"Topics and Descriptions";
 			// 
 			// labelCheckpoints
 			// 
@@ -179,16 +154,18 @@ namespace RoadMap {
 			this->labelCheckpoints->Location = System::Drawing::Point(355, 257);
 			this->labelCheckpoints->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelCheckpoints->Name = L"labelCheckpoints";
-			this->labelCheckpoints->Size = System::Drawing::Size(227, 16);
+			this->labelCheckpoints->Size = System::Drawing::Size(69, 16);
 			this->labelCheckpoints->TabIndex = 8;
-			this->labelCheckpoints->Text = L"Subtopics (Separate with commas)";
+			this->labelCheckpoints->Text = L"Subtopics";
 			// 
 			// TopicTextBox
 			// 
 			this->TopicTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->TopicTextBox->Enabled = false;
+			this->TopicTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F));
 			this->TopicTextBox->Location = System::Drawing::Point(81, 279);
 			this->TopicTextBox->Margin = System::Windows::Forms::Padding(4);
+			this->TopicTextBox->MaxLength = 45;
 			this->TopicTextBox->Name = L"TopicTextBox";
 			this->TopicTextBox->Size = System::Drawing::Size(259, 20);
 			this->TopicTextBox->TabIndex = 11;
@@ -198,15 +175,16 @@ namespace RoadMap {
 			// 
 			this->subtopicTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->subtopicTextBox->Enabled = false;
+			this->subtopicTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F));
 			this->subtopicTextBox->Location = System::Drawing::Point(359, 279);
 			this->subtopicTextBox->Margin = System::Windows::Forms::Padding(4);
+			this->subtopicTextBox->MaxLength = 1500;
 			this->subtopicTextBox->Multiline = true;
 			this->subtopicTextBox->Name = L"subtopicTextBox";
 			this->subtopicTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->subtopicTextBox->Size = System::Drawing::Size(480, 63);
 			this->subtopicTextBox->TabIndex = 12;
-			this->subtopicTextBox->Text = L"#Enter subtopics names. Use \",\" (commas) to separate suptopics. Up to 30 characte"
-				L"rs.\r\n";
+			this->subtopicTextBox->Text = L"#Enter subtopics names. Use \",\" (commas) to separate suptopics.\r\n\r\n";
 			// 
 			// AddNewRowButton
 			// 
@@ -238,23 +216,14 @@ namespace RoadMap {
 			this->SaveButton->UseVisualStyleBackColor = false;
 			this->SaveButton->Click += gcnew System::EventHandler(this, &creationwindow::SaveButton_Click);
 			// 
-			// pictureBox3
+			// logoPicture
 			// 
-			this->pictureBox3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.BackgroundImage")));
-			this->pictureBox3->Location = System::Drawing::Point(32, 25);
-			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(161, 50);
-			this->pictureBox3->TabIndex = 16;
-			this->pictureBox3->TabStop = false;
-			// 
-			// pictureBox2
-			// 
-			this->pictureBox2->BackColor = System::Drawing::Color::White;
-			this->pictureBox2->Location = System::Drawing::Point(-11, -6);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(1000, 115);
-			this->pictureBox2->TabIndex = 15;
-			this->pictureBox2->TabStop = false;
+			this->logoPicture->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logoPicture.BackgroundImage")));
+			this->logoPicture->Location = System::Drawing::Point(32, 25);
+			this->logoPicture->Name = L"logoPicture";
+			this->logoPicture->Size = System::Drawing::Size(161, 50);
+			this->logoPicture->TabIndex = 16;
+			this->logoPicture->TabStop = false;
 			// 
 			// authorLabel
 			// 
@@ -266,27 +235,29 @@ namespace RoadMap {
 			this->authorLabel->Location = System::Drawing::Point(78, 198);
 			this->authorLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->authorLabel->Name = L"authorLabel";
-			this->authorLabel->Size = System::Drawing::Size(98, 16);
+			this->authorLabel->Size = System::Drawing::Size(49, 16);
 			this->authorLabel->TabIndex = 17;
-			this->authorLabel->Text = L"Author\'s name";
+			this->authorLabel->Text = L"Author";
 			// 
 			// authorTextBox
 			// 
 			this->authorTextBox->BackColor = System::Drawing::Color::White;
 			this->authorTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->authorTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F));
 			this->authorTextBox->Location = System::Drawing::Point(81, 220);
 			this->authorTextBox->Margin = System::Windows::Forms::Padding(4);
+			this->authorTextBox->MaxLength = 45;
 			this->authorTextBox->Name = L"authorTextBox";
 			this->authorTextBox->Size = System::Drawing::Size(259, 20);
 			this->authorTextBox->TabIndex = 18;
 			// 
 			// dateTimePicker
 			// 
-			this->dateTimePicker->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F));
+			this->dateTimePicker->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F));
 			this->dateTimePicker->Location = System::Drawing::Point(361, 220);
 			this->dateTimePicker->MinDate = System::DateTime(2024, 8, 19, 0, 0, 0, 0);
 			this->dateTimePicker->Name = L"dateTimePicker";
-			this->dateTimePicker->Size = System::Drawing::Size(259, 22);
+			this->dateTimePicker->Size = System::Drawing::Size(259, 20);
 			this->dateTimePicker->TabIndex = 19;
 			// 
 			// deadlineLabel
@@ -299,9 +270,9 @@ namespace RoadMap {
 			this->deadlineLabel->Location = System::Drawing::Point(358, 199);
 			this->deadlineLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->deadlineLabel->Name = L"deadlineLabel";
-			this->deadlineLabel->Size = System::Drawing::Size(141, 16);
+			this->deadlineLabel->Size = System::Drawing::Size(64, 16);
 			this->deadlineLabel->TabIndex = 20;
-			this->deadlineLabel->Text = L"Deadline of roadmap";
+			this->deadlineLabel->Text = L"Deadline";
 			// 
 			// DeleteLastRowButton
 			// 
@@ -321,6 +292,7 @@ namespace RoadMap {
 			// scrollPanel
 			// 
 			this->scrollPanel->AutoScroll = true;
+			this->scrollPanel->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F));
 			this->scrollPanel->Location = System::Drawing::Point(81, 349);
 			this->scrollPanel->Name = L"scrollPanel";
 			this->scrollPanel->Size = System::Drawing::Size(916, 239);
@@ -330,8 +302,11 @@ namespace RoadMap {
 			// 
 			this->DescriptionTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->DescriptionTextBox->Enabled = false;
+			this->DescriptionTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->DescriptionTextBox->Location = System::Drawing::Point(81, 307);
 			this->DescriptionTextBox->Margin = System::Windows::Forms::Padding(4);
+			this->DescriptionTextBox->MaxLength = 150;
 			this->DescriptionTextBox->Multiline = true;
 			this->DescriptionTextBox->Name = L"DescriptionTextBox";
 			this->DescriptionTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
@@ -339,12 +314,31 @@ namespace RoadMap {
 			this->DescriptionTextBox->TabIndex = 23;
 			this->DescriptionTextBox->Text = L"#Enter description for topic";
 			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::White;
+			this->panel1->Controls->Add(this->logoPicture);
+			this->panel1->Dock = System::Windows::Forms::DockStyle::Top;
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(998, 100);
+			this->panel1->TabIndex = 24;
+			// 
+			// panel2
+			// 
+			this->panel2->Dock = System::Windows::Forms::DockStyle::Bottom;
+			this->panel2->Location = System::Drawing::Point(0, 94);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(998, 652);
+			this->panel2->TabIndex = 25;
+			// 
 			// creationwindow
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(244)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(249)));
 			this->ClientSize = System::Drawing::Size(998, 746);
+			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->DescriptionTextBox);
 			this->Controls->Add(this->scrollPanel);
 			this->Controls->Add(this->DeleteLastRowButton);
@@ -352,19 +346,16 @@ namespace RoadMap {
 			this->Controls->Add(this->dateTimePicker);
 			this->Controls->Add(this->authorTextBox);
 			this->Controls->Add(this->authorLabel);
-			this->Controls->Add(this->pictureBox3);
-			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->SaveButton);
 			this->Controls->Add(this->AddNewRowButton);
 			this->Controls->Add(this->subtopicTextBox);
 			this->Controls->Add(this->TopicTextBox);
 			this->Controls->Add(this->labelCheckpoints);
 			this->Controls->Add(this->labelSections);
-			this->Controls->Add(this->RoadmapTextBox);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->roadmapTextBox);
 			this->Controls->Add(this->labelRoadmapName);
 			this->Controls->Add(this->main_title);
+			this->Controls->Add(this->panel2);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4);
@@ -372,21 +363,18 @@ namespace RoadMap {
 			this->MinimizeBox = false;
 			this->Name = L"creationwindow";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"RoadMap - Create new roadmap";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			this->Text = L"RoadMap - Create new map";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logoPicture))->EndInit();
+			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 
 #pragma endregion
-
 	private:
 		System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
-			if (TopicCount >= 16) {
+			if (TopicCount >= 15) {
 				MessageBox::Show("Maximum 15 Topics allowed.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
 			}
@@ -434,6 +422,10 @@ namespace RoadMap {
 			newsubtopicTextBox->Name = "subtopicTextBox_" + TopicCount.ToString();
 			newDescriptionTextBox->Name = "DescriptionTextBox_" + TopicCount.ToString();
 
+			newTopicTextBox->MaxLength = 45;
+			newsubtopicTextBox->MaxLength = 1500;
+			newDescriptionTextBox->MaxLength = 150;
+
 			newsubtopicTextBox->Multiline = true;
 			newsubtopicTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 
@@ -453,52 +445,67 @@ namespace RoadMap {
 
 	private:
 		System::Void SaveButton_Click(System::Object^ sender, System::EventArgs^ e) {
-			if (RoadmapTextBox->Text->Length > 45 || RoadmapTextBox->Text->Length == 0) {
-				MessageBox::Show("Roadmap name can be up to 45 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			if (roadmapTextBox->Text->Length > 40 || roadmapTextBox->Text->Length == 0) {
+				MessageBox::Show("Roadmap name can be up to 40 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
 			}
-
 			if (authorTextBox->Text->Length > 45 || authorTextBox->Text->Length == 0) {
 				MessageBox::Show("Author name can be up to 45 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
+			}
+
+			for (int i = 0; i < textBoxes->Count; i += 3) {
+				String^ subtopicText = textBoxes[i + 1]->Text->Trim();
+				String^ descriptionText = textBoxes[i + 2]->Text->Trim();
+
+				int subtopicCount = subtopicText->Split(gcnew array<wchar_t>{','}, StringSplitOptions::RemoveEmptyEntries)->Length;
+
+				if (descriptionText->Length > 0 && subtopicCount < 4) {
+					MessageBox::Show("Each row must have at least 4 subtopics if a description is provided. Please add more subtopics before saving.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					return;
+				}
+				String^ TopicText = textBoxes[i]->Text->Trim();
+				if (TopicText->Length > 40 || TopicText->Length == 0) {
+					MessageBox::Show("Topic name can be up to 40 characters long and cannot be empty in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					return;
+				}
+				if (descriptionText->Length > 150) {
+					MessageBox::Show("Description can be up to 150 characters long in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					return;
+				}
+				if (String::IsNullOrWhiteSpace(subtopicText)) {
+					MessageBox::Show("Subtopic cannot be empty in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					return;
+				}
+				int commaIndex = subtopicText->IndexOf(",");
+				if (commaIndex >= 0) {
+					if (commaIndex > 45) {
+						MessageBox::Show("You can enter only 45 symbols before comma in subtopics in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+						return;
+					}
+				}
+				else {
+					if (subtopicText->Length > 45) {
+						MessageBox::Show("You can enter only 45 symbols before comma in subtopics in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+						return;
+					}
+				}
 			}
 
 			System::Xml::XmlDocument^ xmlDoc = gcnew System::Xml::XmlDocument();
 			System::Xml::XmlElement^ rootNode = xmlDoc->CreateElement("RoadMap");
 
 			System::Xml::XmlElement^ infoNode = xmlDoc->CreateElement("MAPINFO");
-			infoNode->SetAttribute("Title", RoadmapTextBox->Text);
+			infoNode->SetAttribute("Title", roadmapTextBox->Text);
 			infoNode->SetAttribute("Author", authorTextBox->Text);
 			rootNode->AppendChild(infoNode);
 
 			for (int i = 0; i < textBoxes->Count; i += 3) {
-				String^ TopicText = textBoxes[i]->Text;
-				String^ DescriptionText = textBoxes[i + 2]->Text;
-				String^ SubtopicTextDynamic = textBoxes[i + 1]->Text;
+				String^ TopicText = textBoxes[i]->Text->Trim();
+				String^ DescriptionText = textBoxes[i + 2]->Text->Trim();
+				String^ SubtopicTextDynamic = textBoxes[i + 1]->Text->Trim();
 
-				if (TopicText->Length > 45 || TopicText->Length == 0) {
-					MessageBox::Show("Topic name can be up to 35 characters long and cannot be empty in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					return;
-				}
-
-				if (DescriptionText->Length > 150 || DescriptionText->Length == 0) {
-					MessageBox::Show("Description can be up to 150 characters long and cannot be empty in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					return;
-				}
-
-				int commaIndex = SubtopicTextDynamic->IndexOf(",");
-				if (commaIndex >= 0) {
-					if (commaIndex > 50) {
-						MessageBox::Show("You can enter only 50 symbols before comma in subtopics in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-						return;
-					}
-				}
-				else {
-					if (SubtopicTextDynamic->Length > 50) {
-						MessageBox::Show("You can enter only 50 symbols before comma in subtopics in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-						return;
-					}
-				}
+				SubtopicTextDynamic = SubtopicTextDynamic->Replace("\r", "")->Replace("\n", "");
 
 				System::Xml::XmlElement^ rowsNode = xmlDoc->CreateElement("ROWS");
 				rowsNode->SetAttribute("Topic", TopicText);
@@ -529,7 +536,6 @@ namespace RoadMap {
 				MessageBox::Show("Error occurred while saving the Roadmap: " + ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
-
 
 	private:
 		System::Void DeleteLastRowButton_Click_1(System::Object^ sender, System::EventArgs^ e) {

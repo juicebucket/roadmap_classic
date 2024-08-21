@@ -30,134 +30,114 @@ namespace RoadMap {
 
     private:
         Label^ progressLabel;
+
         System::Windows::Forms::OpenFileDialog^ openFileDialog1;
-        System::Windows::Forms::Button^ btnLoadFile;
-        System::Windows::Forms::Button^ btnSaveChanges;
-        System::Windows::Forms::Label^ labelSections;
-        System::Windows::Forms::Label^ labelSubtopic;
-        System::Windows::Forms::Label^ titleLabel;
-        System::Windows::Forms::PictureBox^ pictureBox3;
-        System::Windows::Forms::PictureBox^ pictureBox2;
+        System::Windows::Forms::Button^ uploadButton;
+        System::Windows::Forms::Button^ saveButton;
+        System::Windows::Forms::Label^ topicLabel;
+        System::Windows::Forms::Label^ subtopicLabel;
+        System::Windows::Forms::PictureBox^ logoPicture;
         System::Windows::Forms::Label^ authorLabel;
         System::Windows::Forms::Label^ deadlineLabel;
         System::Windows::Forms::Label^ labelProgress;
         System::Windows::Forms::TextBox^ authorTextBox;
         System::Windows::Forms::TextBox^ deadlineTextBox;
         System::Windows::Forms::Panel^ RowsPanel;
+        System::Windows::Forms::Label^ titleLabel;
+        System::Windows::Forms::Panel^ panel1;
+        System::Windows::Forms::Panel^ panel2;
+
         System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 
            void InitializeComponent(void) {
                System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(mapwindow::typeid));
-               this->btnLoadFile = (gcnew System::Windows::Forms::Button());
+               this->uploadButton = (gcnew System::Windows::Forms::Button());
                this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
-               this->btnSaveChanges = (gcnew System::Windows::Forms::Button());
-               this->labelSections = (gcnew System::Windows::Forms::Label());
-               this->labelSubtopic = (gcnew System::Windows::Forms::Label());
-               this->titleLabel = (gcnew System::Windows::Forms::Label());
-               this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-               this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+               this->saveButton = (gcnew System::Windows::Forms::Button());
+               this->topicLabel = (gcnew System::Windows::Forms::Label());
+               this->subtopicLabel = (gcnew System::Windows::Forms::Label());
+               this->logoPicture = (gcnew System::Windows::Forms::PictureBox());
                this->authorLabel = (gcnew System::Windows::Forms::Label());
                this->deadlineLabel = (gcnew System::Windows::Forms::Label());
                this->labelProgress = (gcnew System::Windows::Forms::Label());
                this->authorTextBox = (gcnew System::Windows::Forms::TextBox());
                this->deadlineTextBox = (gcnew System::Windows::Forms::TextBox());
                this->RowsPanel = (gcnew System::Windows::Forms::Panel());
-               (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
-               (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+               this->titleLabel = (gcnew System::Windows::Forms::Label());
+               this->panel1 = (gcnew System::Windows::Forms::Panel());
+               this->panel2 = (gcnew System::Windows::Forms::Panel());
+               (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logoPicture))->BeginInit();
+               this->panel2->SuspendLayout();
                this->SuspendLayout();
                // 
-               // btnLoadFile
+               // uploadButton
                // 
-               this->btnLoadFile->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(96)),
+               this->uploadButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(96)),
                    static_cast<System::Int32>(static_cast<System::Byte>(255)));
-               this->btnLoadFile->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
-               this->btnLoadFile->ForeColor = System::Drawing::Color::White;
-               this->btnLoadFile->Location = System::Drawing::Point(599, 664);
-               this->btnLoadFile->Margin = System::Windows::Forms::Padding(4);
-               this->btnLoadFile->Name = L"btnLoadFile";
-               this->btnLoadFile->Size = System::Drawing::Size(160, 49);
-               this->btnLoadFile->TabIndex = 7;
-               this->btnLoadFile->Text = L"UPLOAD";
-               this->btnLoadFile->UseVisualStyleBackColor = false;
-               this->btnLoadFile->Click += gcnew System::EventHandler(this, &mapwindow::btnLoadFile_Click);
+               this->uploadButton->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
+               this->uploadButton->ForeColor = System::Drawing::Color::White;
+               this->uploadButton->Location = System::Drawing::Point(599, 664);
+               this->uploadButton->Margin = System::Windows::Forms::Padding(4);
+               this->uploadButton->Name = L"uploadButton";
+               this->uploadButton->Size = System::Drawing::Size(160, 49);
+               this->uploadButton->TabIndex = 7;
+               this->uploadButton->Text = L"UPLOAD";
+               this->uploadButton->UseVisualStyleBackColor = false;
+               this->uploadButton->Click += gcnew System::EventHandler(this, &mapwindow::uploadButton_Click);
                // 
-               // btnSaveChanges
+               // saveButton
                // 
-               this->btnSaveChanges->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(96)),
+               this->saveButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(96)),
                    static_cast<System::Int32>(static_cast<System::Byte>(255)));
-               this->btnSaveChanges->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
-               this->btnSaveChanges->ForeColor = System::Drawing::Color::White;
-               this->btnSaveChanges->Location = System::Drawing::Point(599, 721);
-               this->btnSaveChanges->Margin = System::Windows::Forms::Padding(4);
-               this->btnSaveChanges->Name = L"btnSaveChanges";
-               this->btnSaveChanges->Size = System::Drawing::Size(160, 49);
-               this->btnSaveChanges->TabIndex = 9;
-               this->btnSaveChanges->Text = L"SAVE CHANGES";
-               this->btnSaveChanges->UseVisualStyleBackColor = false;
-               this->btnSaveChanges->Click += gcnew System::EventHandler(this, &mapwindow::btnSaveChanges_Click);
+               this->saveButton->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
+               this->saveButton->ForeColor = System::Drawing::Color::White;
+               this->saveButton->Location = System::Drawing::Point(599, 721);
+               this->saveButton->Margin = System::Windows::Forms::Padding(4);
+               this->saveButton->Name = L"saveButton";
+               this->saveButton->Size = System::Drawing::Size(160, 49);
+               this->saveButton->TabIndex = 9;
+               this->saveButton->Text = L"SAVE CHANGES";
+               this->saveButton->UseVisualStyleBackColor = false;
+               this->saveButton->Click += gcnew System::EventHandler(this, &mapwindow::saveButton_Click);
                // 
-               // labelSections
+               // topicLabel
                // 
-               this->labelSections->AutoSize = true;
-               this->labelSections->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(244)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
+               this->topicLabel->AutoSize = true;
+               this->topicLabel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(244)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                    static_cast<System::Int32>(static_cast<System::Byte>(249)));
-               this->labelSections->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
-               this->labelSections->ForeColor = System::Drawing::Color::Black;
-               this->labelSections->Location = System::Drawing::Point(28, 168);
-               this->labelSections->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-               this->labelSections->Name = L"labelSections";
-               this->labelSections->Size = System::Drawing::Size(160, 16);
-               this->labelSections->TabIndex = 10;
-               this->labelSections->Text = L"Topics and Descriptions:";
+               this->topicLabel->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
+               this->topicLabel->ForeColor = System::Drawing::Color::Black;
+               this->topicLabel->Location = System::Drawing::Point(28, 168);
+               this->topicLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+               this->topicLabel->Name = L"topicLabel";
+               this->topicLabel->Size = System::Drawing::Size(156, 16);
+               this->topicLabel->TabIndex = 10;
+               this->topicLabel->Text = L"Topics and Descriptions";
                // 
-               // labelSubtopic
+               // subtopicLabel
                // 
-               this->labelSubtopic->AutoSize = true;
-               this->labelSubtopic->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(244)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
+               this->subtopicLabel->AutoSize = true;
+               this->subtopicLabel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(244)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                    static_cast<System::Int32>(static_cast<System::Byte>(249)));
-               this->labelSubtopic->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
-               this->labelSubtopic->ForeColor = System::Drawing::Color::Black;
-               this->labelSubtopic->Location = System::Drawing::Point(235, 168);
-               this->labelSubtopic->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-               this->labelSubtopic->Name = L"labelSubtopic";
-               this->labelSubtopic->Size = System::Drawing::Size(73, 16);
-               this->labelSubtopic->TabIndex = 11;
-               this->labelSubtopic->Text = L"Subtopics:";
+               this->subtopicLabel->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
+               this->subtopicLabel->ForeColor = System::Drawing::Color::Black;
+               this->subtopicLabel->Location = System::Drawing::Point(260, 70);
+               this->subtopicLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+               this->subtopicLabel->Name = L"subtopicLabel";
+               this->subtopicLabel->Size = System::Drawing::Size(69, 16);
+               this->subtopicLabel->TabIndex = 11;
+               this->subtopicLabel->Text = L"Subtopics";
                // 
-               // titleLabel
+               // logoPicture
                // 
-               this->titleLabel->AutoSize = true;
-               this->titleLabel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(96)),
-                   static_cast<System::Int32>(static_cast<System::Byte>(255)));
-               this->titleLabel->Font = (gcnew System::Drawing::Font(L"Arial", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                   static_cast<System::Byte>(0)));
-               this->titleLabel->ForeColor = System::Drawing::Color::White;
-               this->titleLabel->Location = System::Drawing::Point(234, 35);
-               this->titleLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-               this->titleLabel->Name = L"titleLabel";
-               this->titleLabel->Size = System::Drawing::Size(49, 24);
-               this->titleLabel->TabIndex = 12;
-               this->titleLabel->Text = L"\?\?\?";
-               // 
-               // pictureBox3
-               // 
-               this->pictureBox3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.BackgroundImage")));
-               this->pictureBox3->Location = System::Drawing::Point(31, 28);
-               this->pictureBox3->Name = L"pictureBox3";
-               this->pictureBox3->Size = System::Drawing::Size(161, 50);
-               this->pictureBox3->TabIndex = 17;
-               this->pictureBox3->TabStop = false;
-               // 
-               // pictureBox2
-               // 
-               this->pictureBox2->BackColor = System::Drawing::Color::White;
-               this->pictureBox2->Location = System::Drawing::Point(-4, -5);
-               this->pictureBox2->Name = L"pictureBox2";
-               this->pictureBox2->Size = System::Drawing::Size(801, 104);
-               this->pictureBox2->TabIndex = 18;
-               this->pictureBox2->TabStop = false;
+               this->logoPicture->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logoPicture.BackgroundImage")));
+               this->logoPicture->Location = System::Drawing::Point(31, 28);
+               this->logoPicture->Name = L"logoPicture";
+               this->logoPicture->Size = System::Drawing::Size(161, 50);
+               this->logoPicture->TabIndex = 17;
+               this->logoPicture->TabStop = false;
                // 
                // authorLabel
                // 
@@ -179,7 +159,7 @@ namespace RoadMap {
                    static_cast<System::Int32>(static_cast<System::Byte>(249)));
                this->deadlineLabel->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
                this->deadlineLabel->ForeColor = System::Drawing::Color::Black;
-               this->deadlineLabel->Location = System::Drawing::Point(235, 115);
+               this->deadlineLabel->Location = System::Drawing::Point(260, 115);
                this->deadlineLabel->Name = L"deadlineLabel";
                this->deadlineLabel->Size = System::Drawing::Size(64, 16);
                this->deadlineLabel->TabIndex = 22;
@@ -201,15 +181,19 @@ namespace RoadMap {
                // 
                // authorTextBox
                // 
+               this->authorTextBox->BackColor = System::Drawing::Color::White;
+               this->authorTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
                this->authorTextBox->Location = System::Drawing::Point(31, 134);
                this->authorTextBox->Name = L"authorTextBox";
                this->authorTextBox->ReadOnly = true;
-               this->authorTextBox->Size = System::Drawing::Size(176, 20);
+               this->authorTextBox->Size = System::Drawing::Size(209, 20);
                this->authorTextBox->TabIndex = 25;
                // 
                // deadlineTextBox
                // 
-               this->deadlineTextBox->Location = System::Drawing::Point(238, 134);
+               this->deadlineTextBox->BackColor = System::Drawing::Color::White;
+               this->deadlineTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+               this->deadlineTextBox->Location = System::Drawing::Point(263, 134);
                this->deadlineTextBox->Name = L"deadlineTextBox";
                this->deadlineTextBox->ReadOnly = true;
                this->deadlineTextBox->Size = System::Drawing::Size(120, 20);
@@ -217,11 +201,46 @@ namespace RoadMap {
                // 
                // RowsPanel
                // 
+               this->RowsPanel->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+                   static_cast<System::Byte>(0)));
                this->RowsPanel->Location = System::Drawing::Point(31, 196);
                this->RowsPanel->Margin = System::Windows::Forms::Padding(4);
                this->RowsPanel->Name = L"RowsPanel";
                this->RowsPanel->Size = System::Drawing::Size(551, 574);
                this->RowsPanel->TabIndex = 8;
+               // 
+               // titleLabel
+               // 
+               this->titleLabel->AutoSize = true;
+               this->titleLabel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(96)),
+                   static_cast<System::Int32>(static_cast<System::Byte>(255)));
+               this->titleLabel->Font = (gcnew System::Drawing::Font(L"Arial", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                   static_cast<System::Byte>(0)));
+               this->titleLabel->ForeColor = System::Drawing::Color::White;
+               this->titleLabel->Location = System::Drawing::Point(234, 35);
+               this->titleLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+               this->titleLabel->Name = L"titleLabel";
+               this->titleLabel->Size = System::Drawing::Size(49, 24);
+               this->titleLabel->TabIndex = 12;
+               this->titleLabel->Text = L"\?\?\?";
+               // 
+               // panel1
+               // 
+               this->panel1->BackColor = System::Drawing::Color::White;
+               this->panel1->Dock = System::Windows::Forms::DockStyle::Top;
+               this->panel1->Location = System::Drawing::Point(0, 0);
+               this->panel1->Name = L"panel1";
+               this->panel1->Size = System::Drawing::Size(792, 100);
+               this->panel1->TabIndex = 27;
+               // 
+               // panel2
+               // 
+               this->panel2->Controls->Add(this->subtopicLabel);
+               this->panel2->Dock = System::Windows::Forms::DockStyle::Bottom;
+               this->panel2->Location = System::Drawing::Point(0, 98);
+               this->panel2->Name = L"panel2";
+               this->panel2->Size = System::Drawing::Size(792, 702);
+               this->panel2->TabIndex = 28;
                // 
                // mapwindow
                // 
@@ -234,14 +253,14 @@ namespace RoadMap {
                this->Controls->Add(this->labelProgress);
                this->Controls->Add(this->deadlineLabel);
                this->Controls->Add(this->authorLabel);
-               this->Controls->Add(this->pictureBox3);
+               this->Controls->Add(this->logoPicture);
                this->Controls->Add(this->titleLabel);
-               this->Controls->Add(this->labelSubtopic);
-               this->Controls->Add(this->labelSections);
-               this->Controls->Add(this->btnSaveChanges);
+               this->Controls->Add(this->topicLabel);
+               this->Controls->Add(this->saveButton);
                this->Controls->Add(this->RowsPanel);
-               this->Controls->Add(this->btnLoadFile);
-               this->Controls->Add(this->pictureBox2);
+               this->Controls->Add(this->uploadButton);
+               this->Controls->Add(this->panel1);
+               this->Controls->Add(this->panel2);
                this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
                this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
                this->Margin = System::Windows::Forms::Padding(4);
@@ -249,9 +268,10 @@ namespace RoadMap {
                this->MinimizeBox = false;
                this->Name = L"mapwindow";
                this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-               this->Text = L"RoadMap - Progress Map";
-               (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
-               (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+               this->Text = L"RoadMap - Map progress";
+               (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logoPicture))->EndInit();
+               this->panel2->ResumeLayout(false);
+               this->panel2->PerformLayout();
                this->ResumeLayout(false);
                this->PerformLayout();
 
@@ -259,7 +279,7 @@ namespace RoadMap {
 
 #pragma endregion
     private:
-        System::Void btnLoadFile_Click(System::Object^ sender, System::EventArgs^ e) {
+        System::Void uploadButton_Click(System::Object^ sender, System::EventArgs^ e) {
             openFileDialog1->Filter = "XML Files (*.xml)|*.xml";
             openFileDialog1->FilterIndex = 1;
             openFileDialog1->RestoreDirectory = true;
@@ -298,7 +318,6 @@ namespace RoadMap {
                         authorTextBox->Text = "Author not found";
                     }
                 }
-
                 if (dateNodes->Count > 0) {
                     if (dateNodes[0]->Attributes["Deadline"] != nullptr) {
                         deadlineTextBox->Text = dateNodes[0]->Attributes["Deadline"]->Value;
@@ -318,8 +337,8 @@ namespace RoadMap {
                     String^ Description = rowsNodes[i]->Attributes["Description"]->Value;
                     String^ Subtopic = rowsNodes[i]->Attributes["Subtopic"]->Value;
 
-                    CreateAndDisplayCheckpoints(Topic, Description, Subtopic, yOffset, xmlDoc, "ROWS", i);
-                    yOffset += 70 * (Subtopic->Split(',')->Length);
+                    CreateAndDisplaysubtopics(Topic, Description, Subtopic, yOffset, xmlDoc, "ROWS", i);
+                    yOffset += 30 * (Subtopic->Split(',')->Length);
                 }
 
                 RowsPanel->AutoScroll = true;
@@ -334,53 +353,43 @@ namespace RoadMap {
         }
 
     private:
-        System::Void CreateAndDisplayCheckpoints(String^ section, String^ description, String^ checkpoints, int yOffset, XmlDocument^ xmlDoc, String^ nodeType, int nodeIndex) {
-            Panel^ circlePanel = gcnew Panel();
-            circlePanel->Size = System::Drawing::Size(20, 20);
-            circlePanel->Location = System::Drawing::Point(5, yOffset); 
-            circlePanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(34)), static_cast<System::Int32>(static_cast<System::Byte>(96)),
-                static_cast<System::Int32>(static_cast<System::Byte>(255)));
-
-            System::Drawing::Drawing2D::GraphicsPath^ path = gcnew System::Drawing::Drawing2D::GraphicsPath();
-            path->AddEllipse(0, 0, circlePanel->Width, circlePanel->Height);
-            circlePanel->Region = gcnew System::Drawing::Region(path);
-
-            RowsPanel->Controls->Add(circlePanel);
+        System::Void CreateAndDisplaysubtopics(String^ topic, String^ description, String^ subtopics, int yOffset, XmlDocument^ xmlDoc, String^ nodeType, int nodeIndex) {
 
             Label^ topicLabel = gcnew Label();
             topicLabel->AutoSize = true;
-            topicLabel->Font = (gcnew System::Drawing::Font(L"Arial", 11.50F, System::Drawing::FontStyle::Bold));
-            topicLabel->Location = System::Drawing::Point(25, yOffset); 
-            topicLabel->Text = section;
+            topicLabel->Font = (gcnew System::Drawing::Font(L"Arial", 10.25F, System::Drawing::FontStyle::Bold));
+            topicLabel->MaximumSize = System::Drawing::Size(180, 0);
+            topicLabel->Location = System::Drawing::Point(0, yOffset); 
+            topicLabel->Text = topic;
             RowsPanel->Controls->Add(topicLabel);
 
             Label^ descriptionLabel = gcnew Label();
             descriptionLabel->AutoSize = true;
             descriptionLabel->MaximumSize = System::Drawing::Size(180, 0);
-            descriptionLabel->Location = System::Drawing::Point(5, yOffset + 25);
+            descriptionLabel->Location = System::Drawing::Point(0, yOffset + 25);
             descriptionLabel->Text = description;
             RowsPanel->Controls->Add(descriptionLabel);
 
-            array<String^>^ checkpointsArray = checkpoints->Split(',');
-            for (int i = 0; i < checkpointsArray->Length; i++) {
-                String^ checkpoint = checkpointsArray[i]->Trim();
+            array<String^>^ subtopicsArray = subtopics->Split(gcnew array<wchar_t>{','}, StringSplitOptions::RemoveEmptyEntries);
+            for (int i = 0; i < subtopicsArray->Length; i++) {
+                String^ subtopic = subtopicsArray[i]->Trim();
 
                 Label^ numberLabel = gcnew Label();
                 numberLabel->AutoSize = true;
-                numberLabel->Font = gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold);
-                numberLabel->Location = System::Drawing::Point(200, yOffset + i * 30);
+                numberLabel->Font = gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold);
+                numberLabel->Location = System::Drawing::Point(230, yOffset + i * 30);
                 numberLabel->Text = (i + 1).ToString() + ".";
                 RowsPanel->Controls->Add(numberLabel);
 
-                Label^ checkpointLabel = gcnew Label();
-                checkpointLabel->AutoSize = true;
-                checkpointLabel->MaximumSize = System::Drawing::Size(160, 0);
-                checkpointLabel->Location = System::Drawing::Point(220, yOffset + i * 30);
-                checkpointLabel->Text = checkpoint;
-                RowsPanel->Controls->Add(checkpointLabel);
+                Label^ subtopicLabel = gcnew Label();
+                subtopicLabel->AutoSize = true;
+                subtopicLabel->MaximumSize = System::Drawing::Size(180, 0);
+                subtopicLabel->Location = System::Drawing::Point(250, yOffset + i * 30);
+                subtopicLabel->Text = subtopic;
+                RowsPanel->Controls->Add(subtopicLabel);
 
                 CheckBox^ checkBox = gcnew CheckBox();
-                checkBox->Location = System::Drawing::Point(420, yOffset + i * 30);
+                checkBox->Location = System::Drawing::Point(430, yOffset + i * 30);
                 checkBox->Tag = nodeType + ":" + nodeIndex + ":" + i;
                 RowsPanel->Controls->Add(checkBox);
 
@@ -389,11 +398,11 @@ namespace RoadMap {
                     XmlNode^ node = nodes[nodeIndex];
                     String^ attributeName = "Subtopic";
                     if (node->Attributes->GetNamedItem(attributeName)) {
-                        String^ checkpoints = node->Attributes->GetNamedItem(attributeName)->Value;
-                        array<String^>^ checkpointsArray = checkpoints->Split(',');
-                        if (i < checkpointsArray->Length) {
-                            String^ currentCheckpoint = checkpointsArray[i]->Trim();
-                            if (currentCheckpoint->Contains("[+]")) {
+                        String^ subtopics = node->Attributes->GetNamedItem(attributeName)->Value;
+                        array<String^>^ subtopicsArray = subtopics->Split(',');
+                        if (i < subtopicsArray->Length) {
+                            String^ currentsubtopic = subtopicsArray[i]->Trim();
+                            if (currentsubtopic->Contains("[+]")) {
                                 checkBox->Checked = true;
                             }
                         }
@@ -403,7 +412,7 @@ namespace RoadMap {
         }
 
     private: 
-        System::Void btnSaveChanges_Click(System::Object^ sender, System::EventArgs^ e) {
+        System::Void saveButton_Click(System::Object^ sender, System::EventArgs^ e) {
             XmlDocument^ xmlDoc = gcnew XmlDocument();
             xmlDoc->Load(openFileDialog1->FileName);
 
@@ -412,26 +421,26 @@ namespace RoadMap {
                     array<String^>^ tagParts = checkBox->Tag->ToString()->Split(':');
                     String^ nodeType = tagParts[0];
                     int nodeIndex = Convert::ToInt32(tagParts[1]);
-                    int checkpointIndex = Convert::ToInt32(tagParts[2]);
+                    int subtopicIndex = Convert::ToInt32(tagParts[2]);
 
                     XmlNodeList^ nodes = xmlDoc->GetElementsByTagName(nodeType);
                     if (nodeIndex < nodes->Count) {
                         XmlNode^ node = nodes[nodeIndex];
                         String^ attributeName = "Subtopic";
                         if (node->Attributes->GetNamedItem(attributeName)) {
-                            String^ checkpoints = node->Attributes->GetNamedItem(attributeName)->Value;
-                            array<String^>^ checkpointsArray = checkpoints->Split(',');
-                            if (checkpointIndex < checkpointsArray->Length) {
+                            String^ subtopics = node->Attributes->GetNamedItem(attributeName)->Value;
+                            array<String^>^ subtopicsArray = subtopics->Split(',');
+                            if (subtopicIndex < subtopicsArray->Length) {
                                 if (checkBox->Checked) {
-                                    if (!checkpointsArray[checkpointIndex]->Contains("[+]")) {
-                                        checkpointsArray[checkpointIndex] = checkpointsArray[checkpointIndex]->TrimEnd() + " [+]";
+                                    if (!subtopicsArray[subtopicIndex]->Contains("[+]")) {
+                                        subtopicsArray[subtopicIndex] = subtopicsArray[subtopicIndex]->TrimEnd() + " [+]";
                                     }
                                 }
                                 else {
-                                    checkpointsArray[checkpointIndex] = checkpointsArray[checkpointIndex]->Replace(" [+]", "");
+                                    subtopicsArray[subtopicIndex] = subtopicsArray[subtopicIndex]->Replace(" [+]", "");
                                 }
-                                String^ newCheckpoints = String::Join(",", checkpointsArray);
-                                node->Attributes->GetNamedItem(attributeName)->Value = newCheckpoints;
+                                String^ newsubtopics = String::Join(",", subtopicsArray);
+                                node->Attributes->GetNamedItem(attributeName)->Value = newsubtopics;
                             }
                         }
                     }
@@ -445,24 +454,23 @@ namespace RoadMap {
 
     private: 
         System::Void UpdateProgressLabel() {
-            int totalCheckpoints = 0;
-            int completedCheckpoints = 0;
+            int totalsubtopics = 0;
+            int completedsubtopics = 0;
 
             for each (Control ^ control in RowsPanel->Controls) {
                 if (CheckBox^ checkBox = dynamic_cast<CheckBox^>(control)) {
-                    totalCheckpoints++;
+                    totalsubtopics++;
                     if (checkBox->Checked) {
-                        completedCheckpoints++;
+                        completedsubtopics++;
                     }
                 }
             }
-
-            if (totalCheckpoints > 0) {
-                double percentage = (double)completedCheckpoints / totalCheckpoints * 100;
-                labelProgress->Text = "Progress: " + completedCheckpoints + " / " + totalCheckpoints + " (" + percentage.ToString("F2") + "%)";
+            if (totalsubtopics > 0) {
+                double percentage = (double)completedsubtopics / totalsubtopics * 100;
+                labelProgress->Text = "Progress: " + completedsubtopics + " / " + totalsubtopics + " (" + percentage.ToString("F2") + "%)";
             }
             else {
-                labelProgress->Text = "No checkpoints available.";
+                labelProgress->Text = "No subtopics available.";
             }
         }
     };
