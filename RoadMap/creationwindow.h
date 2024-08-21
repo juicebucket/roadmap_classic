@@ -476,7 +476,7 @@ namespace RoadMap {
 				String^ DescriptionText = textBoxes[i + 2]->Text;
 				String^ SubtopicTextDynamic = textBoxes[i + 1]->Text;
 
-				if (TopicText->Length > 35 || TopicText->Length == 0) {
+				if (TopicText->Length > 45 || TopicText->Length == 0) {
 					MessageBox::Show("Topic name can be up to 35 characters long and cannot be empty in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 					return;
 				}
@@ -533,7 +533,7 @@ namespace RoadMap {
 
 	private:
 		System::Void DeleteLastRowButton_Click_1(System::Object^ sender, System::EventArgs^ e) {
-			if (textBoxes->Count > 2) {
+			if (textBoxes->Count > 3) { 
 				System::Windows::Forms::DialogResult result = MessageBox::Show(
 					"Are you sure you want to delete the last row?",
 					"Confirmation",
@@ -549,9 +549,9 @@ namespace RoadMap {
 					this->scrollPanel->Controls->Remove(lastsubtopicTextBox);
 					this->scrollPanel->Controls->Remove(lastTopicTextBox);
 
-					textBoxes->RemoveAt(textBoxes->Count - 1); 
 					textBoxes->RemoveAt(textBoxes->Count - 1);
-					textBoxes->RemoveAt(textBoxes->Count - 1); 
+					textBoxes->RemoveAt(textBoxes->Count - 1);
+					textBoxes->RemoveAt(textBoxes->Count - 1);
 
 					int newHeight = (textBoxes->Count > 0) ? textBoxes[textBoxes->Count - 1]->Location.Y + textBoxes[textBoxes->Count - 1]->Height + 50 : 0;
 					this->scrollPanel->AutoScrollMinSize = System::Drawing::Size(this->scrollPanel->ClientSize.Width, newHeight);
@@ -560,7 +560,7 @@ namespace RoadMap {
 				}
 			}
 			else {
-				MessageBox::Show("At least two rows must remain.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show("At least one row must remain.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
 	};
