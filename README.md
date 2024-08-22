@@ -1,6 +1,6 @@
 ![Untitled](https://github.com/juicebucket/roadmap_project/assets/92608350/d2ab96b7-c914-47ca-b9d5-b7d0cee73bf3)
 
-Application version: 0.5.0. / Last Update: 21.08.2024
+Application version: 0.6.0. / Last Update: 22.08.2024
 
 ---
 
