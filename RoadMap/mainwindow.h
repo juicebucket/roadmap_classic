@@ -138,7 +138,7 @@ namespace RoadMap {
             resources->ApplyResources(this->panel2, L"panel2");
             this->panel2->Name = L"panel2";
             // 
-            // pictureBox1
+            // panel1
             // 
             resources->ApplyResources(this->pictureBox1, L"pictureBox1");
             this->pictureBox1->Name = L"pictureBox1";
@@ -159,29 +159,29 @@ namespace RoadMap {
             resources->ApplyResources(this->pictureBox2, L"pictureBox2");
             this->pictureBox2->Name = L"pictureBox2";
             this->pictureBox2->TabStop = false;
+            this->pictureBox3->TabStop = false;
+            this->pictureBox3->TabStop = false;
             // 
             // mainwindow
-            // 
-            this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
             this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(20)),
                 static_cast<System::Int32>(static_cast<System::Byte>(26)));
             resources->ApplyResources(this, L"$this");
             this->Controls->Add(this->panel2);
             this->Controls->Add(this->panel1);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+            this->Margin = System::Windows::Forms::Padding(4);
+            this->Margin = System::Windows::Forms::Padding(4);
             this->MaximizeBox = false;
-            this->MinimizeBox = false;
-            this->Name = L"mainwindow";
-            this->TransparencyKey = System::Drawing::SystemColors::WindowFrame;
+            this->Text = L"RoadMap v0.8.0";
             this->panel1->ResumeLayout(false);
             this->panel2->ResumeLayout(false);
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
             this->ResumeLayout(false);
 
         }
-
-#pragma endregion
     private:
         void SetDragHandlers(System::Windows::Forms::Panel^ panel) {
             panel->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &mainwindow::Form_MouseDown);
@@ -208,13 +208,15 @@ namespace RoadMap {
             dragging = false;
         }
 
+
+
     private:
         System::Void createButton_Click(System::Object^ sender, System::EventArgs^ e) {
             creationwindow^ createRoadmap = gcnew creationwindow();
             createRoadmap->Show();
-        }
-
         System::Void uploadButton_Click(System::Object^ sender, System::EventArgs^ e) {
+        System::Void button_upload_Click(System::Object^ sender, System::EventArgs^ e) {
+        System::Void button_upload_Click(System::Object^ sender, System::EventArgs^ e) {
             mapwindow^ RoadMapWindow = gcnew mapwindow();
             RoadMapWindow->Show();
         }

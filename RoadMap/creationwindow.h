@@ -418,6 +418,24 @@ namespace RoadMap {
 			this->panel1->Size = System::Drawing::Size(875, 629);
 			this->panel1->TabIndex = 25;
 			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::White;
+			this->panel1->Controls->Add(this->logoPicture);
+			this->panel1->Dock = System::Windows::Forms::DockStyle::Top;
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(998, 100);
+			this->panel1->TabIndex = 24;
+			// 
+			// panel2
+			// 
+			this->panel2->Dock = System::Windows::Forms::DockStyle::Bottom;
+			this->panel2->Location = System::Drawing::Point(0, 94);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(998, 652);
+			this->panel2->TabIndex = 25;
+			// 
 			// creationwindow
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
@@ -445,7 +463,6 @@ namespace RoadMap {
 		}
 
 #pragma endregion
-
 	private:
 		void SetDragHandlers(System::Windows::Forms::Panel^ panel) {
 			panel->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &creationwindow::Form_MouseDown);
@@ -525,6 +542,10 @@ namespace RoadMap {
 			newtopicTextBox->MaxLength = 45;
 			newsubtopicTextBox->MaxLength = 1500;
 			newdescriptionTextBox->MaxLength = 150;
+
+			newTopicTextBox->MaxLength = 45;
+			newsubtopicTextBox->MaxLength = 1500;
+			newDescriptionTextBox->MaxLength = 150;
 
 			newsubtopicTextBox->Multiline = true;
 			newsubtopicTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
