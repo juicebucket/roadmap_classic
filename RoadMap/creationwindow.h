@@ -134,7 +134,7 @@ namespace RoadMap {
 			this->roadmapNameTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->roadmapNameTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
 			this->roadmapNameTextBox->ForeColor = System::Drawing::Color::Black;
-			this->roadmapNameTextBox->Location = System::Drawing::Point(36, 117);
+			this->roadmapNameTextBox->Location = System::Drawing::Point(35, 117);
 			this->roadmapNameTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->roadmapNameTextBox->MaxLength = 45;
 			this->roadmapNameTextBox->Name = L"roadmapNameTextBox";
@@ -162,7 +162,7 @@ namespace RoadMap {
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->subtopicsLabel->Font = (gcnew System::Drawing::Font(L"Arial Black", 8.25F, System::Drawing::FontStyle::Bold));
 			this->subtopicsLabel->ForeColor = System::Drawing::Color::White;
-			this->subtopicsLabel->Location = System::Drawing::Point(311, 164);
+			this->subtopicsLabel->Location = System::Drawing::Point(310, 164);
 			this->subtopicsLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->subtopicsLabel->Name = L"subtopicsLabel";
 			this->subtopicsLabel->Size = System::Drawing::Size(79, 15);
@@ -177,7 +177,7 @@ namespace RoadMap {
 			this->topicTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->topicTextBox->ForeColor = System::Drawing::Color::Black;
-			this->topicTextBox->Location = System::Drawing::Point(36, 193);
+			this->topicTextBox->Location = System::Drawing::Point(35, 193);
 			this->topicTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->topicTextBox->MaxLength = 45;
 			this->topicTextBox->Name = L"topicTextBox";
@@ -192,7 +192,7 @@ namespace RoadMap {
 			this->subtopicTextBox->Enabled = false;
 			this->subtopicTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
 			this->subtopicTextBox->ForeColor = System::Drawing::Color::Black;
-			this->subtopicTextBox->Location = System::Drawing::Point(314, 193);
+			this->subtopicTextBox->Location = System::Drawing::Point(310, 193);
 			this->subtopicTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->subtopicTextBox->MaxLength = 1000;
 			this->subtopicTextBox->Multiline = true;
@@ -215,7 +215,7 @@ namespace RoadMap {
 			this->AddNewRowButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->AddNewRowButton->Font = (gcnew System::Drawing::Font(L"Arial Black", 8.25F, System::Drawing::FontStyle::Bold));
 			this->AddNewRowButton->ForeColor = System::Drawing::Color::White;
-			this->AddNewRowButton->Location = System::Drawing::Point(36, 560);
+			this->AddNewRowButton->Location = System::Drawing::Point(35, 560);
 			this->AddNewRowButton->Margin = System::Windows::Forms::Padding(4);
 			this->AddNewRowButton->Name = L"AddNewRowButton";
 			this->AddNewRowButton->Size = System::Drawing::Size(405, 43);
@@ -253,7 +253,7 @@ namespace RoadMap {
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->authorLabel->Font = (gcnew System::Drawing::Font(L"Arial Black", 8.25F, System::Drawing::FontStyle::Bold));
 			this->authorLabel->ForeColor = System::Drawing::Color::White;
-			this->authorLabel->Location = System::Drawing::Point(311, 95);
+			this->authorLabel->Location = System::Drawing::Point(310, 95);
 			this->authorLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->authorLabel->Name = L"authorLabel";
 			this->authorLabel->Size = System::Drawing::Size(60, 15);
@@ -266,7 +266,7 @@ namespace RoadMap {
 			this->authorTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->authorTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
 			this->authorTextBox->ForeColor = System::Drawing::Color::Black;
-			this->authorTextBox->Location = System::Drawing::Point(314, 117);
+			this->authorTextBox->Location = System::Drawing::Point(310, 117);
 			this->authorTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->authorTextBox->MaxLength = 45;
 			this->authorTextBox->Name = L"authorTextBox";
@@ -283,7 +283,7 @@ namespace RoadMap {
 			this->dateTimePicker->CalendarTrailingForeColor = System::Drawing::Color::Gray;
 			this->dateTimePicker->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
 			this->dateTimePicker->ForeColor = System::Drawing::Color::White;
-			this->dateTimePicker->Location = System::Drawing::Point(594, 117);
+			this->dateTimePicker->Location = System::Drawing::Point(590, 117);
 			this->dateTimePicker->Margin = System::Windows::Forms::Padding(0);
 			this->dateTimePicker->MinDate = System::DateTime(2024, 8, 20, 0, 0, 0, 0);
 			this->dateTimePicker->Name = L"dateTimePicker";
@@ -298,7 +298,7 @@ namespace RoadMap {
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
 			this->deadlineLabel->Font = (gcnew System::Drawing::Font(L"Arial Black", 8.25F, System::Drawing::FontStyle::Bold));
 			this->deadlineLabel->ForeColor = System::Drawing::Color::White;
-			this->deadlineLabel->Location = System::Drawing::Point(591, 95);
+			this->deadlineLabel->Location = System::Drawing::Point(590, 95);
 			this->deadlineLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->deadlineLabel->Name = L"deadlineLabel";
 			this->deadlineLabel->Size = System::Drawing::Size(70, 15);
@@ -332,7 +332,7 @@ namespace RoadMap {
 			this->scrollPanel->AutoScroll = true;
 			this->scrollPanel->BackColor = System::Drawing::Color::White;
 			this->scrollPanel->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
-			this->scrollPanel->Location = System::Drawing::Point(36, 263);
+			this->scrollPanel->Location = System::Drawing::Point(35, 263);
 			this->scrollPanel->Name = L"scrollPanel";
 			this->scrollPanel->Size = System::Drawing::Size(841, 387);
 			this->scrollPanel->TabIndex = 22;
@@ -344,7 +344,7 @@ namespace RoadMap {
 			this->descriptionTextBox->Enabled = false;
 			this->descriptionTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
 			this->descriptionTextBox->ForeColor = System::Drawing::Color::Black;
-			this->descriptionTextBox->Location = System::Drawing::Point(36, 221);
+			this->descriptionTextBox->Location = System::Drawing::Point(35, 221);
 			this->descriptionTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->descriptionTextBox->MaxLength = 150;
 			this->descriptionTextBox->Multiline = true;
@@ -399,7 +399,7 @@ namespace RoadMap {
 			// 
 			this->logoPicture->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logoPicture.Image")));
 			this->logoPicture->ImeMode = System::Windows::Forms::ImeMode::NoControl;
-			this->logoPicture->Location = System::Drawing::Point(34, 33);
+			this->logoPicture->Location = System::Drawing::Point(35, 33);
 			this->logoPicture->Name = L"logoPicture";
 			this->logoPicture->Size = System::Drawing::Size(145, 35);
 			this->logoPicture->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;

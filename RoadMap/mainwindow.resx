@@ -134,7 +134,7 @@
         dqZ/cfwXKxktJyyV48pli8rPe8xK7Mn8wrz4Plm96IQJ4MfJLNNMMcow42JH8eBjSHY0iPdW4+dYk1hF
         rEoJjVXSZCjgFrUo2ZPiU6InZWYpmf3/21c9NeKrZbf7oeXFMN76oXUHKtuG8XlsGJUTsD7DVb4ev3YE
         Y++ib9c11yE4NuHiuq7F9+ByC3qe1JgWq0pWWU2pFLyeQUcUum7Btlzr2c85p48Q2ZCvuoH9AxiQ+46V
-        bzLlZ840beuhAAAACXBIWXMAAAsQAAALEAGtI711AAASFElEQVR4Xu2di7dV0x7H/SsMI8PgamTQqFuM
+        bzLlZ840beuhAAAACXBIWXMAAAsPAAALDwGS+QOlAAASFElEQVR4Xu2di7dV0x7H/SsMI8PgamTQqFuM
         IiRyi8RF8iqu8iaP6HnvDRFRVyKuR0q39CBKuJ6pTs8jSYVOSdLtdcqjxLq+02+eufbev71+e+9z9j57
         L9/vGJ9xz95rfedce99891zztY6gKIqiKIqiKIqiKIqiKIqiKIqiqFbRkUf+KSKEEJIfiUtbmpkQQkhA
         4tKWZiaEEBKQuLSlmQkhhAQkLm1pZkIIIQGJS1uamRBCSEDi0pZmJoQQEpC4tKWZCSGEBCQubWlmQggh
@@ -216,7 +216,7 @@
 </value>
   </data>
   <data name="createButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 79</value>
+    <value>100, 80</value>
   </data>
   <data name="createButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -255,7 +255,7 @@
         dqZ/cfwXKxktJyyV48pli8rPe8xK7Mn8wrz4Plm96IQJ4MfJLNNMMcow42JH8eBjSHY0iPdW4+dYk1hF
         rEoJjVXSZCjgFrUo2ZPiU6InZWYpmf3/21c9NeKrZbf7oeXFMN76oXUHKtuG8XlsGJUTsD7DVb4ev3YE
         Y++ib9c11yE4NuHiuq7F9+ByC3qe1JgWq0pWWU2pFLyeQUcUum7Btlzr2c85p48Q2ZCvuoH9AxiQ+46V
-        bzLlZ840beuhAAAACXBIWXMAAAsQAAALEAGtI711AAAW3klEQVR4Xu2dh5cUZbrG/Vd2l4O7B8OK4cpd
+        bzLlZ840beuhAAAACXBIWXMAAAsPAAALDwGS+QOlAAAW3klEQVR4Xu2dh5cUZbrG/Vd2l4O7B8OK4cpd
         9ZpWuaJcBVxdV9RjWkXFjGAATCAqEgxg4BoRA0ZEcTHiVQyLgaCYRUTEQDIgGOryq3lrqrr77fp6erqx
         euZ5zvmdmZ763q+qemae/uJbW0mSJEmSJEmSJEmS1G30u99tGwkhhKiO2WVYXrAQQogUs8uwvGAhhBAp
         ZpdhecFCCCFSzC7D8oKFEEKkmF2G5QULIYRIMbsMywsWQgiRYnYZlhcshBAixewyLC9YCCFEitllWF6w
@@ -357,7 +357,7 @@
 </value>
   </data>
   <data name="uploadButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 203</value>
+    <value>100, 200</value>
   </data>
   <data name="uploadButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -392,7 +392,7 @@
         dqZ/cfwXKxktJyyV48pli8rPe8xK7Mn8wrz4Plm96IQJ4MfJLNNMMcow42JH8eBjSHY0iPdW4+dYk1hF
         rEoJjVXSZCjgFrUo2ZPiU6InZWYpmf3/21c9NeKrZbf7oeXFMN76oXUHKtuG8XlsGJUTsD7DVb4ev3YE
         Y++ib9c11yE4NuHiuq7F9+ByC3qe1JgWq0pWWU2pFLyeQUcUum7Btlzr2c85p48Q2ZCvuoH9AxiQ+46V
-        bzLlZ840beuhAAAACXBIWXMAAAsQAAALEAGtI711AAAQaUlEQVR4Xu2di5cU5ZnG/VdyORpPshhY4Gi8
+        bzLlZ840beuhAAAACXBIWXMAAAsPAAALDwGS+QOlAAAQaUlEQVR4Xu2di5cU5ZnG/VdyORpPshhY4Gi8
         HDUGjUbWa3TB23qLIt5dvKJivCCIkkQkrrIeDYiJx3NMNIprvAfxEi4i4mjiLWgQCRsERAfRWp+at/qr
         7n5n3u5hJjtd83vO+Z3p6vqer6p7Zp5+66uvq3ZCCCGEEEIIIYTQsNHXvvYvGQAA9I7FZSzPDAAACYvL
         WJ4ZAAASFpexPDMAACQsLmN5ZgAASFhcxvLMAACQsLiM5ZkBACBhcRnLMwMAQMLiMpZnBgCAhMVlLM8M
@@ -466,7 +466,7 @@
 </value>
   </data>
   <data name="editButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 332</value>
+    <value>100, 320</value>
   </data>
   <data name="editButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -501,7 +501,7 @@
         dqZ/cfwXKxktJyyV48pli8rPe8xK7Mn8wrz4Plm96IQJ4MfJLNNMMcow42JH8eBjSHY0iPdW4+dYk1hF
         rEoJjVXSZCjgFrUo2ZPiU6InZWYpmf3/21c9NeKrZbf7oeXFMN76oXUHKtuG8XlsGJUTsD7DVb4ev3YE
         Y++ib9c11yE4NuHiuq7F9+ByC3qe1JgWq0pWWU2pFLyeQUcUum7Btlzr2c85p48Q2ZCvuoH9AxiQ+46V
-        bzLlZ840beuhAAAACXBIWXMAAAsQAAALEAGtI711AAAA5UlEQVRIS9WVWw6CMBRE8RU/MFGj8uH+9+Aj
+        bzLlZ840beuhAAAACXBIWXMAAAsPAAALDwGS+QOlAAAA5UlEQVRIS9WVWw6CMBRE8RU/MFGj8uH+9+Aj
         JsYf4yrUneDMZeIjFGiAop5kUtqSmUIvNOqENE2H0gRqyliePTMn7NhUu/RlbwHLbKxVYtlbQBBk/92A
         q9oybmpzyL4w4A7F0Nl6bi4Q73EuRPalT0CDKXS03icnaAYVLkD2lXtAowW0t17GAeKYK/iJ7L02mYYr
         aAPtdP0e6ET2XgFkCyUSgyqR/W8EBH1FQTeZZcpSLCpTlnDtMu3kQ/P5VXAhTmTvtcm1kH0HAURjbbKW
@@ -512,7 +512,7 @@
     <value>NoControl</value>
   </data>
   <data name="closeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>493, 12</value>
+    <value>488, 12</value>
   </data>
   <data name="closeButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 33</value>
@@ -536,10 +536,10 @@
     <value>Right</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>368, 0</value>
+    <value>373, 0</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>541, 506</value>
+    <value>536, 506</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -565,7 +565,7 @@
         dqZ/cfwXKxktJyyV48pli8rPe8xK7Mn8wrz4Plm96IQJ4MfJLNNMMcow42JH8eBjSHY0iPdW4+dYk1hF
         rEoJjVXSZCjgFrUo2ZPiU6InZWYpmf3/21c9NeKrZbf7oeXFMN76oXUHKtuG8XlsGJUTsD7DVb4ev3YE
         Y++ib9c11yE4NuHiuq7F9+ByC3qe1JgWq0pWWU2pFLyeQUcUum7Btlzr2c85p48Q2ZCvuoH9AxiQ+46V
-        bzLlZ840beuhAAAACXBIWXMAAAsQAAALEAGtI711AAAJyklEQVR4Xu2bC/AVVR3HUVMxxxdqOj3MeCho
+        bzLlZ840beuhAAAACXBIWXMAAAsPAAALDwGS+QOlAAAJyklEQVR4Xu2bC/AVVR3HUVMxxxdqOj3MeCho
         jGJC+GBCwwdWSghYM0rKoxQVQzTECc1InPmXSTFOD5LyQfK3MXRMxBDLBmhEJpO0LFOsNEAFQUBFhF+f
         79mze8/u3b3ey///ry7sd+Yzd/ecs4+7v++e8zt793YqVapUqVKlSpUqVapUqVL/DXW90A6CgTAKJsLk
         7WQSjIOzoSvs4g9RakcSgd0T+kMLLIKVsBm2gW0HW2EdLIefwXDYxx+u1I4gAirTnAbzYAPkGaEtbIGn
@@ -611,7 +611,7 @@
 </value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 34</value>
+    <value>25, 34</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>145, 35</value>
@@ -646,7 +646,7 @@
         dqZ/cfwXKxktJyyV48pli8rPe8xK7Mn8wrz4Plm96IQJ4MfJLNNMMcow42JH8eBjSHY0iPdW4+dYk1hF
         rEoJjVXSZCjgFrUo2ZPiU6InZWYpmf3/21c9NeKrZbf7oeXFMN76oXUHKtuG8XlsGJUTsD7DVb4ev3YE
         Y++ib9c11yE4NuHiuq7F9+ByC3qe1JgWq0pWWU2pFLyeQUcUum7Btlzr2c85p48Q2ZCvuoH9AxiQ+46V
-        bzLlZ840beuhAAAACXBIWXMAAAsQAAALEAGtI711AAAGWUlEQVRoQ+2aZ4geVRSGkxiNGo2JSWyJLZYk
+        bzLlZ840beuhAAAACXBIWXMAAAsPAAALDwGS+QOlAAAGWUlEQVRoQ+2aZ4geVRSGkxiNGo2JSWyJLZYk
         JjZiATUKYsMao9j+iBUVSxDFgr2AotiwgaIiWFBjCYIF/aEoihAswV4i9i727vg8d879dnYyG79NELIy
         LzzMPfeeOzsz5/ZvB7Vq1ZWKolgBNoVdYE/YCTaCYeHS6v8kAjsY1oWb4Wdo0o9wKYyFwVG11UAWgbRX
         3w7fQjf6Aq6GNeMWrQaiCODm8AEsiubBmLhVq4EkAudc/olRRH8H3ajqOx+mxS1bDQQRsHXgDaMXOgym
@@ -680,7 +680,7 @@
     <value>NoControl</value>
   </data>
   <data name="githubButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 299</value>
+    <value>25, 299</value>
   </data>
   <data name="githubButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -712,7 +712,7 @@
         dqZ/cfwXKxktJyyV48pli8rPe8xK7Mn8wrz4Plm96IQJ4MfJLNNMMcow42JH8eBjSHY0iPdW4+dYk1hF
         rEoJjVXSZCjgFrUo2ZPiU6InZWYpmf3/21c9NeKrZbf7oeXFMN76oXUHKtuG8XlsGJUTsD7DVb4ev3YE
         Y++ib9c11yE4NuHiuq7F9+ByC3qe1JgWq0pWWU2pFLyeQUcUum7Btlzr2c85p48Q2ZCvuoH9AxiQ+46V
-        bzLlZ840beuhAAAACXBIWXMAAAsQAAALEAGtI711AABU7UlEQVR4Xu3dBdhuTVU+cEnpzo8OkQ5J6ZAG
+        bzLlZ840beuhAAAACXBIWXMAAAsPAAALDwGS+QOlAABU7UlEQVR4Xu3dBdhuTVU+cEnpzo8OkQ5J6ZAG
         kUa6G0RSQQkBKZGQFgGRFAWxKBUQBAxKKUVFwRZFBLE9//s3Z9b+zxPve+I73znnO9/c17WuPbH3fmbP
         nrlnzZo1+/m2iYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJ
         iYmJiYmJiYmJiYmJoxd79uy5ceT1kY9EXhy5WeTbe/Y+kXO/M3KmHt2Ae0UeH/nliN94deSSPVv+zSNv
@@ -1079,7 +1079,7 @@
 </value>
   </data>
   <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 124</value>
+    <value>25, 124</value>
   </data>
   <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>330, 168</value>
@@ -1106,7 +1106,7 @@
     <value>0, 0</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>367, 506</value>
+    <value>376, 506</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>

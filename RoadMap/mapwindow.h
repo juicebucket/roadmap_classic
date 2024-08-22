@@ -291,7 +291,7 @@ namespace RoadMap {
                // 
                this->logoPicture->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logoPicture.Image")));
                this->logoPicture->ImeMode = System::Windows::Forms::ImeMode::NoControl;
-               this->logoPicture->Location = System::Drawing::Point(31, 26);
+               this->logoPicture->Location = System::Drawing::Point(35, 26);
                this->logoPicture->Name = L"logoPicture";
                this->logoPicture->Size = System::Drawing::Size(143, 42);
                this->logoPicture->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
