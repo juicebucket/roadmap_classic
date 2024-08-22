@@ -38,19 +38,13 @@ namespace RoadMap {
 
 	private:
 		int TopicCount = 0;
+
 		System::Windows::Forms::Label^ main_title;
-	private: System::Windows::Forms::Label^ roadmapNameLabel;
-	private: System::Windows::Forms::TextBox^ roadmapNameTextBox;
-
-
-
-	private: System::Windows::Forms::Label^ topicsLabel;
-	private: System::Windows::Forms::Label^ subtopicsLabel;
-	private: System::Windows::Forms::TextBox^ topicTextBox;
-
-
-
-
+		System::Windows::Forms::Label^ roadmapNameLabel;
+		System::Windows::Forms::TextBox^ roadmapNameTextBox;
+		System::Windows::Forms::Label^ topicsLabel;
+		System::Windows::Forms::Label^ subtopicsLabel;
+		System::Windows::Forms::TextBox^ topicTextBox;
 		System::Windows::Forms::TextBox^ subtopicTextBox;
 		System::Windows::Forms::Button^ AddNewRowButton;
 		System::Windows::Forms::Button^ SaveButton;
@@ -59,15 +53,15 @@ namespace RoadMap {
 		System::Windows::Forms::Label^ deadlineLabel;
 		System::Windows::Forms::Button^ DeleteLastRowButton;
 		System::Windows::Forms::Panel^ scrollPanel;
-	private: System::Windows::Forms::TextBox^ descriptionTextBox;
-
+		System::Windows::Forms::TextBox^ descriptionTextBox;
 		System::Windows::Forms::Panel^ panel2;
-	private: System::Windows::Forms::PictureBox^ logoPicture;
-
+		System::Windows::Forms::PictureBox^ logoPicture;
 		System::Windows::Forms::Panel^ panel1;
 		System::Windows::Forms::Button^ closeButton;
 		System::Windows::Forms::DateTimePicker^ dateTimePicker;
+
 		System::Drawing::Point lastPoint;
+
 		System::ComponentModel::Container^ components;
 
 		bool dragging = false;
@@ -452,7 +446,6 @@ namespace RoadMap {
 		}
 
 #pragma endregion
-
 	private:
 		void SetDragHandlers(System::Windows::Forms::Panel^ panel) {
 			panel->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &creationwindow::Form_MouseDown);
@@ -676,6 +669,7 @@ namespace RoadMap {
 				MessageBox::Show("At least one row must remain.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
+
 	private:
 		System::Void closeButton_Click(System::Object^ sender, System::EventArgs^ e) {
 			this->Close();

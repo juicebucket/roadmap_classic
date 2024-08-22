@@ -181,7 +181,6 @@ namespace RoadMap {
         }
 
 #pragma endregion
-
     private:
         void SetDragHandlers(System::Windows::Forms::Panel^ panel) {
             panel->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &mainwindow::Form_MouseDown);
