@@ -17,6 +17,8 @@ namespace RoadMap {
         mainwindow(void)
         {
             InitializeComponent();
+            SetDragHandlers(panel1);
+            SetDragHandlers(panel2);
         }
 
     protected:
@@ -28,137 +30,214 @@ namespace RoadMap {
             }
         }
 
-    private:
+    private: 
         System::ComponentModel::BackgroundWorker^ backgroundWorker1;
-        System::Windows::Forms::Label^ label1;
-        System::Windows::Forms::Button^ button_create;
-        System::Windows::Forms::Button^ button_upload;
+        System::Windows::Forms::Button^ createButton;
+        System::Windows::Forms::Button^ uploadButton;
+        System::Windows::Forms::Button^ editButton;
+        System::Windows::Forms::Panel^ panel1;
+        System::Windows::Forms::Panel^ panel2;
+        System::Windows::Forms::PictureBox^ pictureBox2;
         System::Windows::Forms::PictureBox^ pictureBox1;
-        System::Windows::Forms::PictureBox^ pictureBox3;
+        System::Windows::Forms::Button^ githubButton;
+        System::Windows::Forms::Button^ closeButton;
         System::ComponentModel::Container^ components;
+
+        bool dragging = false;
+        System::Drawing::Point lastPoint; 
 
     protected:
 
-#pragma region Windows Form Designer generated code
+    #pragma region Windows Form Designer generated code
 
         void InitializeComponent(void)
         {
             System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(mainwindow::typeid));
             this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
-            this->label1 = (gcnew System::Windows::Forms::Label());
-            this->button_create = (gcnew System::Windows::Forms::Button());
-            this->button_upload = (gcnew System::Windows::Forms::Button());
+            this->createButton = (gcnew System::Windows::Forms::Button());
+            this->uploadButton = (gcnew System::Windows::Forms::Button());
+            this->editButton = (gcnew System::Windows::Forms::Button());
+            this->panel1 = (gcnew System::Windows::Forms::Panel());
+            this->closeButton = (gcnew System::Windows::Forms::Button());
+            this->panel2 = (gcnew System::Windows::Forms::Panel());
             this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-            this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+            this->githubButton = (gcnew System::Windows::Forms::Button());
+            this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+            this->panel1->SuspendLayout();
+            this->panel2->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
             this->SuspendLayout();
             // 
-            // label1
+            // createButton
             // 
-            this->label1->AutoSize = true;
-            this->label1->BackColor = System::Drawing::Color::Transparent;
-            this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 9.75F, System::Drawing::FontStyle::Bold));
-            this->label1->ForeColor = System::Drawing::Color::Black;
-            this->label1->Location = System::Drawing::Point(80, 140);
-            this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-            this->label1->Name = L"label1";
-            this->label1->Size = System::Drawing::Size(166, 16);
-            this->label1->TabIndex = 2;
-            this->label1->Text = L"Please, choose an action";
+            this->createButton->Cursor = System::Windows::Forms::Cursors::Hand;
+            this->createButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)),
+                static_cast<System::Int32>(static_cast<System::Byte>(33)), static_cast<System::Int32>(static_cast<System::Byte>(45)));
+            this->createButton->FlatAppearance->BorderSize = 10;
+            this->createButton->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)),
+                static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
+            resources->ApplyResources(this->createButton, L"createButton");
+            this->createButton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(20)),
+                static_cast<System::Int32>(static_cast<System::Byte>(26)));
+            this->createButton->Name = L"createButton";
+            this->createButton->UseVisualStyleBackColor = false;
+            this->createButton->Click += gcnew System::EventHandler(this, &mainwindow::createButton_Click);
             // 
-            // button_create
+            // uploadButton
             // 
-            this->button_create->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(77)), static_cast<System::Int32>(static_cast<System::Byte>(130)),
-                static_cast<System::Int32>(static_cast<System::Byte>(246)));
-            this->button_create->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button_create.BackgroundImage")));
-            this->button_create->Font = (gcnew System::Drawing::Font(L"Tahoma", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->button_create->ForeColor = System::Drawing::Color::White;
-            this->button_create->Location = System::Drawing::Point(83, 177);
-            this->button_create->Margin = System::Windows::Forms::Padding(4);
-            this->button_create->Name = L"button_create";
-            this->button_create->Size = System::Drawing::Size(330, 271);
-            this->button_create->TabIndex = 3;
-            this->button_create->UseVisualStyleBackColor = false;
-            this->button_create->Click += gcnew System::EventHandler(this, &mainwindow::button_create_Click);
+            this->uploadButton->Cursor = System::Windows::Forms::Cursors::Hand;
+            resources->ApplyResources(this->uploadButton, L"uploadButton");
+            this->uploadButton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(20)),
+                static_cast<System::Int32>(static_cast<System::Byte>(26)));
+            this->uploadButton->Name = L"uploadButton";
+            this->uploadButton->UseVisualStyleBackColor = false;
+            this->uploadButton->Click += gcnew System::EventHandler(this, &mainwindow::uploadButton_Click);
             // 
-            // button_upload
+            // editButton
             // 
-            this->button_upload->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(77)), static_cast<System::Int32>(static_cast<System::Byte>(130)),
-                static_cast<System::Int32>(static_cast<System::Byte>(246)));
-            this->button_upload->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button_upload.BackgroundImage")));
-            this->button_upload->FlatAppearance->BorderColor = System::Drawing::Color::Black;
-            this->button_upload->FlatAppearance->BorderSize = 500;
-            this->button_upload->Font = (gcnew System::Drawing::Font(L"Tahoma", 12, System::Drawing::FontStyle::Bold));
-            this->button_upload->ForeColor = System::Drawing::Color::White;
-            this->button_upload->Location = System::Drawing::Point(495, 177);
-            this->button_upload->Margin = System::Windows::Forms::Padding(4);
-            this->button_upload->Name = L"button_upload";
-            this->button_upload->Size = System::Drawing::Size(329, 271);
-            this->button_upload->TabIndex = 4;
-            this->button_upload->UseVisualStyleBackColor = false;
-            this->button_upload->Click += gcnew System::EventHandler(this, &mainwindow::button_upload_Click);
+            this->editButton->Cursor = System::Windows::Forms::Cursors::Hand;
+            resources->ApplyResources(this->editButton, L"editButton");
+            this->editButton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(20)),
+                static_cast<System::Int32>(static_cast<System::Byte>(26)));
+            this->editButton->Name = L"editButton";
+            this->editButton->UseVisualStyleBackColor = false;
+            this->editButton->Click += gcnew System::EventHandler(this, &mainwindow::editButton_Click);
+            // 
+            // panel1
+            // 
+            this->panel1->Controls->Add(this->createButton);
+            this->panel1->Controls->Add(this->editButton);
+            this->panel1->Controls->Add(this->uploadButton);
+            this->panel1->Controls->Add(this->closeButton);
+            resources->ApplyResources(this->panel1, L"panel1");
+            this->panel1->Name = L"panel1";
+            // 
+            // closeButton
+            // 
+            this->closeButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(20)),
+                static_cast<System::Int32>(static_cast<System::Byte>(30)));
+            this->closeButton->Cursor = System::Windows::Forms::Cursors::Hand;
+            this->closeButton->FlatAppearance->BorderColor = System::Drawing::Color::Red;
+            this->closeButton->FlatAppearance->BorderSize = 0;
+            this->closeButton->FlatAppearance->MouseDownBackColor = System::Drawing::Color::DarkRed;
+            resources->ApplyResources(this->closeButton, L"closeButton");
+            this->closeButton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(20)),
+                static_cast<System::Int32>(static_cast<System::Byte>(26)));
+            this->closeButton->Name = L"closeButton";
+            this->closeButton->UseVisualStyleBackColor = false;
+            this->closeButton->Click += gcnew System::EventHandler(this, &mainwindow::closeButton_Click);
+            // 
+            // panel2
+            // 
+            this->panel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)), static_cast<System::Int32>(static_cast<System::Byte>(33)),
+                static_cast<System::Int32>(static_cast<System::Byte>(45)));
+            this->panel2->Controls->Add(this->pictureBox1);
+            this->panel2->Controls->Add(this->githubButton);
+            this->panel2->Controls->Add(this->pictureBox2);
+            resources->ApplyResources(this->panel2, L"panel2");
+            this->panel2->Name = L"panel2";
             // 
             // pictureBox1
             // 
-            this->pictureBox1->BackColor = System::Drawing::Color::White;
-            this->pictureBox1->Location = System::Drawing::Point(-7, -7);
+            resources->ApplyResources(this->pictureBox1, L"pictureBox1");
             this->pictureBox1->Name = L"pictureBox1";
-            this->pictureBox1->Size = System::Drawing::Size(927, 108);
-            this->pictureBox1->TabIndex = 5;
             this->pictureBox1->TabStop = false;
             // 
-            // pictureBox3
+            // githubButton
             // 
-            this->pictureBox3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.BackgroundImage")));
-            this->pictureBox3->Location = System::Drawing::Point(24, 26);
-            this->pictureBox3->Name = L"pictureBox3";
-            this->pictureBox3->Size = System::Drawing::Size(161, 50);
-            this->pictureBox3->TabIndex = 7;
-            this->pictureBox3->TabStop = false;
+            this->githubButton->Cursor = System::Windows::Forms::Cursors::Hand;
+            resources->ApplyResources(this->githubButton, L"githubButton");
+            this->githubButton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)), static_cast<System::Int32>(static_cast<System::Byte>(33)),
+                static_cast<System::Int32>(static_cast<System::Byte>(45)));
+            this->githubButton->Name = L"githubButton";
+            this->githubButton->UseVisualStyleBackColor = false;
+            this->githubButton->Click += gcnew System::EventHandler(this, &mainwindow::githubButton_Click);
+            // 
+            // pictureBox2
+            // 
+            resources->ApplyResources(this->pictureBox2, L"pictureBox2");
+            this->pictureBox2->Name = L"pictureBox2";
+            this->pictureBox2->TabStop = false;
             // 
             // mainwindow
             // 
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
-            this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(244)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
-                static_cast<System::Int32>(static_cast<System::Byte>(249)));
-            this->ClientSize = System::Drawing::Size(909, 506);
-            this->Controls->Add(this->pictureBox3);
-            this->Controls->Add(this->pictureBox1);
-            this->Controls->Add(this->label1);
-            this->Controls->Add(this->button_create);
-            this->Controls->Add(this->button_upload);
-            this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
-            this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-            this->Margin = System::Windows::Forms::Padding(4);
+            this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(20)),
+                static_cast<System::Int32>(static_cast<System::Byte>(26)));
+            resources->ApplyResources(this, L"$this");
+            this->Controls->Add(this->panel2);
+            this->Controls->Add(this->panel1);
+            this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             this->MaximizeBox = false;
             this->MinimizeBox = false;
             this->Name = L"mainwindow";
-            this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-            this->Text = L"RoadMap v0.8.0";
             this->TransparencyKey = System::Drawing::SystemColors::WindowFrame;
+            this->panel1->ResumeLayout(false);
+            this->panel2->ResumeLayout(false);
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
             this->ResumeLayout(false);
-            this->PerformLayout();
 
         }
 
 #pragma endregion
+    private:
+        void SetDragHandlers(System::Windows::Forms::Panel^ panel) {
+            panel->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &mainwindow::Form_MouseDown);
+            panel->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &mainwindow::Form_MouseMove);
+            panel->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &mainwindow::Form_MouseUp);
+        }
+
+        void Form_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+            if (e->Button == System::Windows::Forms::MouseButtons::Left)
+            {
+                dragging = true;
+                lastPoint = e->Location;
+            }
+        }
+
+        void Form_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+            if (dragging)
+            {
+                this->Location = System::Drawing::Point(this->Location.X + (e->Location.X - lastPoint.X), this->Location.Y + (e->Location.Y - lastPoint.Y));
+            }
+        }
+
+        void Form_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+            dragging = false;
+        }
 
     private:
-        System::Void button_create_Click(System::Object^ sender, System::EventArgs^ e) {
+        System::Void createButton_Click(System::Object^ sender, System::EventArgs^ e) {
             creationwindow^ createRoadmap = gcnew creationwindow();
             createRoadmap->Show();
         }
 
-    private:
-        System::Void button_upload_Click(System::Object^ sender, System::EventArgs^ e) {
+        System::Void uploadButton_Click(System::Object^ sender, System::EventArgs^ e) {
             mapwindow^ RoadMapWindow = gcnew mapwindow();
             RoadMapWindow->Show();
         }
+
+    private:
+        System::Void githubButton_Click(System::Object^ sender, System::EventArgs^ e) {
+            String^ url = "https://github.com/juicebucket";
+
+            try {
+                System::Diagnostics::Process::Start("explorer.exe", url);
+            }
+            catch (Exception^ ex) {
+                MessageBox::Show("Unable to open the link: " + ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+            }
+        }
+
+    private:
+        System::Void closeButton_Click(System::Object^ sender, System::EventArgs^ e) {
+            this->Close();
+        }
+
+    private: System::Void editButton_Click(System::Object^ sender, System::EventArgs^ e) {
+        MessageBox::Show("Soon...", "INFORMATION", MessageBoxButtons::OK, MessageBoxIcon::Information);
+        }
     };
 }
-
-
