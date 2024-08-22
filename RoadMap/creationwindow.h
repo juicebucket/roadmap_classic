@@ -51,26 +51,26 @@ namespace RoadMap {
 
 
 
-		   System::Windows::Forms::TextBox^ subtopicTextBox;
-		   System::Windows::Forms::Button^ AddNewRowButton;
-		   System::Windows::Forms::Button^ SaveButton;
-		   System::Windows::Forms::Label^ authorLabel;
-		   System::Windows::Forms::TextBox^ authorTextBox;
-		   System::Windows::Forms::Label^ deadlineLabel;
-		   System::Windows::Forms::Button^ DeleteLastRowButton;
-		   System::Windows::Forms::Panel^ scrollPanel;
+		System::Windows::Forms::TextBox^ subtopicTextBox;
+		System::Windows::Forms::Button^ AddNewRowButton;
+		System::Windows::Forms::Button^ SaveButton;
+		System::Windows::Forms::Label^ authorLabel;
+		System::Windows::Forms::TextBox^ authorTextBox;
+		System::Windows::Forms::Label^ deadlineLabel;
+		System::Windows::Forms::Button^ DeleteLastRowButton;
+		System::Windows::Forms::Panel^ scrollPanel;
 	private: System::Windows::Forms::TextBox^ descriptionTextBox;
 
-		   System::Windows::Forms::Panel^ panel2;
+		System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::PictureBox^ logoPicture;
 
-		   System::Windows::Forms::Panel^ panel1;
-		   System::Windows::Forms::Button^ closeButton;
-		   System::Windows::Forms::DateTimePicker^ dateTimePicker;
-		   System::Drawing::Point lastPoint;
-		   System::ComponentModel::Container^ components;
+		System::Windows::Forms::Panel^ panel1;
+		System::Windows::Forms::Button^ closeButton;
+		System::Windows::Forms::DateTimePicker^ dateTimePicker;
+		System::Drawing::Point lastPoint;
+		System::ComponentModel::Container^ components;
 
-		   bool dragging = false;
+		bool dragging = false;
 
 	protected:
 
@@ -481,8 +481,7 @@ namespace RoadMap {
 
 	private:
 		System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
-			if (TopicCount >= 16) {
+			if (TopicCount >= 15) {
 				MessageBox::Show("Maximum 15 Topics allowed.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
 			}
@@ -530,12 +529,12 @@ namespace RoadMap {
 			newsubtopicTextBox->Name = "subtopicTextBox_" + TopicCount.ToString();
 			newdescriptionTextBox->Name = "descriptionTextBox_" + TopicCount.ToString();
 
+			newtopicTextBox->MaxLength = 45;
+			newsubtopicTextBox->MaxLength = 1500;
+			newdescriptionTextBox->MaxLength = 150;
+
 			newsubtopicTextBox->Multiline = true;
 			newsubtopicTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
-
-			newtopicTextBox->MaxLength = 45;
-			newsubtopicTextBox->MaxLength = 1000;
-			newdescriptionTextBox->MaxLength = 150;
 
 			newdescriptionTextBox->Multiline = true;
 			newdescriptionTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
@@ -553,14 +552,51 @@ namespace RoadMap {
 
 	private:
 		System::Void SaveButton_Click(System::Object^ sender, System::EventArgs^ e) {
-			if (roadmapNameTextBox->Text->Length > 45 || roadmapNameTextBox->Text->Length == 0) {
-				MessageBox::Show("Roadmap name can be up to 45 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			if (roadmapNameTextBox->Text->Length > 40 || roadmapNameTextBox->Text->Length == 0) {
+				MessageBox::Show("Roadmap name can be up to 40 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
 			}
-
 			if (authorTextBox->Text->Length > 45 || authorTextBox->Text->Length == 0) {
 				MessageBox::Show("Author name can be up to 45 characters long and cannot be empty.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				return;
+			}
+
+			for (int i = 0; i < textBoxes->Count; i += 3) {
+				String^ subtopicText = textBoxes[i + 1]->Text->Trim();
+				String^ descriptionText = textBoxes[i + 2]->Text->Trim();
+
+				int subtopicCount = subtopicText->Split(gcnew array<wchar_t>{','}, StringSplitOptions::RemoveEmptyEntries)->Length;
+
+				if (descriptionText->Length > 0 && subtopicCount < 4) {
+					MessageBox::Show("Each row must have at least 4 subtopics if a description is provided. Please add more subtopics before saving.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					return;
+				}
+				String^ TopicText = textBoxes[i]->Text->Trim();
+				if (TopicText->Length > 40 || TopicText->Length == 0) {
+					MessageBox::Show("Topic name can be up to 40 characters long and cannot be empty in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					return;
+				}
+				if (descriptionText->Length > 150) {
+					MessageBox::Show("Description can be up to 150 characters long in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					return;
+				}
+				if (String::IsNullOrWhiteSpace(subtopicText)) {
+					MessageBox::Show("Subtopic cannot be empty in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					return;
+				}
+				int commaIndex = subtopicText->IndexOf(",");
+				if (commaIndex >= 0) {
+					if (commaIndex > 45) {
+						MessageBox::Show("You can enter only 45 symbols before comma in subtopics in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+						return;
+					}
+				}
+				else {
+					if (subtopicText->Length > 45) {
+						MessageBox::Show("You can enter only 45 symbols before comma in subtopics in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+						return;
+					}
+				}
 			}
 
 			System::Xml::XmlDocument^ xmlDoc = gcnew System::Xml::XmlDocument();
@@ -572,33 +608,11 @@ namespace RoadMap {
 			rootNode->AppendChild(infoNode);
 
 			for (int i = 0; i < textBoxes->Count; i += 3) {
-				String^ TopicText = textBoxes[i]->Text;
-				String^ DescriptionText = textBoxes[i + 2]->Text;
-				String^ SubtopicTextDynamic = textBoxes[i + 1]->Text;
+				String^ TopicText = textBoxes[i]->Text->Trim();
+				String^ DescriptionText = textBoxes[i + 2]->Text->Trim();
+				String^ SubtopicTextDynamic = textBoxes[i + 1]->Text->Trim();
 
-				if (TopicText->Length > 45 || TopicText->Length == 0) {
-					MessageBox::Show("Topic name can be up to 45 characters long and cannot be empty in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					return;
-				}
-
-				if (DescriptionText->Length > 150 || DescriptionText->Length == 0) {
-					MessageBox::Show("Description can be up to 150 characters long and cannot be empty in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					return;
-				}
-
-				int commaIndex = SubtopicTextDynamic->IndexOf(",");
-				if (commaIndex >= 0) {
-					if (commaIndex > 50) {
-						MessageBox::Show("You can enter only 50 symbols before comma in subtopics in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-						return;
-					}
-				}
-				else {
-					if (SubtopicTextDynamic->Length > 50) {
-						MessageBox::Show("You can enter only 50 symbols before comma in subtopics in row " + (i / 3 + 1).ToString() + ".", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-						return;
-					}
-				}
+				SubtopicTextDynamic = SubtopicTextDynamic->Replace("\r", "")->Replace("\n", "");
 
 				System::Xml::XmlElement^ rowsNode = xmlDoc->CreateElement("ROWS");
 				rowsNode->SetAttribute("Topic", TopicText);
@@ -632,7 +646,7 @@ namespace RoadMap {
 
 	private:
 		System::Void DeleteLastRowButton_Click_1(System::Object^ sender, System::EventArgs^ e) {
-			if (textBoxes->Count > 2) {
+			if (textBoxes->Count > 3) {
 				System::Windows::Forms::DialogResult result = MessageBox::Show(
 					"Are you sure you want to delete the last row?",
 					"Confirmation",
@@ -659,7 +673,7 @@ namespace RoadMap {
 				}
 			}
 			else {
-				MessageBox::Show("At least two rows must remain.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show("At least one row must remain.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
 	private:
