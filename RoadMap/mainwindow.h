@@ -30,7 +30,7 @@ namespace RoadMap {
             }
         }
 
-    private: 
+    private:
         System::ComponentModel::BackgroundWorker^ backgroundWorker1;
         System::Windows::Forms::Button^ createButton;
         System::Windows::Forms::Button^ uploadButton;
@@ -44,11 +44,11 @@ namespace RoadMap {
         System::ComponentModel::Container^ components;
 
         bool dragging = false;
-        System::Drawing::Point lastPoint; 
+        System::Drawing::Point lastPoint;
 
     protected:
 
-    #pragma region Windows Form Designer generated code
+#pragma region Windows Form Designer generated code
 
         void InitializeComponent(void)
         {
@@ -102,7 +102,6 @@ namespace RoadMap {
                 static_cast<System::Int32>(static_cast<System::Byte>(26)));
             this->editButton->Name = L"editButton";
             this->editButton->UseVisualStyleBackColor = false;
-            this->editButton->Click += gcnew System::EventHandler(this, &mainwindow::editButton_Click);
             // 
             // panel1
             // 
@@ -138,7 +137,7 @@ namespace RoadMap {
             resources->ApplyResources(this->panel2, L"panel2");
             this->panel2->Name = L"panel2";
             // 
-            // panel1
+            // pictureBox1
             // 
             resources->ApplyResources(this->pictureBox1, L"pictureBox1");
             this->pictureBox1->Name = L"pictureBox1";
@@ -159,29 +158,30 @@ namespace RoadMap {
             resources->ApplyResources(this->pictureBox2, L"pictureBox2");
             this->pictureBox2->Name = L"pictureBox2";
             this->pictureBox2->TabStop = false;
-            this->pictureBox3->TabStop = false;
-            this->pictureBox3->TabStop = false;
             // 
             // mainwindow
+            // 
+            this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
             this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(20)),
                 static_cast<System::Int32>(static_cast<System::Byte>(26)));
             resources->ApplyResources(this, L"$this");
             this->Controls->Add(this->panel2);
             this->Controls->Add(this->panel1);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-            this->Margin = System::Windows::Forms::Padding(4);
-            this->Margin = System::Windows::Forms::Padding(4);
             this->MaximizeBox = false;
-            this->Text = L"RoadMap v0.8.0";
+            this->MinimizeBox = false;
+            this->Name = L"mainwindow";
+            this->TransparencyKey = System::Drawing::SystemColors::WindowFrame;
             this->panel1->ResumeLayout(false);
             this->panel2->ResumeLayout(false);
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
             this->ResumeLayout(false);
 
         }
+
+#pragma endregion
+
     private:
         void SetDragHandlers(System::Windows::Forms::Panel^ panel) {
             panel->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &mainwindow::Form_MouseDown);
@@ -208,15 +208,13 @@ namespace RoadMap {
             dragging = false;
         }
 
-
-
     private:
         System::Void createButton_Click(System::Object^ sender, System::EventArgs^ e) {
             creationwindow^ createRoadmap = gcnew creationwindow();
             createRoadmap->Show();
+        }
+
         System::Void uploadButton_Click(System::Object^ sender, System::EventArgs^ e) {
-        System::Void button_upload_Click(System::Object^ sender, System::EventArgs^ e) {
-        System::Void button_upload_Click(System::Object^ sender, System::EventArgs^ e) {
             mapwindow^ RoadMapWindow = gcnew mapwindow();
             RoadMapWindow->Show();
         }
@@ -236,10 +234,6 @@ namespace RoadMap {
     private:
         System::Void closeButton_Click(System::Object^ sender, System::EventArgs^ e) {
             this->Close();
-        }
-
-    private: System::Void editButton_Click(System::Object^ sender, System::EventArgs^ e) {
-        MessageBox::Show("Soon...", "INFORMATION", MessageBoxButtons::OK, MessageBoxIcon::Information);
         }
     };
 }
