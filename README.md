@@ -1,49 +1,23 @@
-![Untitled](https://github.com/juicebucket/roadmap_project/assets/92608350/d2ab96b7-c914-47ca-b9d5-b7d0cee73bf3)
-
-Application version: 0.6.0. / Last Update: 22.08.2024
-
----
-
+![roadmap](https://github.com/user-attachments/assets/6413c884-6f12-47f8-83bf-f81b37da6e6f)
 > [!NOTE]
-> Initially, this project was created as a course work for the first academic year at the University. However, I continue to develop this project.
+> This branch represents the older version of the application, which has reached **version 0.6.0**. It includes all the features implemented up to the point of the project's split. For more details and additional information, please refer to the article in the [Releases](https://github.com/juicebucket/roadmap_project/releases/tag/news-2024-08-22) section.
 
-### Overview
-**RoadMap** is an application designed to help users create and manage personalized learning paths for various topics. The tool allows users to define sections, set checkpoints, and track their progress towards specific goals.
+## Overview
+**RoadMap Classic** is an application designed to help users create and manage personalized learning paths for various topics. The tool allows users to define sections, set checkpoints, and track their progress towards specific goals.
 
----
+The Classic version of the application has reached version 0.6.0 and includes all the core features implemented at the time of the project's split. As the main master branch has now been dedicated to future development and new features, RoadMap Classic has been moved to a separate branch. This version remains available for those who prefer its current functionality and stability. It will continue to receive minimal updates, including bug fixes and small enhancements, ensuring it remains a reliable tool for managing your learning goals.
 
-### Key Features
-- Create New Roadmaps: **Users can create a new roadmap by specifying the name, author, sections, and checkpoints.**
-- Upload Existing Roadmaps: **Users can upload pre-existing roadmaps and start tracking their progress immediately.**
-- Progress Tracking: **Track your progress through various sections and checkpoints.**
-- Customizable Sections: **Add or remove sections and checkpoints as needed to tailor the roadmap to your needs.**
-- Deadline Setting: **Set deadlines for your roadmaps to stay on track and achieve your goals within a specified timeframe.**
+## Key features
+- **Creating new roadmaps:** Users can create a new roadmap by specifying title, author, topics, topic descriptions and subtopics.
+- **Uploading Existing Roadmaps:** Users can upload existing roadmaps from other people and start tracking their progress immediately.
+- **Progress Tracking:** Track your progress on various using the user-friendly and intuitive UI.
+- **Customizable rows:** Add and remove “rows” as needed to customize the roadmap to your needs.
+- **Set deadlines:** Set deadlines for your roadmaps to stay on track and achieve your goals within the specified timeframe.
 
----
+## Program screenshots:
+![collage](https://github.com/user-attachments/assets/5c332626-b052-483c-8280-1096fda816f4)
 
-### Screenshots
-1. **Main Page**: The main page where users can choose to create a new roadmap or upload an existing one.
-
-![Снимок экрана 2024-06-20 162713](https://github.com/juicebucket/roadmap_project/assets/92608350/73e0ea0d-9cf6-4712-b0ae-2565c00d3fd9)
-
-2. **Create New Roadmap**: The interface for creating a new roadmap, including fields for name, author, sections, checkpoints, and deadlines.
-
-![Снимок экрана 2024-06-20 162729](https://github.com/juicebucket/roadmap_project/assets/92608350/ac6c8cd2-c956-4bcb-88a4-2faa3ff0fb4f)
-
-3. **Roadmap Progress**: An example of a roadmap with various sections and checkpoints, showing the progress tracking feature.
-
-![Снимок экрана 2024-06-20 162749](https://github.com/juicebucket/roadmap_project/assets/92608350/1febd12f-5cc6-430b-8fbd-8585d79c789c)
-
----
-
-### Future Plans
-1. ✅ **Removing a row**: Allow users to delete accidentally created rows.. [21.08.2024]
-2. **RoadMap editing**: Edit the RoadMap after it has been created.
-3. ✅ **Checkpoints description**: Allow users to enter additional information for each checkpoints (like links, describing the element and etc.) [21.08.2024]
-
----
-
-### Technologies and development
+## Technologies and development
 This project was developed using the following technologies:
 
 - Programming Language: **C++/CLI**
@@ -51,12 +25,17 @@ This project was developed using the following technologies:
 - Graphical Interface: **Windows Forms**
 - Data exchange between users: **XML**
 
----
+## Project Documentaion
 
-### Installation [0.5.0]
-You have an opportunity to download and install this application as a simple user. 
+- [Guide to using RoadMap Classic ENG](https://docs.google.com/document/d/1Mog-hXWCawZsNG14r8w2MYxUh5n2GOUu/edit?usp=sharing&ouid=102335142549618640306&rtpof=true&sd=true)
 
-The Visual C++ Redistributable library is required for the program to work. The program installer has already included auto-installation of this library for x64 and x86 systems.
+- [Гид по использованию RoadMap Classic RUS](https://docs.google.com/document/d/10n4N_LM4bEH9Q5yG22GjLNbYjfTyaP38KrbKxNhar5M/edit?usp=sharing)
+
+- [.XML file structure for RoadMap Classic ENG](https://docs.google.com/document/d/1-01NK4ja3wovliDGi7CNa936qXrzIuLyyCsgE900oWk/edit?usp=sharing)
+
+
+## Distribute
+You have an opportunity to download and install this application as a simple user.  To do this, click on the “DOWNLOAD” button and you will be taken to the “RELEASES” section.
 
 <div align="center">
 
@@ -65,4 +44,9 @@ The Visual C++ Redistributable library is required for the program to work. The 
 </a>
 
 </div>
+<br>
+
+All versions of RoadMap Classic are listed in the releases with the notation “CLASSIC version / RELEASE”. Microsoft Visual C++ Redistributable library is required for the application to work.
+
+![image](https://github.com/user-attachments/assets/e5fbe82e-1591-44a1-8ead-4afe06858be1)
 
