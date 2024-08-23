@@ -37,7 +37,9 @@ namespace RoadMap {
         System::Windows::Forms::PictureBox^ logoPicture;
         System::Windows::Forms::Panel^ panel1;
         System::Windows::Forms::Panel^ panel2;
-        System::ComponentModel::Container^ components;
+    private: System::Windows::Forms::Button^ githubButton;
+
+           System::ComponentModel::Container^ components;
 
     protected:
 
@@ -52,8 +54,10 @@ namespace RoadMap {
             this->uploadButton = (gcnew System::Windows::Forms::Button());
             this->logoPicture = (gcnew System::Windows::Forms::PictureBox());
             this->panel1 = (gcnew System::Windows::Forms::Panel());
+            this->githubButton = (gcnew System::Windows::Forms::Button());
             this->panel2 = (gcnew System::Windows::Forms::Panel());
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logoPicture))->BeginInit();
+            this->panel1->SuspendLayout();
             this->SuspendLayout();
             // 
             // label1
@@ -104,28 +108,46 @@ namespace RoadMap {
             // 
             // logoPicture
             // 
-            this->logoPicture->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logoPicture.BackgroundImage")));
-            this->logoPicture->Location = System::Drawing::Point(24, 26);
+            this->logoPicture->BackColor = System::Drawing::Color::White;
+            this->logoPicture->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logoPicture.Image")));
+            this->logoPicture->Location = System::Drawing::Point(30, 35);
             this->logoPicture->Name = L"logoPicture";
-            this->logoPicture->Size = System::Drawing::Size(161, 50);
+            this->logoPicture->Size = System::Drawing::Size(161, 39);
             this->logoPicture->TabIndex = 7;
             this->logoPicture->TabStop = false;
             // 
             // panel1
             // 
             this->panel1->BackColor = System::Drawing::Color::White;
+            this->panel1->Controls->Add(this->githubButton);
+            this->panel1->Controls->Add(this->logoPicture);
             this->panel1->Dock = System::Windows::Forms::DockStyle::Top;
             this->panel1->Location = System::Drawing::Point(0, 0);
             this->panel1->Name = L"panel1";
             this->panel1->Size = System::Drawing::Size(909, 100);
             this->panel1->TabIndex = 8;
             // 
+            // githubButton
+            // 
+            this->githubButton->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+            this->githubButton->Cursor = System::Windows::Forms::Cursors::Hand;
+            this->githubButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->githubButton->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)), static_cast<System::Int32>(static_cast<System::Byte>(33)),
+                static_cast<System::Int32>(static_cast<System::Byte>(45)));
+            this->githubButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"githubButton.Image")));
+            this->githubButton->Location = System::Drawing::Point(704, 35);
+            this->githubButton->Name = L"githubButton";
+            this->githubButton->Size = System::Drawing::Size(176, 39);
+            this->githubButton->TabIndex = 0;
+            this->githubButton->UseVisualStyleBackColor = false;
+            this->githubButton->Click += gcnew System::EventHandler(this, &mainwindow::githubButton_Click);
+            // 
             // panel2
             // 
             this->panel2->Dock = System::Windows::Forms::DockStyle::Bottom;
-            this->panel2->Location = System::Drawing::Point(0, 98);
+            this->panel2->Location = System::Drawing::Point(0, 79);
             this->panel2->Name = L"panel2";
-            this->panel2->Size = System::Drawing::Size(909, 408);
+            this->panel2->Size = System::Drawing::Size(909, 423);
             this->panel2->TabIndex = 9;
             // 
             // mainwindow
@@ -133,8 +155,7 @@ namespace RoadMap {
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
             this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(244)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(249)));
-            this->ClientSize = System::Drawing::Size(909, 506);
-            this->Controls->Add(this->logoPicture);
+            this->ClientSize = System::Drawing::Size(909, 502);
             this->Controls->Add(this->label1);
             this->Controls->Add(this->createButton);
             this->Controls->Add(this->uploadButton);
@@ -147,15 +168,28 @@ namespace RoadMap {
             this->MinimizeBox = false;
             this->Name = L"mainwindow";
             this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-            this->Text = L"RoadMap v0.6.0";
+            this->Text = L"RoadMap Classic v0.6.1";
             this->TransparencyKey = System::Drawing::SystemColors::WindowFrame;
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logoPicture))->EndInit();
+            this->panel1->ResumeLayout(false);
             this->ResumeLayout(false);
             this->PerformLayout();
 
         }
 
 #pragma endregion
+    private:
+        System::Void githubButton_Click(System::Object^ sender, System::EventArgs^ e) {
+            String^ url = "https://github.com/juicebucket/roadmap_project/tree/classic";
+
+            try {
+                System::Diagnostics::Process::Start("explorer.exe", url);
+            }
+            catch (Exception^ ex) {
+                MessageBox::Show("Unable to open the link: " + ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+            }
+        }
+
     private:
         System::Void createButton_Click(System::Object^ sender, System::EventArgs^ e) {
             creationwindow^ createRoadmap = gcnew creationwindow();

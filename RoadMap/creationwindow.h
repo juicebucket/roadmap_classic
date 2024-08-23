@@ -218,10 +218,10 @@ namespace RoadMap {
 			// 
 			// logoPicture
 			// 
-			this->logoPicture->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logoPicture.BackgroundImage")));
-			this->logoPicture->Location = System::Drawing::Point(32, 25);
+			this->logoPicture->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logoPicture.Image")));
+			this->logoPicture->Location = System::Drawing::Point(30, 35);
 			this->logoPicture->Name = L"logoPicture";
-			this->logoPicture->Size = System::Drawing::Size(161, 50);
+			this->logoPicture->Size = System::Drawing::Size(154, 40);
 			this->logoPicture->TabIndex = 16;
 			this->logoPicture->TabStop = false;
 			// 
@@ -363,7 +363,7 @@ namespace RoadMap {
 			this->MinimizeBox = false;
 			this->Name = L"creationwindow";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"RoadMap - Create new map";
+			this->Text = L"RoadMap Classic - Create new map";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logoPicture))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);

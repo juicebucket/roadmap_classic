@@ -69,6 +69,7 @@ namespace RoadMap {
                this->panel1 = (gcnew System::Windows::Forms::Panel());
                this->panel2 = (gcnew System::Windows::Forms::Panel());
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logoPicture))->BeginInit();
+               this->panel1->SuspendLayout();
                this->panel2->SuspendLayout();
                this->SuspendLayout();
                // 
@@ -132,10 +133,11 @@ namespace RoadMap {
                // 
                // logoPicture
                // 
-               this->logoPicture->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logoPicture.BackgroundImage")));
-               this->logoPicture->Location = System::Drawing::Point(31, 28);
+               this->logoPicture->BackColor = System::Drawing::Color::White;
+               this->logoPicture->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"logoPicture.Image")));
+               this->logoPicture->Location = System::Drawing::Point(30, 35);
                this->logoPicture->Name = L"logoPicture";
-               this->logoPicture->Size = System::Drawing::Size(161, 50);
+               this->logoPicture->Size = System::Drawing::Size(161, 42);
                this->logoPicture->TabIndex = 17;
                this->logoPicture->TabStop = false;
                // 
@@ -227,6 +229,7 @@ namespace RoadMap {
                // panel1
                // 
                this->panel1->BackColor = System::Drawing::Color::White;
+               this->panel1->Controls->Add(this->logoPicture);
                this->panel1->Dock = System::Windows::Forms::DockStyle::Top;
                this->panel1->Location = System::Drawing::Point(0, 0);
                this->panel1->Name = L"panel1";
@@ -253,7 +256,6 @@ namespace RoadMap {
                this->Controls->Add(this->labelProgress);
                this->Controls->Add(this->deadlineLabel);
                this->Controls->Add(this->authorLabel);
-               this->Controls->Add(this->logoPicture);
                this->Controls->Add(this->titleLabel);
                this->Controls->Add(this->topicLabel);
                this->Controls->Add(this->saveButton);
@@ -268,8 +270,9 @@ namespace RoadMap {
                this->MinimizeBox = false;
                this->Name = L"mapwindow";
                this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-               this->Text = L"RoadMap - Map progress";
+               this->Text = L"RoadMap Classic - Map progress";
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logoPicture))->EndInit();
+               this->panel1->ResumeLayout(false);
                this->panel2->ResumeLayout(false);
                this->panel2->PerformLayout();
                this->ResumeLayout(false);
