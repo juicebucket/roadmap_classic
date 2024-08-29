@@ -373,7 +373,6 @@ namespace RoadMap {
                 RowsPanel->Controls->Clear();
 
                 System::Xml::XmlNodeList^ rowsNodes = xmlDoc->GetElementsByTagName("ROWS");
-
                 System::Xml::XmlNodeList^ infoNodes = xmlDoc->GetElementsByTagName("MAPINFO");
                 System::Xml::XmlNodeList^ dateNodes = xmlDoc->GetElementsByTagName("DATE");
 
@@ -392,9 +391,50 @@ namespace RoadMap {
                         authorTextBox->Text = "Author not found";
                     }
                 }
+
+                int totalSubtopics = 0;
+                int completedSubtopics = 0;
+
                 if (dateNodes->Count > 0) {
                     if (dateNodes[0]->Attributes["Deadline"] != nullptr) {
-                        deadlineTextBox->Text = dateNodes[0]->Attributes["Deadline"]->Value;
+                        String^ deadlineStr = dateNodes[0]->Attributes["Deadline"]->Value;
+                        deadlineTextBox->Text = deadlineStr;
+
+                        DateTime deadline;
+                        if (DateTime::TryParse(deadlineStr, deadline)) {
+                            DateTime currentDate = DateTime::Now;
+                            TimeSpan remainingTime = deadline - currentDate;
+
+                            UpdateProgressLabel();
+                            double percentage = completedSubtopics == 0 ? 0 : (double)completedSubtopics / totalSubtopics * 100;
+                            String^ progressMessage = "Current progress: " + percentage.ToString("F2") + "% completed.";
+
+                            if (remainingTime.TotalDays > 0) {
+                                if (remainingTime.TotalDays <= 30 && remainingTime.TotalDays > 7) {
+                                    MessageBox::Show("The deadline is in less than a month!\n\n" + progressMessage, "Deadline Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                                }
+                                else if (remainingTime.TotalDays <= 7 && remainingTime.TotalDays > 3) {
+                                    MessageBox::Show("The deadline is in less than a week!\n\n" + progressMessage, "Deadline Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                                }
+                                else if (remainingTime.TotalDays <= 3 && remainingTime.TotalDays > 1) {
+                                    MessageBox::Show("The deadline is in less than 3 days!\n\n" + progressMessage, "Deadline Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                                }
+                                else if (remainingTime.TotalDays <= 1) {
+                                    MessageBox::Show("The deadline is tomorrow!\n\n" + progressMessage, "Deadline Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                                }
+                            }
+                            else {
+                                if (remainingTime.TotalDays == 0) {
+                                    MessageBox::Show("Deadline is today!\n\n" + progressMessage, "Deadline Alert", MessageBoxButtons::OK, MessageBoxIcon::Information);
+                                }
+                                else {
+                                    MessageBox::Show("The deadline has passed!\n\n" + progressMessage, "Deadline Alert", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                                }
+                            }
+                        }
+                        else {
+                            MessageBox::Show("Invalid deadline format in XML.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                        }
                     }
                     else {
                         deadlineTextBox->Text = "Deadline not found";
@@ -413,6 +453,14 @@ namespace RoadMap {
 
                     CreateAndDisplaysubtopics(Topic, Description, Subtopic, yOffset, xmlDoc, "ROWS", i);
                     yOffset += 30 * (Subtopic->Split(',')->Length);
+
+                    array<String^>^ subtopicsArray = Subtopic->Split(gcnew array<wchar_t>{','}, StringSplitOptions::RemoveEmptyEntries);
+                    totalSubtopics += subtopicsArray->Length;
+                    for each (String ^ subtopic in subtopicsArray) {
+                        if (subtopic->Contains("[+]")) {
+                            completedSubtopics++;
+                        }
+                    }
                 }
 
                 RowsPanel->AutoScroll = true;
@@ -528,20 +576,20 @@ namespace RoadMap {
 
     private:
         System::Void UpdateProgressLabel() {
-            int totalsubtopics = 0;
-            int completedsubtopics = 0;
+            int totalSubtopics = 0;
+            int completedSubtopics = 0;
 
             for each (Control ^ control in RowsPanel->Controls) {
                 if (CheckBox^ checkBox = dynamic_cast<CheckBox^>(control)) {
-                    totalsubtopics++;
+                    totalSubtopics++;
                     if (checkBox->Checked) {
-                        completedsubtopics++;
+                        completedSubtopics++;
                     }
                 }
             }
-            if (totalsubtopics > 0) {
-                double percentage = (double)completedsubtopics / totalsubtopics * 100;
-                labelProgress->Text = "Progress: " + completedsubtopics + " / " + totalsubtopics + " (" + percentage.ToString("F2") + "%)";
+            if (totalSubtopics > 0) {
+                double percentage = (double)completedSubtopics / totalSubtopics * 100;
+                labelProgress->Text = "Progress: " + completedSubtopics + " / " + totalSubtopics + " (" + percentage.ToString("F2") + "%)";
             }
             else {
                 labelProgress->Text = "No subtopics available.";
