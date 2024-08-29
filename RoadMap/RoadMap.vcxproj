@@ -124,11 +124,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="creationwindow.cpp" />
+    <ClCompile Include="editwindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mapwindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="creationwindow.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="editwindow.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="mapwindow.h">
@@ -142,6 +146,9 @@
   <ItemGroup>
     <EmbeddedResource Include="creationwindow.resx">
       <DependentUpon>creationwindow.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editwindow.resx">
+      <DependentUpon>editwindow.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mapwindow.resx">
       <DependentUpon>mapwindow.h</DependentUpon>

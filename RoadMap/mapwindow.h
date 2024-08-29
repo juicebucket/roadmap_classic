@@ -49,11 +49,10 @@ namespace RoadMap {
         System::Windows::Forms::Button^ uploadButton;
         System::Windows::Forms::Button^ saveButton;
         System::Windows::Forms::Button^ closeButton;
-
         System::ComponentModel::Container^ components;
+        System::Drawing::Point lastPoint;
 
         bool dragging = false;
-        System::Drawing::Point lastPoint;
 
 #pragma region Windows Form Designer generated code
 

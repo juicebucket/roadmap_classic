@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "creationwindow.h"
 #include "mapwindow.h"
+#include "editwindow.h"
 
 namespace RoadMap {
 
@@ -42,9 +43,9 @@ namespace RoadMap {
         System::Windows::Forms::Button^ githubButton;
         System::Windows::Forms::Button^ closeButton;
         System::ComponentModel::Container^ components;
+        System::Drawing::Point lastPoint;
 
         bool dragging = false;
-        System::Drawing::Point lastPoint;
 
     protected:
 
@@ -102,6 +103,7 @@ namespace RoadMap {
                 static_cast<System::Int32>(static_cast<System::Byte>(26)));
             this->editButton->Name = L"editButton";
             this->editButton->UseVisualStyleBackColor = false;
+            this->editButton->Click += gcnew System::EventHandler(this, &mainwindow::editButton_Click);
             // 
             // panel1
             // 
@@ -209,13 +211,13 @@ namespace RoadMap {
 
     private:
         System::Void createButton_Click(System::Object^ sender, System::EventArgs^ e) {
-            creationwindow^ createRoadmap = gcnew creationwindow();
-            createRoadmap->Show();
+            creationwindow^ createRoadMap = gcnew creationwindow();
+            createRoadMap->Show();
         }
 
         System::Void uploadButton_Click(System::Object^ sender, System::EventArgs^ e) {
-            mapwindow^ RoadMapWindow = gcnew mapwindow();
-            RoadMapWindow->Show();
+            mapwindow^ progressRoadMap = gcnew mapwindow();
+            progressRoadMap->Show();
         }
 
     private:
@@ -233,6 +235,11 @@ namespace RoadMap {
     private:
         System::Void closeButton_Click(System::Object^ sender, System::EventArgs^ e) {
             this->Close();
+        }
+    private: 
+        System::Void editButton_Click(System::Object^ sender, System::EventArgs^ e) {
+            editwindow^ editRoadMap = gcnew editwindow();
+            editRoadMap->Show();
         }
     };
 }

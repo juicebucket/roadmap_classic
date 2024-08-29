@@ -1,4 +1,4 @@
-﻿#include "mapwindow.h"
+﻿#include "creationwindow.h"
 #pragma once
 
 namespace RoadMap {
@@ -12,7 +12,7 @@ namespace RoadMap {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	public ref class creationwindow : public System::Windows::Forms::Form
+	public ref class editwindow : public System::Windows::Forms::Form
 	{
 
 		List<TextBox^>^ textBoxes = gcnew List<TextBox^>();
@@ -20,7 +20,7 @@ namespace RoadMap {
 	public:
 
 
-		creationwindow(void)
+		editwindow(void)
 		{
 			InitializeComponent();
 			SetDragHandlers(panel1);
@@ -28,7 +28,7 @@ namespace RoadMap {
 		}
 
 	protected:
-		~creationwindow()
+		~editwindow()
 		{
 			if (components)
 			{
@@ -44,16 +44,12 @@ namespace RoadMap {
 		System::Windows::Forms::TextBox^ roadmapNameTextBox;
 		System::Windows::Forms::Label^ topicsLabel;
 		System::Windows::Forms::Label^ subtopicsLabel;
-		System::Windows::Forms::TextBox^ topicTextBox;
-		System::Windows::Forms::TextBox^ subtopicTextBox;
 		System::Windows::Forms::Button^ AddNewRowButton;
 		System::Windows::Forms::Button^ SaveButton;
 		System::Windows::Forms::Label^ authorLabel;
 		System::Windows::Forms::TextBox^ authorTextBox;
 		System::Windows::Forms::Label^ deadlineLabel;
 		System::Windows::Forms::Button^ DeleteLastRowButton;
-		System::Windows::Forms::Panel^ scrollPanel;
-		System::Windows::Forms::TextBox^ descriptionTextBox;
 		System::Windows::Forms::Panel^ panel2;
 		System::Windows::Forms::PictureBox^ logoPicture;
 		System::Windows::Forms::Panel^ panel1;
@@ -61,6 +57,11 @@ namespace RoadMap {
 		System::Windows::Forms::DateTimePicker^ dateTimePicker;
 		System::Drawing::Point lastPoint;
 		System::ComponentModel::Container^ components;
+		System::Windows::Forms::Button^ uploadButton;
+		System::Windows::Forms::Panel^ scrollPanel;
+		System::Windows::Forms::TextBox^ descriptionTextBox;
+		System::Windows::Forms::TextBox^ topicTextBox;
+		System::Windows::Forms::TextBox^ subtopicTextBox;
 
 		bool dragging = false;
 
@@ -73,14 +74,12 @@ namespace RoadMap {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(creationwindow::typeid));
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(editwindow::typeid));
 			this->main_title = (gcnew System::Windows::Forms::Label());
 			this->roadmapNameLabel = (gcnew System::Windows::Forms::Label());
 			this->roadmapNameTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->topicsLabel = (gcnew System::Windows::Forms::Label());
 			this->subtopicsLabel = (gcnew System::Windows::Forms::Label());
-			this->topicTextBox = (gcnew System::Windows::Forms::TextBox());
-			this->subtopicTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->AddNewRowButton = (gcnew System::Windows::Forms::Button());
 			this->SaveButton = (gcnew System::Windows::Forms::Button());
 			this->authorLabel = (gcnew System::Windows::Forms::Label());
@@ -88,12 +87,15 @@ namespace RoadMap {
 			this->dateTimePicker = (gcnew System::Windows::Forms::DateTimePicker());
 			this->deadlineLabel = (gcnew System::Windows::Forms::Label());
 			this->DeleteLastRowButton = (gcnew System::Windows::Forms::Button());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->scrollPanel = (gcnew System::Windows::Forms::Panel());
 			this->descriptionTextBox = (gcnew System::Windows::Forms::TextBox());
-			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->topicTextBox = (gcnew System::Windows::Forms::TextBox());
+			this->subtopicTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->closeButton = (gcnew System::Windows::Forms::Button());
 			this->logoPicture = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->uploadButton = (gcnew System::Windows::Forms::Button());
 			this->panel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logoPicture))->BeginInit();
 			this->panel1->SuspendLayout();
@@ -167,39 +169,6 @@ namespace RoadMap {
 			this->subtopicsLabel->TabIndex = 8;
 			this->subtopicsLabel->Text = L"SUBTOPICS";
 			// 
-			// topicTextBox
-			// 
-			this->topicTextBox->BackColor = System::Drawing::Color::White;
-			this->topicTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->topicTextBox->Enabled = false;
-			this->topicTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->topicTextBox->ForeColor = System::Drawing::Color::Black;
-			this->topicTextBox->Location = System::Drawing::Point(35, 193);
-			this->topicTextBox->Margin = System::Windows::Forms::Padding(4);
-			this->topicTextBox->MaxLength = 45;
-			this->topicTextBox->Name = L"topicTextBox";
-			this->topicTextBox->Size = System::Drawing::Size(259, 20);
-			this->topicTextBox->TabIndex = 11;
-			this->topicTextBox->Text = L"#Enter topicname";
-			// 
-			// subtopicTextBox
-			// 
-			this->subtopicTextBox->BackColor = System::Drawing::Color::White;
-			this->subtopicTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->subtopicTextBox->Enabled = false;
-			this->subtopicTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
-			this->subtopicTextBox->ForeColor = System::Drawing::Color::Black;
-			this->subtopicTextBox->Location = System::Drawing::Point(310, 193);
-			this->subtopicTextBox->Margin = System::Windows::Forms::Padding(4);
-			this->subtopicTextBox->MaxLength = 1000;
-			this->subtopicTextBox->Multiline = true;
-			this->subtopicTextBox->Name = L"subtopicTextBox";
-			this->subtopicTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
-			this->subtopicTextBox->Size = System::Drawing::Size(539, 63);
-			this->subtopicTextBox->TabIndex = 12;
-			this->subtopicTextBox->Text = L"#Enter subtopics names. Use \",\" (commas) to separate suptopics.\r\n";
-			// 
 			// AddNewRowButton
 			// 
 			this->AddNewRowButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)), static_cast<System::Int32>(static_cast<System::Byte>(33)),
@@ -213,14 +182,15 @@ namespace RoadMap {
 			this->AddNewRowButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->AddNewRowButton->Font = (gcnew System::Drawing::Font(L"Arial Black", 8.25F, System::Drawing::FontStyle::Bold));
 			this->AddNewRowButton->ForeColor = System::Drawing::Color::White;
-			this->AddNewRowButton->Location = System::Drawing::Point(35, 560);
+			this->AddNewRowButton->Location = System::Drawing::Point(267, 560);
 			this->AddNewRowButton->Margin = System::Windows::Forms::Padding(4);
 			this->AddNewRowButton->Name = L"AddNewRowButton";
-			this->AddNewRowButton->Size = System::Drawing::Size(405, 43);
+			this->AddNewRowButton->Size = System::Drawing::Size(177, 43);
 			this->AddNewRowButton->TabIndex = 13;
 			this->AddNewRowButton->Text = L"ADD NEW ROW";
 			this->AddNewRowButton->UseVisualStyleBackColor = false;
-			this->AddNewRowButton->Click += gcnew System::EventHandler(this, &creationwindow::button1_Click);
+			this->AddNewRowButton->Visible = false;
+			this->AddNewRowButton->Click += gcnew System::EventHandler(this, &editwindow::button1_Click);
 			// 
 			// SaveButton
 			// 
@@ -242,7 +212,8 @@ namespace RoadMap {
 			this->SaveButton->TabIndex = 14;
 			this->SaveButton->Text = L"SAVE";
 			this->SaveButton->UseVisualStyleBackColor = false;
-			this->SaveButton->Click += gcnew System::EventHandler(this, &creationwindow::SaveButton_Click);
+			this->SaveButton->Visible = false;
+			this->SaveButton->Click += gcnew System::EventHandler(this, &editwindow::SaveButton_Click);
 			// 
 			// authorLabel
 			// 
@@ -323,7 +294,31 @@ namespace RoadMap {
 			this->DeleteLastRowButton->TabIndex = 21;
 			this->DeleteLastRowButton->Text = L"DELETE LAST ROW";
 			this->DeleteLastRowButton->UseVisualStyleBackColor = false;
-			this->DeleteLastRowButton->Click += gcnew System::EventHandler(this, &creationwindow::DeleteLastRowButton_Click_1);
+			this->DeleteLastRowButton->Visible = false;
+			this->DeleteLastRowButton->Click += gcnew System::EventHandler(this, &editwindow::DeleteLastRowButton_Click_1);
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::Color::White;
+			this->panel2->Controls->Add(this->scrollPanel);
+			this->panel2->Controls->Add(this->descriptionTextBox);
+			this->panel2->Controls->Add(this->topicTextBox);
+			this->panel2->Controls->Add(this->subtopicTextBox);
+			this->panel2->Controls->Add(this->roadmapNameLabel);
+			this->panel2->Controls->Add(this->closeButton);
+			this->panel2->Controls->Add(this->logoPicture);
+			this->panel2->Controls->Add(this->authorLabel);
+			this->panel2->Controls->Add(this->subtopicsLabel);
+			this->panel2->Controls->Add(this->topicsLabel);
+			this->panel2->Controls->Add(this->roadmapNameTextBox);
+			this->panel2->Controls->Add(this->dateTimePicker);
+			this->panel2->Controls->Add(this->authorTextBox);
+			this->panel2->Controls->Add(this->deadlineLabel);
+			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
+			this->panel2->Location = System::Drawing::Point(0, 0);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(875, 653);
+			this->panel2->TabIndex = 24;
 			// 
 			// scrollPanel
 			// 
@@ -333,7 +328,7 @@ namespace RoadMap {
 			this->scrollPanel->Location = System::Drawing::Point(35, 263);
 			this->scrollPanel->Name = L"scrollPanel";
 			this->scrollPanel->Size = System::Drawing::Size(841, 387);
-			this->scrollPanel->TabIndex = 22;
+			this->scrollPanel->TabIndex = 26;
 			// 
 			// descriptionTextBox
 			// 
@@ -349,31 +344,41 @@ namespace RoadMap {
 			this->descriptionTextBox->Name = L"descriptionTextBox";
 			this->descriptionTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->descriptionTextBox->Size = System::Drawing::Size(259, 35);
-			this->descriptionTextBox->TabIndex = 23;
+			this->descriptionTextBox->TabIndex = 27;
 			this->descriptionTextBox->Text = L"#Enter description for topic";
 			// 
-			// panel2
+			// topicTextBox
 			// 
-			this->panel2->BackColor = System::Drawing::Color::White;
-			this->panel2->Controls->Add(this->roadmapNameLabel);
-			this->panel2->Controls->Add(this->closeButton);
-			this->panel2->Controls->Add(this->scrollPanel);
-			this->panel2->Controls->Add(this->logoPicture);
-			this->panel2->Controls->Add(this->authorLabel);
-			this->panel2->Controls->Add(this->subtopicsLabel);
-			this->panel2->Controls->Add(this->descriptionTextBox);
-			this->panel2->Controls->Add(this->topicsLabel);
-			this->panel2->Controls->Add(this->topicTextBox);
-			this->panel2->Controls->Add(this->roadmapNameTextBox);
-			this->panel2->Controls->Add(this->dateTimePicker);
-			this->panel2->Controls->Add(this->subtopicTextBox);
-			this->panel2->Controls->Add(this->authorTextBox);
-			this->panel2->Controls->Add(this->deadlineLabel);
-			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
-			this->panel2->Location = System::Drawing::Point(0, 0);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(875, 653);
-			this->panel2->TabIndex = 24;
+			this->topicTextBox->BackColor = System::Drawing::Color::White;
+			this->topicTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->topicTextBox->Enabled = false;
+			this->topicTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->topicTextBox->ForeColor = System::Drawing::Color::Black;
+			this->topicTextBox->Location = System::Drawing::Point(35, 193);
+			this->topicTextBox->Margin = System::Windows::Forms::Padding(4);
+			this->topicTextBox->MaxLength = 45;
+			this->topicTextBox->Name = L"topicTextBox";
+			this->topicTextBox->Size = System::Drawing::Size(259, 20);
+			this->topicTextBox->TabIndex = 24;
+			this->topicTextBox->Text = L"#Enter topicname";
+			// 
+			// subtopicTextBox
+			// 
+			this->subtopicTextBox->BackColor = System::Drawing::Color::White;
+			this->subtopicTextBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->subtopicTextBox->Enabled = false;
+			this->subtopicTextBox->Font = (gcnew System::Drawing::Font(L"Arial", 8.25F, System::Drawing::FontStyle::Bold));
+			this->subtopicTextBox->ForeColor = System::Drawing::Color::Black;
+			this->subtopicTextBox->Location = System::Drawing::Point(310, 193);
+			this->subtopicTextBox->Margin = System::Windows::Forms::Padding(4);
+			this->subtopicTextBox->MaxLength = 1000;
+			this->subtopicTextBox->Multiline = true;
+			this->subtopicTextBox->Name = L"subtopicTextBox";
+			this->subtopicTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+			this->subtopicTextBox->Size = System::Drawing::Size(539, 63);
+			this->subtopicTextBox->TabIndex = 25;
+			this->subtopicTextBox->Text = L"#Enter subtopics names. Use \",\" (commas) to separate suptopics.\r\n";
 			// 
 			// closeButton
 			// 
@@ -391,7 +396,7 @@ namespace RoadMap {
 			this->closeButton->Size = System::Drawing::Size(35, 34);
 			this->closeButton->TabIndex = 4;
 			this->closeButton->UseVisualStyleBackColor = false;
-			this->closeButton->Click += gcnew System::EventHandler(this, &creationwindow::closeButton_Click);
+			this->closeButton->Click += gcnew System::EventHandler(this, &editwindow::closeButton_Click);
 			// 
 			// logoPicture
 			// 
@@ -408,6 +413,7 @@ namespace RoadMap {
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(21)), static_cast<System::Int32>(static_cast<System::Byte>(20)),
 				static_cast<System::Int32>(static_cast<System::Byte>(26)));
+			this->panel1->Controls->Add(this->uploadButton);
 			this->panel1->Controls->Add(this->SaveButton);
 			this->panel1->Controls->Add(this->AddNewRowButton);
 			this->panel1->Controls->Add(this->DeleteLastRowButton);
@@ -417,7 +423,29 @@ namespace RoadMap {
 			this->panel1->Size = System::Drawing::Size(875, 629);
 			this->panel1->TabIndex = 25;
 			// 
-			// creationwindow
+			// uploadButton
+			// 
+			this->uploadButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)), static_cast<System::Int32>(static_cast<System::Byte>(33)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->uploadButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->uploadButton->FlatAppearance->BorderSize = 0;
+			this->uploadButton->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)),
+				static_cast<System::Int32>(static_cast<System::Byte>(33)), static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			this->uploadButton->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)),
+				static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->uploadButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->uploadButton->Font = (gcnew System::Drawing::Font(L"Arial Black", 8.25F, System::Drawing::FontStyle::Bold));
+			this->uploadButton->ForeColor = System::Drawing::Color::White;
+			this->uploadButton->Location = System::Drawing::Point(35, 560);
+			this->uploadButton->Margin = System::Windows::Forms::Padding(4);
+			this->uploadButton->Name = L"uploadButton";
+			this->uploadButton->Size = System::Drawing::Size(177, 43);
+			this->uploadButton->TabIndex = 22;
+			this->uploadButton->Text = L"UPLOAD";
+			this->uploadButton->UseVisualStyleBackColor = false;
+			this->uploadButton->Click += gcnew System::EventHandler(this, &editwindow::button1_Click_1);
+			// 
+			// editwindow
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(244)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
@@ -427,13 +455,12 @@ namespace RoadMap {
 			this->Controls->Add(this->main_title);
 			this->Controls->Add(this->panel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
-			this->Name = L"creationwindow";
+			this->Name = L"editwindow";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"RoadMap - Create new roadmap";
+			this->Text = L"RoadMap - Edit existing RoadMap";
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logoPicture))->EndInit();
@@ -446,9 +473,9 @@ namespace RoadMap {
 #pragma endregion
 	private:
 		void SetDragHandlers(System::Windows::Forms::Panel^ panel) {
-			panel->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &creationwindow::Form_MouseDown);
-			panel->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &creationwindow::Form_MouseMove);
-			panel->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &creationwindow::Form_MouseUp);
+			panel->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &editwindow::Form_MouseDown);
+			panel->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &editwindow::Form_MouseMove);
+			panel->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &editwindow::Form_MouseUp);
 		}
 
 		void Form_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
@@ -669,8 +696,75 @@ namespace RoadMap {
 		}
 
 	private:
+		System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+			OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog();
+			openFileDialog1->Filter = "XML files (*.xml)|*.xml";
+			openFileDialog1->FilterIndex = 1;
+			openFileDialog1->RestoreDirectory = true;
+
+			if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+				String^ filePath = openFileDialog1->FileName;
+				System::Xml::XmlDocument^ xmlDoc = gcnew System::Xml::XmlDocument();
+
+				try {
+					xmlDoc->Load(filePath);
+
+					System::Xml::XmlNode^ mapInfoNode = xmlDoc->SelectSingleNode("//MAPINFO");
+					if (mapInfoNode != nullptr) {
+						roadmapNameTextBox->Text = mapInfoNode->Attributes["Title"]->Value;
+						authorTextBox->Text = mapInfoNode->Attributes["Author"]->Value;
+					}
+
+					System::Xml::XmlNode^ dateNode = xmlDoc->SelectSingleNode("//DATE");
+					if (dateNode != nullptr) {
+						String^ deadlineStr = dateNode->Attributes["Deadline"]->Value;
+						DateTime deadlineDate;
+						if (DateTime::TryParse(deadlineStr, deadlineDate)) {
+							dateTimePicker->Value = deadlineDate;
+						}
+						else {
+							MessageBox::Show("Invalid date format in XML file.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+						}
+					}
+
+					this->textBoxes->Clear();
+					this->scrollPanel->Controls->Clear();
+					TopicCount = 0;
+
+					System::Xml::XmlNodeList^ rowsNodes = xmlDoc->GetElementsByTagName("ROWS");
+
+					for (int i = 0; i < rowsNodes->Count; i++) {
+						System::Xml::XmlElement^ rowElement = safe_cast<System::Xml::XmlElement^>(rowsNodes[i]);
+						String^ topic = rowElement->GetAttribute("Topic");
+						String^ subtopic = rowElement->GetAttribute("Subtopic");
+						String^ description = rowElement->GetAttribute("Description");
+
+						button1_Click(nullptr, nullptr);
+
+						TextBox^ lasttopicTextBox = safe_cast<TextBox^>(textBoxes[textBoxes->Count - 3]);
+						TextBox^ lastsubtopicTextBox = safe_cast<TextBox^>(textBoxes[textBoxes->Count - 2]);
+						TextBox^ lastdescriptionTextBox = safe_cast<TextBox^>(textBoxes[textBoxes->Count - 1]);
+
+						lasttopicTextBox->Text = topic;
+						lastsubtopicTextBox->Text = subtopic;
+						lastdescriptionTextBox->Text = description;
+					}
+
+					AddNewRowButton->Visible = true;
+					DeleteLastRowButton->Visible = true;
+					SaveButton->Visible = true;
+
+					MessageBox::Show("XML data loaded successfully.", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+				}
+				catch (Exception^ ex) {
+					MessageBox::Show("Error occurred while loading the XML file: " + ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				}
+			}
+		}
+
+	private:
 		System::Void closeButton_Click(System::Object^ sender, System::EventArgs^ e) {
 			this->Close();
 		}
-};
+	};
 }
