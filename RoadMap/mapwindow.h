@@ -364,6 +364,28 @@ namespace RoadMap {
             }
         }
 
+     private:
+         System::Void UpdateProgressLabel() {
+             int totalSubtopics = 0;
+             int completedSubtopics = 0;
+
+             for each (Control ^ control in RowsPanel->Controls) {
+                 if (CheckBox^ checkBox = dynamic_cast<CheckBox^>(control)) {
+                     totalSubtopics++;
+                     if (checkBox->Checked) {
+                         completedSubtopics++;
+                     }
+                 }
+             }
+             if (totalSubtopics > 0) {
+                 double percentage = (double)completedSubtopics / totalSubtopics * 100;
+                 labelProgress->Text = "Progress: " + completedSubtopics + " / " + totalSubtopics + " (" + percentage.ToString("F2") + "%)";
+             }
+             else {
+                 labelProgress->Text = "No subtopics available.";
+             }
+         }
+
     private:
         System::Void ReadAndDisplayXML(String^ filePath) {
             try {
@@ -392,9 +414,6 @@ namespace RoadMap {
                     }
                 }
 
-                int totalSubtopics = 0;
-                int completedSubtopics = 0;
-
                 if (dateNodes->Count > 0) {
                     if (dateNodes[0]->Attributes["Deadline"] != nullptr) {
                         String^ deadlineStr = dateNodes[0]->Attributes["Deadline"]->Value;
@@ -405,30 +424,26 @@ namespace RoadMap {
                             DateTime currentDate = DateTime::Now;
                             TimeSpan remainingTime = deadline - currentDate;
 
-                            UpdateProgressLabel();
-                            double percentage = completedSubtopics == 0 ? 0 : (double)completedSubtopics / totalSubtopics * 100;
-                            String^ progressMessage = "Current progress: " + percentage.ToString("F2") + "% completed.";
-
                             if (remainingTime.TotalDays > 0) {
                                 if (remainingTime.TotalDays <= 30 && remainingTime.TotalDays > 7) {
-                                    MessageBox::Show("The deadline is in less than a month!\n\n" + progressMessage, "Deadline Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                                    MessageBox::Show("The deadline is in less than a month!", "Deadline Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
                                 }
                                 else if (remainingTime.TotalDays <= 7 && remainingTime.TotalDays > 3) {
-                                    MessageBox::Show("The deadline is in less than a week!\n\n" + progressMessage, "Deadline Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                                    MessageBox::Show("The deadline is in less than a week!", "Deadline Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
                                 }
                                 else if (remainingTime.TotalDays <= 3 && remainingTime.TotalDays > 1) {
-                                    MessageBox::Show("The deadline is in less than 3 days!\n\n" + progressMessage, "Deadline Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                                    MessageBox::Show("The deadline is in less than 3 days!", "Deadline Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
                                 }
                                 else if (remainingTime.TotalDays <= 1) {
-                                    MessageBox::Show("The deadline is tomorrow!\n\n" + progressMessage, "Deadline Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+                                    MessageBox::Show("The deadline is tomorrow!", "Deadline Warning", MessageBoxButtons::OK, MessageBoxIcon::Warning);
                                 }
                             }
                             else {
                                 if (remainingTime.TotalDays == 0) {
-                                    MessageBox::Show("Deadline is today!\n\n" + progressMessage, "Deadline Alert", MessageBoxButtons::OK, MessageBoxIcon::Information);
+                                    MessageBox::Show("Deadline is today!", "Deadline Alert", MessageBoxButtons::OK, MessageBoxIcon::Information);
                                 }
                                 else {
-                                    MessageBox::Show("The deadline has passed!\n\n" + progressMessage, "Deadline Alert", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                                    MessageBox::Show("The deadline has passed!", "Deadline Alert", MessageBoxButtons::OK, MessageBoxIcon::Error);
                                 }
                             }
                         }
@@ -453,14 +468,6 @@ namespace RoadMap {
 
                     CreateAndDisplaysubtopics(Topic, Description, Subtopic, yOffset, xmlDoc, "ROWS", i);
                     yOffset += 30 * (Subtopic->Split(',')->Length);
-
-                    array<String^>^ subtopicsArray = Subtopic->Split(gcnew array<wchar_t>{','}, StringSplitOptions::RemoveEmptyEntries);
-                    totalSubtopics += subtopicsArray->Length;
-                    for each (String ^ subtopic in subtopicsArray) {
-                        if (subtopic->Contains("[+]")) {
-                            completedSubtopics++;
-                        }
-                    }
                 }
 
                 RowsPanel->AutoScroll = true;
@@ -474,7 +481,8 @@ namespace RoadMap {
             }
         }
 
-     private:
+
+    private:
          System::Void CreateAndDisplaysubtopics(String^ topic, String^ description, String^ subtopics, int yOffset, XmlDocument^ xmlDoc, String^ nodeType, int nodeIndex) {
 
              Label^ topicLabel = gcnew Label();
@@ -572,28 +580,6 @@ namespace RoadMap {
             MessageBox::Show("Changes saved successfully!");
 
             UpdateProgressLabel();
-        }
-
-    private:
-        System::Void UpdateProgressLabel() {
-            int totalSubtopics = 0;
-            int completedSubtopics = 0;
-
-            for each (Control ^ control in RowsPanel->Controls) {
-                if (CheckBox^ checkBox = dynamic_cast<CheckBox^>(control)) {
-                    totalSubtopics++;
-                    if (checkBox->Checked) {
-                        completedSubtopics++;
-                    }
-                }
-            }
-            if (totalSubtopics > 0) {
-                double percentage = (double)completedSubtopics / totalSubtopics * 100;
-                labelProgress->Text = "Progress: " + completedSubtopics + " / " + totalSubtopics + " (" + percentage.ToString("F2") + "%)";
-            }
-            else {
-                labelProgress->Text = "No subtopics available.";
-            }
         }
 
     private:
