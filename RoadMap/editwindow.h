@@ -455,9 +455,9 @@ namespace RoadMap {
 			this->Controls->Add(this->main_title);
 			this->Controls->Add(this->panel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->MaximizeBox = false;
-			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MinimizeBox = false;
 			this->Name = L"editwindow";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
