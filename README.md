@@ -1,5 +1,14 @@
 ![vcxvxcvx](https://github.com/user-attachments/assets/5e295c56-7000-4c93-8152-4129122fefc9)
 
+> [!IMPORTANT]  
+> Initially, RoadMap was developed as a course project. After reaching version 0.6.0, I decided to split the project into two branches: Classic and Master.
+>
+>- **Classic branch:** Preserves all the features and stability of the original version (v0.6.0).
+>- **Master branch:** Dedicated to the continuous improvement of the application, introducing new features, optimizations, and better user experience.
+>The main version will evolve with major updates, including structural changes and new features that would be difficult to implement in the Classic version without affecting its stability. >While the Classic branch will receive occasional bug fixes, this master branch is where future innovations will thrive.
+>
+>**If you encounter bugs or issues, please report them in the issues section, specifying if they pertain to this version.**
+
 ## Overview
 **RoadMap** is an application designed to help users create and manage personalized learning paths for various topics. The tool allows users to define sections, set checkpoints, and track their progress towards specific goals.
 
@@ -25,16 +34,6 @@ This project was developed using the following technologies:
 ## Project Documentation
 
 - [Guide to using RoadMap ENG](https://docs.google.com/document/d/18WIVZ7MZQXwQLhUQRhOcXw_eoF7L0XnLbTcjHgSCJ2Q/edit?usp=sharing)
-
-## Project History and Future Plans
-
-Initially, RoadMap was developed as a course project. After reaching version 0.6.0, I decided to split the project into two branches: Classic and Master.
-
-- **Classic branch:** Preserves all the features and stability of the original version (v0.6.0).
-- **Master branch:** Dedicated to the continuous improvement of the application, introducing new features, optimizations, and better user experience.
-The main version will evolve with major updates, including structural changes and new features that would be difficult to implement in the Classic version without affecting its stability. While the Classic branch will receive occasional bug fixes, this master branch is where future innovations will thrive.
-
-If you encounter bugs or issues, please report them in the issues section, specifying if they pertain to this version.
 
 ## Distribute
 You have an opportunity to download and install this application as a simple user.  To do this, click on the “DOWNLOAD” button and you will be taken to the “RELEASES” section.
