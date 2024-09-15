@@ -481,7 +481,6 @@ namespace RoadMap {
             }
         }
 
-
     private:
          System::Void CreateAndDisplaysubtopics(String^ topic, String^ description, String^ subtopics, int yOffset, XmlDocument^ xmlDoc, String^ nodeType, int nodeIndex) {
 

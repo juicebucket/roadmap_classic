@@ -672,5 +672,5 @@ namespace RoadMap {
 		System::Void closeButton_Click(System::Object^ sender, System::EventArgs^ e) {
 			this->Close();
 		}
-};
+	};
 }
