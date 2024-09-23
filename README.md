@@ -1,13 +1,12 @@
 ![vcxvxcvx](https://github.com/user-attachments/assets/5e295c56-7000-4c93-8152-4129122fefc9)
 
 > [!IMPORTANT]  
-> Initially, RoadMap was developed as a course project. After reaching version 0.6.0, I decided to split the project into two branches: Classic and Master.
+> Initially, RoadMap was developed as a course project. After reaching version 0.6.0, I decided to split the project into two branches: Master and Classic.
 >
->- **Classic branch:** Preserves all the features and stability of the original version (v0.6.0).
->- **Master branch:** Dedicated to the continuous improvement of the application, introducing new features, optimizations, and better user experience.
->The main version will evolve with major updates, including structural changes and new features that would be difficult to implement in the Classic version without affecting its stability. >While the Classic branch will receive occasional bug fixes, this master branch is where future innovations will thrive.
+>- **Master branch:** All new application functionality will be implemented in the master branch.
+>- **Classic branch:** Preserves all the features and stability of the original version (v0.6.0). No new features are planned, only bug fixes.
 >
->**If you encounter bugs or issues, please report them in the issues section, specifying if they pertain to this version.**
+>**If you found errors or problems, please report them in the problems section, specifying the version of the program (master or classic).**
 
 ## Overview
 **RoadMap** is an application designed to help users create and manage personalized learning paths for various topics. The tool allows users to define sections, set checkpoints, and track their progress towards specific goals.
@@ -17,7 +16,7 @@
 - **Uploading Existing Roadmaps:** Users can upload other people's existing roadmaps and start tracking their progress immediately.
 - **Tracking Progress:** Track your progress on various tracks with an easy-to-use and intuitive user interface.
 - **Edit already created maps:** Edit your goals already after creating a roadmap.
-- **Customise lines:** Add and delete ‘sections’ as needed to customise the roadmap to your needs.
+- **Customise rows:** Add or delete 'rows' as needed to customise the roadmap to your needs.
 - **Set deadlines:** Set deadlines for your roadmaps to stay on track and achieve your goals within the specified timeframe. Application will notify you of upcoming deadlines.
 
 ## Program screenshots:
@@ -29,7 +28,7 @@ This project was developed using the following technologies:
 - Programming Language: **C++/CLI**
 - Platform: **.NET Framework**
 - Graphical Interface: **Windows Forms**
-- Data exchange between users: **XML**
+- Data storage and exchange between users: **XML**
 
 ## Project Documentation
 
