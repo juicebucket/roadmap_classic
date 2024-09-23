@@ -1,12 +1,12 @@
 ![vcxvxcvx](https://github.com/user-attachments/assets/5e295c56-7000-4c93-8152-4129122fefc9)
 
-> [!IMPORTANT]  
+> [!NOTE]  
 > Initially, RoadMap was developed as a course project. After reaching version 0.6.0, I decided to split the project into two branches: Master and Classic.
 >
 >- **Master branch:** All new application functionality will be implemented in the master branch.
 >- **Classic branch:** Preserves all the features and stability of the original version (v0.6.0). No new features are planned, only bug fixes.
 >
->**If you found errors or problems, please report them in the problems section, specifying the version of the program (master or classic).**
+>For more details and additional information, please refer to the article in the [Releases](https://github.com/juicebucket/roadmap_project/releases/tag/news-2024-08-22) section.
 
 ## Overview
 **RoadMap** is an application designed to help users create and manage personalized learning paths for various topics. The tool allows users to define sections, set checkpoints, and track their progress towards specific goals.
