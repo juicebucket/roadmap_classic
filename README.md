@@ -1,6 +1,8 @@
 ![roadmap](https://github.com/user-attachments/assets/6413c884-6f12-47f8-83bf-f81b37da6e6f)
 > [!NOTE]
-> This branch represents the older version of the application, which has reached **version 0.6.0**. It includes all the features implemented up to the point of the project's split. For more details and additional information, please refer to the article in the [Releases](https://github.com/juicebucket/roadmap_project/releases/tag/news-2024-08-22) section.
+> This branch represents the older version of the application, which has reached **version 0.6.0**. It includes all the features implemented up to the point of the project's split.
+>
+> For more details and additional information, please refer to the article in the [Releases](https://github.com/juicebucket/roadmap_project/releases/tag/news-2024-08-22) section.
 
 ## Overview
 **RoadMap Classic** is an application designed to help users create and manage personalized learning paths for various topics. The tool allows users to define sections, set checkpoints, and track their progress towards specific goals.
@@ -23,7 +25,7 @@ This project was developed using the following technologies:
 - Programming Language: **C++/CLI**
 - Platform: **.NET Framework**
 - Graphical Interface: **Windows Forms**
-- Data exchange between users: **XML**
+- Data storage and exchange between users: **XML**
 
 ## Project Documentaion
 
